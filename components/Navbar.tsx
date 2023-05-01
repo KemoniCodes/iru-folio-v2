@@ -7,7 +7,7 @@ export default function Navbar() {
     return (
         <>
             <nav className="z-[1] relative">
-                <ul className=" flex list-none justify-between m-4">
+                <ul className=" flex list-none justify-between">
                     <li className='nav-link'>
                         <Link href={'/menu'}>menu</Link>
                     </li>

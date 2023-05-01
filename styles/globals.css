@@ -8,6 +8,10 @@
   --lightcreme: #fbfbf0;
 }
 
+html {
+  background-color: var(--lightcreme);
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -93,6 +97,10 @@ a:hover {
 
 .home .lineParent .lineChildren {
   transform: translate(0, 500px);
+}
+
+.home .lineParent .lineChildren > div {
+  @apply mr-5;
 }
 
 /* @function change-nav-color($darkcocoa) {

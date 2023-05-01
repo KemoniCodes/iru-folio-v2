@@ -8,8 +8,6 @@ import ColorChanger from "@/public/COLOR CHANGER.png";
 import Elipse from "@/public/Ellipse-1.png";
 import Letters from "@/public/LETTERS.png";
 
-
-
 // .contact {
 //   position: relative;
 //   top: 12rem;
@@ -164,8 +162,6 @@ import Letters from "@/public/LETTERS.png";
 //     }
 //   }
 
-
-
 export default function Hero() {
   const letters = useRef(null);
 
@@ -224,10 +220,14 @@ export default function Hero() {
   }, []);
   return (
     <div className="hero mt-20 h-screen" data-scroll data-scroll-section>
-      <h2 className=" ml-4" id="hero-text" data-scroll>
+      <h2 className="" id="hero-text" data-scroll>
         KEMONI IS A BRAND DESIGNER BASED IN <br /> LA.
       </h2>
-      <h2 className=" ml-4 right" id="hero-text" data-scroll>
+      <h2
+        className="right w-[998px] text-right mr-4 float-right mt-[1.2rem]"
+        id="hero-text"
+        data-scroll
+      >
         CURATING <br /> AESTHETICS FOR <br />
         <span>MODERN</span> BRANDS.
       </h2>
@@ -235,7 +235,7 @@ export default function Hero() {
       <div className="logo-elipse relative left-[79%] bottom-[35%]">
         <Image className="elipse" src={Elipse} alt="Dark Mode Button" />
         <Image
-          className="letters absolute left-[.7rem] mt-[.7rem]"
+          className="letters absolute left-[.7rem] mt-[.7rem] bottom-3"
           src={Letters}
           alt="Dark Mode Button"
           ref={letters}
@@ -276,7 +276,7 @@ export default function Hero() {
         src={ColorChanger}
         alt="Dark Mode Button"
       />
-      <hr className=" w-full border-[2px solid] relative -bottom-8"/>
+      <hr className=" w-full border-[2px solid] relative -bottom-8" />
     </div>
   );
 }

@@ -8,10 +8,10 @@ import Hero from '@/components/Home/Hero'
 export default function Home() {
   return (
     <main
-      className={'flex min-h-screen flex-col items-center justify-between p-24 bg-light-creme'}
+      className={'flex min-h-screen flex-col items-center justify-between m-10 mt-4 bg-light-creme'}
     >
       <Header />
-      <div className="home">
+      <div className="home w-full">
         <Hero />
       </div>
       <Footer />
