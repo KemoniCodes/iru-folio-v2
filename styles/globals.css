@@ -1,3 +1,116 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --darkcocoa: #26190c;
+  --powderiris: #7d7fab;
+  --lightcreme: #fbfbf0;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Helvetica Neue";
+}
+
+h1 {
+  font-size: 250px;
+  font-weight: 200;
+  text-transform: uppercase;
+  color: var(--darkcocoa);
+}
+
+h2 {
+  font-size: 113px;
+  font-weight: 200;
+  line-height: 101.4px;
+  letter-spacing: -0.5%;
+  text-transform: uppercase;
+  color: var(--darkcocoa);
+  /* width: 1104px; */
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: 200;
+  line-height: 24px;
+  letter-spacing: -0.5%;
+  text-transform: uppercase;
+  color: var(--darkcocoa);
+}
+
+h4 {
+  font-size: 15px;
+  font-weight: 200;
+  text-transform: uppercase;
+  color: var(--darkcocoa);
+  line-height: 15px;
+}
+
+p {
+  font-size: 24px;
+  font-weight: 100;
+  line-height: 24px;
+  letter-spacing: -0.5%;
+  text-transform: uppercase;
+  color: var(--darkcocoa);
+}
+
+li {
+  font-size: 24px;
+  font-weight: 200;
+  line-height: 24px;
+  letter-spacing: -0.5%;
+  text-transform: uppercase;
+  color: var(--darkcocoa);
+}
+
+a {
+  color: var(--darkcocoa);
+  text-decoration: none;
+  display: block;
+  transition: var(--powderiris) 0.2s ease;
+}
+
+a:hover {
+  color: var(--powderiris);
+}
+
+.nav-link {
+  /* color: change-nav-color($darkcocoa); */
+  transition: var(--darkcocoa) 0.2s ease;
+}
+.nav-link:hover {
+  cursor: pointer;
+  color: var(--powderiris);
+}
+
+/* @function change-nav-color($darkcocoa) {
+  @if (lightness($darkcocoa) > 50) {
+    @return $lightcreme; // Lighter backgorund, return dark color
+  } @else {
+    @return $darkcocoa; // Darker background, return light color
+  }
+}
+
+html,
+body {
+  height: 100%;
+  position: relative;
+  background-color: $lightcreme;
+}
+
+.right {
+  width: 998px;
+  text-align: right;
+  margin-right: 1rem;
+  float: right;
+  margin-top: 1.2rem;
+}
+
+span {
+  font-style: oblique;
+}
+ */
