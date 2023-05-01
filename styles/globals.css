@@ -87,6 +87,14 @@ a:hover {
   color: var(--powderiris);
 }
 
+.home .lineParent {
+  overflow: hidden;
+}
+
+.home .lineParent .lineChildren {
+  transform: translate(0, 500px);
+}
+
 /* @function change-nav-color($darkcocoa) {
   @if (lightness($darkcocoa) > 50) {
     @return $lightcreme; // Lighter backgorund, return dark color
