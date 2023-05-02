@@ -8,8 +8,8 @@
   --lightcreme: #fbfbf0;
 }
 
-html {
-  @apply bg-light-creme;
+html,body {
+  @apply bg-light-creme !important;
 }
 
 * {
@@ -21,7 +21,7 @@ h1 {
 }
 
 h2 {
-  @apply text-[100px] font-extralight leading-[101.4px] -tracking-[.5%] uppercase text-dark-cocoa;
+  @apply text-[113px] font-extralight leading-[101.4px] -tracking-[.5%] uppercase text-dark-cocoa;
 }
 
 h3 {
@@ -69,12 +69,17 @@ span {
   @apply mr-5;
 }
 
+.home .right .lineParent .lineChildren > div:nth-child(even) {
+  @apply mr-0;
+}
+
+
 .home .lineParent .lineChildren > span {
   @apply italic;
 }
 
 .menu > span {
-  @apply not-italic top-[2.5rem] relative ml-4 text-[24px] font-extralight leading-[2.5rem] -tracking-[.5%] uppercase text-dark-cocoa;
+  @apply not-italic top-[2.5rem] relative ml-4 text-[24px] font-extralight leading-[2.5rem] -tracking-[.5%] uppercase;
 }
 
 .menu > a:active {
@@ -86,15 +91,11 @@ span {
 }
 
 .menu h2 {
-  @apply leading-[101.4px] top-auto ml-16 transition-linkHover;
+  @apply leading-[101.4px] top-auto ml-16 transition-linkHover text-light-creme;
 }
 
-.menu h2:hover + h2:active {
-  @apply text-powder-iris;
-}
-
-.menu > ul {
-  @apply ml-4 list-none mt-24 relative top-[5.5rem];
+.menu h2:hover {
+  @apply text-dark-cocoa;
 }
 
 .menu > ul > li {
@@ -102,7 +103,11 @@ span {
 }
 
 .menu > ul li span {
-  @apply leading-[2.5rem] not-italic top-[1rem] relative;
+  @apply leading-[2.5rem] not-italic top-[1rem] relative text-light-creme;
+}
+
+.menu > ul li span:hover {
+  @apply text-dark-cocoa;
 }
 /* @function change-nav-color($darkcocoa) {
   @if (lightness($darkcocoa) > 50) {

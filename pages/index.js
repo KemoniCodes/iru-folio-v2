@@ -1,5 +1,3 @@
-import Header from '@/components/Layout/Header'
-import Footer from '@/components/Layout/Footer'
 import Hero from '@/components/Home/Hero'
 // import useLocoScroll from "@/components/utils/useLocoScroll";
 import gsap from "gsap";
@@ -43,14 +41,13 @@ export default function Home() {
           </div>
         </div>
       ) : ( */}
-        <main
+        {/* <main
           className={'flex min-h-screen flex-col items-center justify-between bg-light-creme'}
-        >
+        > */}
           <div className="home w-full">
             <Hero />
           </div>
-          <Footer />
-        </main>
+        {/* </main> */}
       {/* )} */}
     </>
   )
