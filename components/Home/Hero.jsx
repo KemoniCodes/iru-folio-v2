@@ -224,7 +224,7 @@ export default function Hero() {
         KEMONI IS A BRAND DESIGNER BASED IN <br /> LA.
       </h2>
       <h2
-        className="right w-[998px] text-right mr-4 float-right mt-[1.2rem]"
+        className="right w-[998px] text-right float-right mt-[1.2rem]"
         id="hero-text"
         data-scroll
       >
@@ -232,7 +232,7 @@ export default function Hero() {
         <span>MODERN</span> BRANDS.
       </h2>
 
-      <div className="logo-elipse relative left-[79%] bottom-[35%]">
+      <div className="logo-elipse relative left-[79%] bottom-[35%] w-fit">
         <Image className="elipse" src={Elipse} alt="Dark Mode Button" />
         <Image
           className="letters absolute left-[.7rem] mt-[.7rem] bottom-3"
@@ -242,7 +242,7 @@ export default function Hero() {
         />
       </div>
 
-      <div className="contact-menu ml-4 relative top-[12%]">
+      <div className="contact-menu relative top-[12%]">
         <ul className=" list-none mb-12">
           <li>
             <Mailto
