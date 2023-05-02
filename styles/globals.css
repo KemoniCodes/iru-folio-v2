@@ -21,7 +21,7 @@ h1 {
 }
 
 h2 {
-  @apply text-[113px] font-extralight leading-[101.4px] -tracking-[.5%] uppercase text-dark-cocoa;
+  @apply text-[100px] font-extralight leading-[101.4px] -tracking-[.5%] uppercase text-dark-cocoa;
 }
 
 h3 {
@@ -64,10 +64,46 @@ a:hover {
   transform: translate(0, 500px);
 }
 
-.home .lineParent .lineChildren > div {
+.home .lineParent .lineChildren > div,
+span {
   @apply mr-5;
 }
 
+.home .lineParent .lineChildren > span {
+  @apply italic;
+}
+
+.menu > span {
+  @apply not-italic top-[2.5rem] relative ml-4 text-[24px] font-extralight leading-[2.5rem] -tracking-[.5%] uppercase text-dark-cocoa;
+}
+
+.menu > a:active {
+  @apply text-powder-iris;
+}
+
+.menu > a:visited {
+  @apply text-powder-iris;
+}
+
+.menu h2 {
+  @apply leading-[101.4px] top-auto ml-16 transition-linkHover;
+}
+
+.menu h2:hover + h2:active {
+  @apply text-powder-iris;
+}
+
+.menu > ul {
+  @apply ml-4 list-none mt-24 relative top-[5.5rem];
+}
+
+.menu > ul > li {
+  @apply -mb-[1.25rem];
+}
+
+.menu > ul li span {
+  @apply leading-[2.5rem] not-italic top-[1rem] relative;
+}
 /* @function change-nav-color($darkcocoa) {
   @if (lightness($darkcocoa) > 50) {
     @return $lightcreme; // Lighter backgorund, return dark color
@@ -81,17 +117,5 @@ body {
   height: 100%;
   position: relative;
   background-color: $lightcreme;
-}
-
-.right {
-  width: 998px;
-  text-align: right;
-  margin-right: 1rem;
-  float: right;
-  margin-top: 1.2rem;
-}
-
-span {
-  font-style: oblique;
 }
  */
