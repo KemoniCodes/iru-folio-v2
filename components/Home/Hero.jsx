@@ -221,7 +221,7 @@ export default function Hero() {
   return (
     <div className="hero mt-20 h-screen" data-scroll data-scroll-section>
       <h2 className="" id="hero-text" data-scroll>
-        KEMONI IS A BRAND DESIGNER BASED IN <br /> LA.
+        KEMONI IS A BRAND DESIGNER & DEVELOPER BASED IN LA.
       </h2>
       <h2
         className="right w-[998px] text-right float-right mt-[1.2rem]"
@@ -232,7 +232,7 @@ export default function Hero() {
         <span>MODERN</span> BRANDS.
       </h2>
 
-      <div className="logo-elipse relative left-[79%] bottom-[35%] w-fit">
+      <div className="logo-elipse relative left-[47.4%] bottom-[15%] w-fit z-[0]">
         <Image className="elipse" src={Elipse} alt="Dark Mode Button" />
         <Image
           className="letters absolute left-[.7rem] mt-[.7rem] bottom-3"
