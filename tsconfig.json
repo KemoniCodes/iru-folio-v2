@@ -18,6 +18,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/Home/Hero.tsx", "components/Layout/menu.js", "pages/index.js", "pages/menu.js"],
   "exclude": ["node_modules"]
 }

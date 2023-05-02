@@ -8,85 +8,102 @@
   --lightcreme: #fbfbf0;
 }
 
+html {
+  @apply bg-light-creme;
+}
+
 * {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-  font-family: "Helvetica Neue";
+  @apply box-border p-0 m-0 font-helvetica;
 }
 
 h1 {
-  font-size: 250px;
-  font-weight: 200;
-  text-transform: uppercase;
-  color: var(--darkcocoa);
+  @apply text-[250px] font-extralight uppercase text-dark-cocoa;
 }
 
 h2 {
-  font-size: 113px;
-  font-weight: 200;
-  line-height: 101.4px;
-  letter-spacing: -0.5%;
-  text-transform: uppercase;
-  color: var(--darkcocoa);
-  /* width: 1104px; */
+  @apply text-[100px] font-extralight leading-[101.4px] -tracking-[.5%] uppercase text-dark-cocoa;
 }
 
 h3 {
-  font-size: 24px;
-  font-weight: 200;
-  line-height: 24px;
-  letter-spacing: -0.5%;
-  text-transform: uppercase;
-  color: var(--darkcocoa);
+  @apply text-[24px] font-extralight leading-[24px] -tracking-[.5%] uppercase text-dark-cocoa;
 }
 
 h4 {
-  font-size: 15px;
-  font-weight: 200;
-  text-transform: uppercase;
-  color: var(--darkcocoa);
-  line-height: 15px;
+  @apply text-[15px] font-extralight leading-[15px] uppercase text-dark-cocoa;
 }
 
 p {
-  font-size: 24px;
-  font-weight: 100;
-  line-height: 24px;
-  letter-spacing: -0.5%;
-  text-transform: uppercase;
-  color: var(--darkcocoa);
+  @apply text-[24px] font-extralight leading-[24px] -tracking-[.5%] uppercase text-dark-cocoa;
 }
 
 li {
-  font-size: 24px;
-  font-weight: 200;
-  line-height: 24px;
-  letter-spacing: -0.5%;
-  text-transform: uppercase;
-  color: var(--darkcocoa);
+  @apply text-[24px] font-extralight leading-[24px] -tracking-[.5%] uppercase text-dark-cocoa;
 }
 
 a {
-  color: var(--darkcocoa);
-  text-decoration: none;
-  display: block;
-  transition: var(--powderiris) 0.2s ease;
+  @apply text-dark-cocoa no-underline transition-linkHover;
 }
 
 a:hover {
-  color: var(--powderiris);
+  @apply text-powder-iris;
 }
 
 .nav-link {
   /* color: change-nav-color($darkcocoa); */
-  transition: var(--darkcocoa) 0.2s ease;
+  @apply transition-navLinkHover;
 }
 .nav-link:hover {
-  cursor: pointer;
-  color: var(--powderiris);
+  @apply cursor-pointer text-powder-iris;
 }
 
+.home .lineParent {
+  @apply overflow-hidden;
+}
+
+.home .lineParent .lineChildren {
+  transform: translate(0, 500px);
+}
+
+.home .lineParent .lineChildren > div,
+span {
+  @apply mr-5;
+}
+
+.home .lineParent .lineChildren > span {
+  @apply italic;
+}
+
+.menu > span {
+  @apply not-italic top-[2.5rem] relative ml-4 text-[24px] font-extralight leading-[2.5rem] -tracking-[.5%] uppercase text-dark-cocoa;
+}
+
+.menu > a:active {
+  @apply text-powder-iris;
+}
+
+.menu > a:visited {
+  @apply text-powder-iris;
+}
+
+.menu h2 {
+  @apply leading-[101.4px] top-auto ml-16 transition-linkHover;
+}
+
+.menu h2:hover + h2:active {
+  @apply text-powder-iris;
+}
+
+.menu > ul {
+  @apply ml-4 list-none mt-24 relative top-[5.5rem];
+}
+
+.menu > ul > li {
+  @apply -mb-[1.25rem];
+}
+
+.menu > ul li span {
+  @apply leading-[2.5rem] not-italic top-[1rem] relative;
+}
 /* @function change-nav-color($darkcocoa) {
   @if (lightness($darkcocoa) > 50) {
     @return $lightcreme; // Lighter backgorund, return dark color
@@ -100,17 +117,5 @@ body {
   height: 100%;
   position: relative;
   background-color: $lightcreme;
-}
-
-.right {
-  width: 998px;
-  text-align: right;
-  margin-right: 1rem;
-  float: right;
-  margin-top: 1.2rem;
-}
-
-span {
-  font-style: oblique;
 }
  */

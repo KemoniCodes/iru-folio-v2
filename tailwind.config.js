@@ -12,6 +12,13 @@ module.exports = {
         "powder-iris": "var(--powderiris)",
         "light-creme": "var(--lightcreme)",
       },
+      fontFamily: {
+        "helvetica": "Helvetica Neue"
+      },
+      transitionProperty: {
+        "linkHover": "var(--powderiris) 0.2s ease",
+        "navLinkHover": "var(--darkcocoa) 0.2s ease"
+      },
     },
   },
   plugins: [],
