@@ -232,7 +232,7 @@ export default function Hero() {
         <span>MODERN</span> BRANDS.
       </h2>
 
-      <div className="logo-elipse relative left-[50.7%] bottom-[8.5%] w-fit z-[0]">
+      <div className="logo-elipse relative left-[47%] bottom-[8.5%] w-fit z-[0]">
         <Image className="elipse" src={Elipse} alt="Dark Mode Button" />
         <Image
           className="letters absolute left-[.7rem] mt-[.7rem] bottom-3"
