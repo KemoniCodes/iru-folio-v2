@@ -8,6 +8,10 @@
   --lightcreme: #fbfbf0;
 }
 
+#__next {
+  @apply h-full
+}
+
 html,body {
   @apply bg-light-creme !important;
 }
@@ -55,6 +59,38 @@ a:hover {
 .nav-link:hover {
   @apply cursor-pointer text-powder-iris;
 }
+
+/* .loader-wrapper {
+  background-color: $darkcocoa;
+  height: 100vh;
+  position: relative;
+  top: -5rem;
+
+  & .biglogo {
+    position: relative;
+    top: 8rem;
+    height: 95vh;
+    background-color: $darkcocoa;
+    overflow: hidden;
+
+    & h1 {
+      font-family: "Ortica-Light";
+      color: $lightcreme;
+      &.left {
+        margin-left: 3rem;
+        margin-bottom: -1rem;
+      }
+      &.right {
+        margin-right: 7rem;
+        margin-top: -1rem;
+      }
+    }
+
+    & hr {
+      border: 1px solid $lightcreme;
+    }
+  }
+} */
 
 .home .lineParent {
   @apply overflow-hidden;
