@@ -246,7 +246,7 @@ export default function Hero() {
         <ul className=" list-none mb-12">
           <li>
             <Mailto
-              email="hello@irustudios.com"
+              email="hello@iru-studios.com"
               // obfuscate={true}
               subject="Re: Let's work together!"
             >
