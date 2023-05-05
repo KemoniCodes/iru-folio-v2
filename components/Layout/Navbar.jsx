@@ -10,7 +10,6 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 
-
 export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -35,31 +34,31 @@ export default function Navbar() {
                 <div className="menu mt-4 m-10">
                   <ul className="ml-4 list-none mt-24 relative top-[4.5rem]">
                     <li>
-                      <Link href="/">
+                      <Link href="/" onClick={onClose}>
                         <span>.01</span>
                         <h2>home</h2>
                       </Link>
                     </li>
                     <li>
-                      <Link href="/works">
+                      <Link href="/works" onClick={onClose}>
                         <span>.02</span>
                         <h2>works</h2>
                       </Link>
                     </li>
                     <li>
-                      <Link href="/services">
+                      <Link href="/services" onClick={onClose}>
                         <span>.03</span>
                         <h2>services</h2>
                       </Link>
                     </li>
                     <li>
-                      <Link href="/about-us">
+                      <Link href="/about-us" onClick={onClose}>
                         <span>.04</span>
                         <h2>about</h2>
                       </Link>
                     </li>
                     <li>
-                      <Link href="/contact">
+                      <Link href="/contact" onClick={onClose}>
                         <span>.05</span>
                         <h2>contact</h2>
                       </Link>
