@@ -15,7 +15,8 @@ export default function App({ Component, pageProps, router }: AppProps) {
   };
 
   return (
-      <AnimatePresence initial={false} mode="wait">
+    <ChakraProvider>
+      {/* <AnimatePresence initial={false} mode="wait">
         <motion.div
           transition={spring}
           key={router.pathname}
@@ -23,11 +24,12 @@ export default function App({ Component, pageProps, router }: AppProps) {
           animate={{ x: 0, opacity: 1 }}
           exit={{ x: -100, opacity: 0 }}
           id="page-transition-container"
-        >
+        > */}
           <Header />
           <Component {...pageProps} />
           <Footer />
-        </motion.div>
-      </AnimatePresence>
+        {/* </motion.div> */}
+      {/* </AnimatePresence> */}
+    </ChakraProvider>
   )
 }
