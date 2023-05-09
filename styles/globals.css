@@ -20,7 +20,7 @@ html,body {
   @apply box-border p-0 m-0 font-helvetica;
 }
 
-h1 {
+h1,.h1 {
   @apply text-[250px] font-extralight uppercase text-dark-cocoa;
 }
 
