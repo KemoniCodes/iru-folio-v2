@@ -1,8 +1,8 @@
 import Hero from '@/components/Home/Hero'
-// import useLocoScroll from "@/components/utils/useLocoScroll";
 import gsap from "gsap";
 import SplitText from "@/components/utils/Split3.min";
 import React, { useState, useRef, useEffect } from "react";
+import Tagline from '@/components/Home/Tagline';
 
 
 export default function Home() {
@@ -46,6 +46,7 @@ export default function Home() {
         > */}
           <div className="home w-full">
             <Hero />
+            <Tagline/>
           </div>
         {/* </main> */}
       {/* )} */}
