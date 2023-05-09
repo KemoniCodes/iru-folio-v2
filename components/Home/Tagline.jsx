@@ -1,5 +1,4 @@
 import React, { useLayoutEffect, useRef, useState, useCallback } from "react";
-import useOnScreen from "../utils/useOnScreen";
 import SplitText from "../utils/Split3.min";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 
