@@ -39,10 +39,6 @@ export default function Tagline() {
   const spring = useSpring(transform, physics);
   const spring2 = useSpring(transform2, physics);
 
-  const ref = useRef(null);
-  const [reveal, setReveal] = useState(false);
-  const onScreen = useOnScreen(ref);
-
   // useEffect(() => {
   //   if (typeof window !== "undefined") {
   //     import("gsap")
