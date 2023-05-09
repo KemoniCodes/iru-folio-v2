@@ -39,6 +39,52 @@ export default function Tagline() {
   const spring = useSpring(transform, physics);
   const spring2 = useSpring(transform2, physics);
 
+  const ref = useRef(null);
+  const [reveal, setReveal] = useState(false);
+  const onScreen = useOnScreen(ref);
+
+  // useEffect(() => {
+  //   if (typeof window !== "undefined") {
+  //     import("gsap")
+  //       .then((gsap) => {
+  //         import("gsap/ScrollTrigger").then(() => {
+  //           setTimeout(() => {
+  //             console.log(ref.current.offsetWidth);
+  //             console.log(ref.current.clientWidth);
+  //             console.log({ current: ref.current });
+
+  //             gsap.registerPlugin(ScrollTrigger);
+  //             const sections = gsap.utils.toArray("h1");
+  //             console.log(sections);
+
+  //             gsap.to(sections, {
+  //               xPercent: -100,
+  //               ease: "none",
+  //               scrollTrigger: {
+  //                 start: "top top",
+  //                 trigger: ref.current,
+  //                 scroller: ".home",
+  //                 pin: true,
+  //                 scrub: 0.5,
+  //                 snap: 1 / (sections.length - 1),
+  //                 end: () => `+=${ref.current.offsetWidth}`,
+  //               },
+  //             });
+  //             ScrollTrigger.refresh();
+  //           });
+  //         });
+  //       })
+  //       .catch((error) => {
+  //         console.error(error);
+  //       });
+  //   }
+  // }, []);
+
+  // position: fixed;
+  // left: 0;
+  // right: 0;
+  // will-change: transform;
+
   return (
     <>
       <div className="section1 overflow-hidden will-change-transform -mx-8">
