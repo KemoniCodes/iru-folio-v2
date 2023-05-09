@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef, useState, useCallback } from "react";
+import React, { useEffect, useRef, useState, useCallback } from "react";
 import SplitText from "../utils/Split3.min";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 
@@ -8,7 +8,7 @@ export default function Tagline() {
   const [scrollRange, setScrollRange] = useState(0);
   const [viewportW, setViewportW] = useState(0);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     scrollRef && setScrollRange(scrollRef.current.scrollWidth);
   }, [scrollRef]);
 
@@ -18,7 +18,7 @@ export default function Tagline() {
     }
   }, []);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const resizeObserver = new ResizeObserver((entries) => onResize(entries));
     resizeObserver.observe(ghostRef.current);
     return () => resizeObserver.disconnect();
@@ -38,48 +38,6 @@ export default function Tagline() {
   const physics = { damping: 5, mass: 0.1, stiffness: 10 };
   const spring = useSpring(transform, physics);
   const spring2 = useSpring(transform2, physics);
-
-  // useEffect(() => {
-  //   if (typeof window !== "undefined") {
-  //     import("gsap")
-  //       .then((gsap) => {
-  //         import("gsap/ScrollTrigger").then(() => {
-  //           setTimeout(() => {
-  //             console.log(ref.current.offsetWidth);
-  //             console.log(ref.current.clientWidth);
-  //             console.log({ current: ref.current });
-
-  //             gsap.registerPlugin(ScrollTrigger);
-  //             const sections = gsap.utils.toArray("h1");
-  //             console.log(sections);
-
-  //             gsap.to(sections, {
-  //               xPercent: -100,
-  //               ease: "none",
-  //               scrollTrigger: {
-  //                 start: "top top",
-  //                 trigger: ref.current,
-  //                 scroller: ".home",
-  //                 pin: true,
-  //                 scrub: 0.5,
-  //                 snap: 1 / (sections.length - 1),
-  //                 end: () => `+=${ref.current.offsetWidth}`,
-  //               },
-  //             });
-  //             ScrollTrigger.refresh();
-  //           });
-  //         });
-  //       })
-  //       .catch((error) => {
-  //         console.error(error);
-  //       });
-  //   }
-  // }, []);
-
-  // position: fixed;
-  // left: 0;
-  // right: 0;
-  // will-change: transform;
 
   return (
     <>
