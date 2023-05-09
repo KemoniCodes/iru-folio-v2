@@ -10,19 +10,19 @@ export default function App({ Component, pageProps, router }: AppProps) {
   const spring = {
     type: "spring",
     damping: 20,
-    stiffness: 100,
+    stiffness: 200,
     when: "afterChildren"
   };
 
   return (
     <ChakraProvider>
-      <AnimatePresence initial={false} mode="popLayout">
+      <AnimatePresence initial={false} mode="wait">
         <motion.div
           transition={spring}
           key={router.pathname}
-          initial={{ x: 300, opacity: 0 }}
+          initial={{ x: 100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
-          exit={{ x: -300, opacity: 0 }}
+          exit={{ x: -100, opacity: 0 }}
           id="page-transition-container"
         >
           <Header />
