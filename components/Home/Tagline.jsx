@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState, useCallback } from "react";
-import SplitText from "../utils/Split3.min";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 
 export default function Tagline() {
@@ -38,10 +37,6 @@ export default function Tagline() {
   const physics = { damping: 5, mass: 0.1, stiffness: 10 };
   const spring = useSpring(transform, physics);
   const spring2 = useSpring(transform2, physics);
-
-  const ref = useRef(null);
-  const [reveal, setReveal] = useState(false);
-  const onScreen = useOnScreen(ref);
 
   // useEffect(() => {
   //   if (typeof window !== "undefined") {
