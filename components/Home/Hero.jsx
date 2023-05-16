@@ -118,7 +118,7 @@ export default function Hero() {
       </div>
 
       <Image
-        className="color-changer fixed mr-[1.2rem] mb-[.5rem] bottom-0 right-0 z-[1] hover:cursor-pointer"
+        className="color-changer fixed mr-[1.2rem] mb-[1rem] bottom-0 right-0 z-[1] hover:cursor-pointer"
         src={ColorChanger}
         alt="Dark Mode Button"
       />
