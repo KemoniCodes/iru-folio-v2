@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState, useCallback } from "react";
+import Link from "next/link";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import ServicesMenu from "./ServicesMenu";
 
@@ -35,20 +36,30 @@ export default function Services() {
 
   return (
     <>
-      <div className="section2 overflow-hidden will-change-transform -mx-8">
-        <motion.section
-          ref={scrollRef}
-          style={{ x: spring }}
-          className="flex gap-16"
-        >
-          <h2 className="h1 z-[1] m-0 relative py-14 ">services</h2>
-          <h2 className="h1 z-[1] m-0 relative py-14 ">services</h2>
-          <h2 className="h1 z-[1] m-0 relative py-14 ">services</h2>
-        </motion.section>
-      </div>
-      <div ref={ghostRef} className="ghost" />
+      <div className="section2 overflow-hidden will-change-transform -mx-8 mt-20">
+        <Link href="/services">
+          <motion.section
+            ref={scrollRef}
+            style={{ x: spring }}
+            className="flex gap-16"
+          >
+            <h2 className="h1 z-[1] m-0 relative py-14 transition-linkHover hover:text-powder-iris">
+              services
+            </h2>
+            <h2 className="h1 z-[1] m-0 relative py-14 transition-linkHover hover:text-powder-iris">
+              services
+            </h2>
+            <h2 className="h1 z-[1] m-0 relative py-14 transition-linkHover hover:text-powder-iris">
+              services
+            </h2>
+          </motion.section>
+        </Link>
 
       <ServicesMenu />
+
+      </div>
+
+      <div ref={ghostRef} className="ghost" />
     </>
   );
 }
