@@ -3,7 +3,7 @@ import gsap from "gsap";
 import SplitText from "@/components/utils/Split3.min";
 import React, { useState, useRef, useEffect } from "react";
 import Tagline from '@/components/Home/Tagline';
-import Services from '@/components/Home/Services';
+import Services from '@/components/Home/Services/Services';
 
 
 export default function Home() {

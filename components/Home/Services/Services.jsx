@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState, useCallback } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import ServicesMenu from "./ServicesMenu";
 
 export default function Services() {
   const scrollRef = useRef(null);
@@ -46,6 +47,8 @@ export default function Services() {
         </motion.section>
       </div>
       <div ref={ghostRef} className="ghost" />
+
+      <ServicesMenu />
     </>
   );
 }
