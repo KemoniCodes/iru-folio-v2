@@ -13,32 +13,28 @@ function Tagline1({ text, gif }: TaglineProps) {
 
   return (
     <>
-      <motion.div
-        ref={ref}
+      <motion.div ref={ref} className="elevate flex w-full items-center justify-between pb-14"
       >
-        <motion.div className="elevate flex w-full items-center justify-between pb-14"
-        >
-          <h2 className="z-[1] m-0 relative text-left" style={{
-            transform: isInView ? "none" : "translateX(-200px)",
-            opacity: isInView ? 1 : 0,
-            transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1.1) 0.5s"
-          }}>
-            {text}
-          </h2>
-          <div className="elevate-gif float-right" style={{
-            transform: isInView ? "none" : "translateX(200px)",
-            opacity: isInView ? 1 : 0,
-            transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1.1) 0.5s"
-          }}>
-            <Image
-              alt="gif"
-              className=" rounded-[4.5rem]"
-              src={gif}
-              width={600}
-              height={600}
-            />
-          </div>
-        </motion.div>
+        <h2 className="z-[1] m-0 relative text-left" style={{
+          transform: isInView ? "none" : "translateX(-200px)",
+          opacity: isInView ? 1 : 0,
+          transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1.1) 0.5s"
+        }}>
+          {text}
+        </h2>
+        <div className="elevate-gif float-right" style={{
+          transform: isInView ? "none" : "translateX(200px)",
+          opacity: isInView ? 1 : 0,
+          transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1.1) 0.5s"
+        }}>
+          <Image
+            alt="gif"
+            className=" rounded-[4.5rem]"
+            src={gif}
+            width={600}
+            height={600}
+          />
+        </div>
       </motion.div>
     </>
   );
@@ -50,30 +46,26 @@ function Tagline2({ text, gif }: TaglineProps) {
 
   return (
     <>
-      <motion.div
-        ref={ref}
-      >
-        <motion.div className="functional flex w-full items-end justify-between pb-14">
-          <Image
-            alt="gif"
-            className=" rounded-[4.5rem] absolute"
-            src={gif}
-            width={300}
-            height={300}
-            style={{
-              transform: isInView ? "none" : "translateX(-200px)",
-              opacity: isInView ? 1 : 0,
-              transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1.1) 0.5s"
-            }}
-          />
-          <h2 className="m-0 text-right w-full whitespace-pre-wrap" style={{
-            transform: isInView ? "none" : "translateX(200px)",
+      <motion.div ref={ref} className="functional flex w-full items-end justify-between pb-14">
+        <Image
+          alt="gif"
+          className=" rounded-[4.5rem] absolute"
+          src={gif}
+          width={300}
+          height={300}
+          style={{
+            transform: isInView ? "none" : "translateX(-200px)",
             opacity: isInView ? 1 : 0,
             transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1.1) 0.5s"
-          }}>
-            {text}
-          </h2>
-        </motion.div>
+          }}
+        />
+        <h2 className="m-0 text-right w-full whitespace-pre-wrap" style={{
+          transform: isInView ? "none" : "translateX(200px)",
+          opacity: isInView ? 1 : 0,
+          transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1.1) 0.5s"
+        }}>
+          {text}
+        </h2>
       </motion.div>
     </>
   )
