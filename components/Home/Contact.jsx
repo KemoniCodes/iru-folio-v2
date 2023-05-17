@@ -3,74 +3,55 @@ import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 
-// function FeaturedImg1({ text, img }: FeaturedImgProps) {
-//     const ref = useRef(null);
-//     const isInView = useInView(ref, { once: false });
-
-//     return (
-//         <>
-//             <motion.div ref={ref} className=" justify-center flex w-full items-center  pb-14"
-//             >
-//                 <div className='ft-img-1' style={{
-//                     transform: isInView ? "none" : "translateY(-80px)",
-//                     opacity: isInView ? 1 : 0,
-//                     transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1.1) 0.5s"
-//                 }}>
-//                     <Link href='/works/project'>
-//                         <Image className='border-[3px] border-dark-cocoa border-solid' src={img} width={308} height={462} alt={text} />
-//                     </Link>
-//                     <h4 className='text-right pt-2' style={{
-//                         transform: isInView ? "none" : "translateY(40px)",
-//                         opacity: isInView ? 1 : 0,
-//                         transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1.1) 0.5s"
-//                     }}>{text}</h4>
-//                 </div>
-//             </motion.div>
-//         </>
-//     );
-// }
-
-// function FeaturedImg2({ text, img }: FeaturedImgProps) {
-//     const ref = useRef(null);
-//     const isInView = useInView(ref, { once: false });
-
-//     return (
-//         <>
-//             <motion.div ref={ref} className="justify-center flex w-full items-center  pb-14"
-//             >
-//                 <div className='ft-img-2 w-[308px] relative top-52' style={{
-//                     transform: isInView ? "none" : "translateY(80px)",
-//                     opacity: isInView ? 1 : 0,
-//                     transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1.1) 0.5s"
-//                 }}>
-//                     <Link href='/works/project'>
-//                         <Image className='border-[3.63584px] border-dark-cocoa border-solid' src={img} width={308} height={462} alt={text} />
-//                     </Link>
-//                     <h4 className='text-right pt-2' style={{
-//                         transform: isInView ? "none" : "translateY(40px)",
-//                         opacity: isInView ? 1 : 0,
-//                         transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1.1) 0.5s"
-//                     }}>{text}</h4>
-//                 </div>
-//             </motion.div>
-//         </>
-//     )
-// }
-
-// const featuredImgData: [string, string] = [
-//     'BRANDING', '/featured-1.png',
-// ];
-// const featuredImg2Data: [string, string] = [
-//     'WEB DESIGN', '/featured-2.png'
-// ];
-
 export default function Contact() {
-    return (
-        <>
-            <div className="ft-images section3 overflow-hidden will-change-transform py-20 flex data-scroll-section">
-                {/* <FeaturedImg1 text={featuredImgData[0]} img={featuredImgData[1]} />
-                <FeaturedImg2 text={featuredImg2Data[0]} img={featuredImg2Data[1]} /> */}
-            </div>
-        </>
-    );
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: false });
+  return (
+    <>
+      <div
+        ref={ref}
+        className="contact section4 overflow-hidden will-change-transform py-20 data-scroll-section"
+      >
+        <Link
+          href="/contact"
+          className="flex justify-center flex-col relative top-[15vh]"
+        >
+          <h1
+            id="c-title"
+            className=" leading-[18rem] border-b-[5px] border-solid border-dark-cocoa w-fit"
+            style={{
+                transform: isInView ? "none" : "translateY(100px)",
+                opacity: isInView ? 1 : 0,
+                transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1.1) 1s",
+              }}
+          >
+            get in
+          </h1>
+          <h1
+            id="c-title"
+            className=" leading-[18rem] border-b-[5px] border-solid border-dark-cocoa self-end"
+            style={{
+                transform: isInView ? "none" : "translateY(100px)",
+                opacity: isInView ? 1 : 0,
+                transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1.1) 1s",
+              }}
+          >
+            touch
+          </h1>
+          <Image
+            src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmQ1ZWY2MDczNzM2NGM5ZWVhZDEzNDUxZGFhNjYyYTBlODc4MzRhZCZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/lRvB43J4WdKfjL4mVq/giphy.gif"
+            alt="contact"
+            height={400}
+            width={400}
+            className="border-[3px] border-solid border-dark-cocoa relative bottom-[16rem] left-[3rem] rounded-[45%]"
+            style={{
+                transform: isInView ? "none" : "translateX(-50px)",
+                opacity: isInView ? 1 : 0,
+                transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1.1) 1.1s",
+              }}
+          />
+        </Link>
+      </div>
+    </>
+  );
 }
