@@ -46,7 +46,7 @@ function Tagline2({ text, gif }: TaglineProps) {
 
   return (
     <>
-      <motion.div ref={ref} className="functional flex w-full items-end justify-between pb-14">
+      <motion.div ref={ref} className="functional flex w-full items-end justify-between pb-20">
         <Image
           alt="gif"
           className=" rounded-[4.5rem] absolute"
