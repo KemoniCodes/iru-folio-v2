@@ -5,6 +5,7 @@ import React, { useState, useRef, useEffect } from "react";
 import Tagline from '@/components/Home/Tagline';
 import Services from '@/components/Home/Services/Services';
 import FeaturedImages from '@/components/Home/FeaturedImages';
+import Contact from '../components/Home/Contact';
 
 
 export default function Home() {
@@ -51,6 +52,7 @@ export default function Home() {
         <Tagline />
         <Services />
         <FeaturedImages />
+        <Contact />
       </div>
       {/* </main> */}
       {/* )} */}
