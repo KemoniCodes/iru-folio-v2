@@ -36,7 +36,7 @@ export default function Services() {
 
   return (
     <>
-      <div className="section2 overflow-hidden will-change-transform -mx-8 mt-20">
+      <div className="section2 overflow-hidden will-change-transform -mx-8 py-20">
         <Link href="/services">
           <motion.section
             ref={scrollRef}
@@ -55,8 +55,7 @@ export default function Services() {
           </motion.section>
         </Link>
 
-      <ServicesMenu />
-
+        <ServicesMenu />
       </div>
 
       <div ref={ghostRef} className="ghost" />

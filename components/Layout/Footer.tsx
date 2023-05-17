@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function Footer() {
     return (
         <>
-            <footer className="absolute bottom-0 w-full">
+            <footer className="absolute w-full bottom-0 left-0">
                 <ul className="flex justify-between">
                     <li className="w-full">© 2023 iru studios</li>
                     <li className="w-full m-auto">
