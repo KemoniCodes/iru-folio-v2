@@ -69,7 +69,6 @@ const featuredImg2Data: [string, string] = [
     'WEB DESIGN', '/featured-2.png'
 ];
 
-console.log(featuredImgData[0], featuredImg2Data[0])
 export default function FeaturedImages() {
     return (
         <>
