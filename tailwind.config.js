@@ -17,7 +17,8 @@ module.exports = {
       },
       transitionProperty: {
         "linkHover": "var(--powderiris) 0.2s ease",
-        "navLinkHover": "var(--darkcocoa) 0.2s ease"
+        "navLinkHover": "var(--darkcocoa) 0.2s ease",
+        "imageHover": "opacity 0.2s ease"
       },
     },
   },
