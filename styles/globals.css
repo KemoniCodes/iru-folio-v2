@@ -129,7 +129,7 @@ span {
 }
 
 .menu h2 {
-  @apply lg:leading-[101.4px] top-auto ml-16 transition-linkHover text-light-creme text-[60px] leading-[3.5rem];
+  @apply lg:leading-[101.4px] top-auto lg:ml-16 ml-8 transition-linkHover text-light-creme lg:text-[113px] text-[60px] leading-[3.5rem];
 }
 
 .menu h2:hover {
@@ -141,7 +141,7 @@ span {
 }
 
 .menu > ul li span {
-  @apply leading-[2.5rem] not-italic top-[1rem] relative text-light-creme;
+  @apply leading-[2.5rem] not-italic top-[1rem] relative text-light-creme lg:text-[24px] text-[15px];
 }
 
 .menu > ul li span:hover {
