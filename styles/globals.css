@@ -28,7 +28,7 @@ h1,
 }
 
 h2 {
-  @apply text-[113px] font-extralight leading-[101.4px] -tracking-[.5%] uppercase text-dark-cocoa;
+  @apply lg:text-[113px] font-extralight lg:leading-[101.4px] -tracking-[.5%] uppercase text-dark-cocoa text-[50px] leading-[3rem];
 }
 
 h3 {
@@ -129,7 +129,7 @@ span {
 }
 
 .menu h2 {
-  @apply leading-[101.4px] top-auto ml-16 transition-linkHover text-light-creme;
+  @apply lg:leading-[101.4px] top-auto ml-16 transition-linkHover text-light-creme text-[60px] leading-[3.5rem];
 }
 
 .menu h2:hover {
@@ -156,9 +156,18 @@ span {
   @apply opacity-100;
 }
 
+.service h2 {
+  @apply lg:leading-[101.4px] leading-[1.5rem];
+
+}
+
 .cursor-follow {
   @apply opacity-0 w-auto h-auto max-w-[400] box-border transition-imageHover absolute -z-[1] object-cover;
   transform: translate(-10%, -10%);
+}
+
+.contact h1 {
+  @apply lg:text-[250px] text-[100px] lg:leading-[18rem] leading-[inherit]
 }
 
 /* @function change-nav-color($darkcocoa) {

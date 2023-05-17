@@ -10,7 +10,7 @@ export default function Contact() {
     <>
       <div
         ref={ref}
-        className="contact section4 overflow-hidden will-change-transform py-20 data-scroll-section"
+        className=" lg:mt-auto -mt-[30rem] contact section4 overflow-hidden will-change-transform py-20 data-scroll-section"
       >
         <Link
           href="/contact"
@@ -43,7 +43,7 @@ export default function Contact() {
             alt="contact"
             height={400}
             width={400}
-            className="border-[3px] border-solid border-dark-cocoa relative bottom-[16rem] left-[3rem] rounded-[45%]"
+            className="lg:w-[400px] w-[80%] lg:mb-[inherit] mb-32 lg:mt-[inherit] mt-8 lg:m-[inherit] m-auto border-[3px] border-solid border-dark-cocoa relative lg:bottom-[16rem] left-0 bottom-0 lg:left-[3rem] rounded-[45%]"
             style={{
                 transform: isInView ? "none" : "translateX(-50px)",
                 opacity: isInView ? 1 : 0,

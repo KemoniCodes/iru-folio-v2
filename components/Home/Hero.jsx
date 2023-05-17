@@ -65,12 +65,12 @@ export default function Hero() {
     });
   }, []);
   return (
-    <div className="hero mt-32 h-screen" data-scroll data-scroll-section>
+    <div className="hero lg:mt-32 mt-20 h-screen" data-scroll data-scroll-section>
       <h2 className="" id="hero-text" data-scroll>
         KEMONI IS A BRAND DESIGNER & DEVELOPER BASED IN LA.
       </h2>
       <h2
-        className="right w-[998px] text-right float-right mt-[1.2rem]"
+        className="right lg:w-[998px] w-auto text-right float-right mt-[1.2rem]"
         id="hero-text"
         data-scroll
       >
@@ -78,17 +78,17 @@ export default function Hero() {
         <span>MODERN</span> BRANDS.
       </h2>
 
-      <div className="logo-elipse relative left-[50%] bottom-[8.5%] w-fit z-[0]">
+      <div className="logo-elipse relative lg:left-[50%] lg:bottom-[8.5%] lg:w-fit w-[20vw] z-[0] bottom-[50%] lg:float-none  float-right left-auto">
         <Image className="elipse" src={Elipse} alt="Dark Mode Button" />
         <Image
-          className="letters absolute left-[.7rem] mt-[.7rem] bottom-3"
+          className="letters absolute bottom-[.35rem] left-[.25rem] lg:w-[120px] w-[90%] lg:left-[.7rem] mt-[.7rem] lg:bottom-3"
           src={Letters}
           alt="Dark Mode Button"
           ref={letters}
         />
       </div>
 
-      <div className="contact-menu relative top-[12%]">
+      <div className="contact-menu relative top-[12%] lg:block hidden">
         <ul className=" list-none mb-12">
           <li>
             <Mailto

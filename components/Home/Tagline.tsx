@@ -22,7 +22,8 @@ function Tagline1({ text, gif }: TaglineProps) {
         }}>
           {text}
         </h2>
-        <div className="elevate-gif float-right" style={{
+
+        <div className="lg:relative absolute lg:w-auto w-[35%] lg:right-auto -right-0 lg:top-auto top-[8.6rem] elevate-gif float-right" style={{
           transform: isInView ? "none" : "translateX(200px)",
           opacity: isInView ? 1 : 0,
           transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1.1) 0.5s"
@@ -49,7 +50,7 @@ function Tagline2({ text, gif }: TaglineProps) {
       <motion.div ref={ref} className="functional flex w-full items-end justify-between pb-20">
         <Image
           alt="gif"
-          className=" border-[3px] border-solid border-dark-cocoa rounded-[4.5rem] absolute"
+          className=" lg:w-[300px] w-[35%] lg:bottom-auto bottom-[9.5rem] -z-[1] border-[3px] border-solid border-dark-cocoa rounded-[4.5rem] absolute"
           src={gif}
           width={300}
           height={300}
@@ -81,7 +82,7 @@ const tagline2Data: [string, string] = [
 export default function Tagline() {
   return (
     <>
-      <div className="section1 overflow-hidden will-change-transform -mt-16">
+      <div className="section1 overflow-hidden will-change-transform lg:-mt-16 -mt-24">
         <Tagline1 text={tagline1Data[0]} gif={tagline1Data[1]} />
         <Tagline2 text={tagline2Data[0]} gif={tagline2Data[1]} />
       </div>

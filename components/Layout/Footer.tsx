@@ -5,11 +5,11 @@ import Link from "next/link";
 export default function Footer() {
     return (
         <>
-            <footer className="absolute w-full bottom-0 left-0">
-                <ul className="flex justify-between">
+            <footer className="absolute w-full bottom-0 left-0 overflow-hidden">
+                <ul className="flex justify-between lg:flex-row flex-col lg:text-start text-center">
                     <li className="w-full">© 2023 iru studios</li>
                     <li className="w-full m-auto">
-                        <ul className="flex gap-4 m-auto justify-center">
+                        <ul className="flex lg:gap-4 gap-2 m-auto justify-center">
                             <li><Link href="https://github.com/KemoniCodes" target="#">
                                 github
                             </Link></li>
