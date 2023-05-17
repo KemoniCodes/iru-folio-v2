@@ -12,7 +12,6 @@ function Service({ number, title, hoverImg }: ServicesMenuProps) {
 
     useEffect(() => {
         const cursor = cursorRef.current;
-        console.log(cursor)
 
         document.addEventListener("mousemove", (e) => {
             const x = e.clientX;
@@ -23,7 +22,6 @@ function Service({ number, title, hoverImg }: ServicesMenuProps) {
                 cursor.style.top = `${y}px`;
             }
         });
-
     }, []);
 
     return (
