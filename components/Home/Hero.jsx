@@ -65,7 +65,7 @@ export default function Hero() {
     });
   }, []);
   return (
-    <div className="hero mt-20 h-screen" data-scroll data-scroll-section>
+    <div className="hero mt-32 h-screen" data-scroll data-scroll-section>
       <h2 className="" id="hero-text" data-scroll>
         KEMONI IS A BRAND DESIGNER & DEVELOPER BASED IN LA.
       </h2>
