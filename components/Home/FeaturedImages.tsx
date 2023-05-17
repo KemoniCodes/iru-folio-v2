@@ -72,7 +72,7 @@ const featuredImg2Data: [string, string] = [
 export default function FeaturedImages() {
     return (
         <>
-            <div className="ft-images lg:flex-row flex-col lg:bottom-auto bottom-64 relative lg:overflow-visible  overflow-hidden section3 will-change-transform py-20 flex data-scroll-section">
+            <div className="ft-images lg:flex-row flex-col lg:bottom-auto bottom-32 relative lg:overflow-visible overflow-hidden section3 will-change-transform py-20 flex data-scroll-section">
                 <FeaturedImg1 text={featuredImgData[0]} img={featuredImgData[1]} />
                 <FeaturedImg2 text={featuredImg2Data[0]} img={featuredImg2Data[1]} />
             </div>

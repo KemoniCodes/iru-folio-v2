@@ -10,7 +10,7 @@ export default function Contact() {
     <>
       <div
         ref={ref}
-        className=" lg:mt-auto -mt-[30rem] contact section4 overflow-hidden will-change-transform py-20 data-scroll-section"
+        className="lg:mt-auto -mt-[30rem] contact section4 overflow-hidden will-change-transform py-40 data-scroll-section"
       >
         <Link
           href="/contact"
