@@ -49,7 +49,7 @@ function FeaturedImg2({ text, img }: FeaturedImgProps) {
                     transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1.1) 0.5s"
                 }}>
                     <Link href='/works/project'>
-                        <Image className='border-[3.63584px] border-dark-cocoa border-solid' src={img} width={308} height={462} alt={text} />
+                        <Image className='border-[3.63584px] border-dark-cocoa border-solid' src={img} width={308} height={542} alt={text} />
                     </Link>
                     <h4 className='text-right pt-2' style={{
                         transform: isInView ? "none" : "translateY(40px)",
@@ -72,7 +72,7 @@ const featuredImg2Data: [string, string] = [
 export default function FeaturedImages() {
     return (
         <>
-            <div className="ft-images section3 overflow-hidden will-change-transform py-20 flex data-scroll-section">
+            <div className="ft-images section3 will-change-transform py-20 flex data-scroll-section">
                 <FeaturedImg1 text={featuredImgData[0]} img={featuredImgData[1]} />
                 <FeaturedImg2 text={featuredImg2Data[0]} img={featuredImg2Data[1]} />
             </div>
