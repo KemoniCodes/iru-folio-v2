@@ -22,7 +22,7 @@ function FeaturedImg1({ text, img }: FeaturedImgProps) {
                     transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1.1) 0.5s"
                 }}>
                     <Link href='/works/project'>
-                        <Image className='border-[1px] border-dark-cocoa border-solid' src={img} width={308} height={462} alt={text} />
+                        <Image className='border-[3.63584px] border-dark-cocoa border-solid' src={img} width={308} height={462} alt={text} />
                     </Link>
                     <h4 className='text-right pt-2' style={{
                         transform: isInView ? "none" : "translateY(40px)",
