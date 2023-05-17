@@ -9,18 +9,21 @@
 }
 
 #__next {
-  @apply h-full
+  @apply h-full;
 }
 
-html,body {
+html,
+body {
   @apply bg-light-creme !important;
+  display: inline;
 }
 
 * {
   @apply box-border p-0 m-0 font-helvetica;
 }
 
-h1,.h1 {
+h1,
+.h1 {
   @apply text-[250px] font-extralight uppercase text-dark-cocoa;
 }
 
@@ -109,7 +112,6 @@ span {
   @apply mr-0;
 }
 
-
 .home .lineParent .lineChildren > span {
   @apply italic;
 }
@@ -145,6 +147,30 @@ span {
 .menu > ul li span:hover {
   @apply text-dark-cocoa;
 }
+
+.serviceHoverImg {
+  @apply hidden opacity-0;
+}
+
+.service a:hover .cursor-follow {
+  @apply opacity-100;
+}
+
+.cursor-follow {
+  @apply opacity-0 w-full h-auto max-w-[400] box-border transition-imageHover absolute -z-[1] object-cover;
+  transform: translate(0%, -50%);
+
+  /* opacity: 0;
+  width: 100%;
+  height: auto;
+  max-width: 400px;
+  box-sizing: border-box;
+  transition: opacity ease .2s;
+  position: absolute;
+  z-index: -1;
+  object-fit: cover; */
+}
+
 /* @function change-nav-color($darkcocoa) {
   @if (lightness($darkcocoa) > 50) {
     @return $lightcreme; // Lighter backgorund, return dark color
