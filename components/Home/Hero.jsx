@@ -122,7 +122,6 @@ export default function Hero() {
         src={ColorChanger}
         alt="Dark Mode Button"
       />
-      <hr className=" w-full border-[2px solid] relative -bottom-8" />
     </div>
   );
 }

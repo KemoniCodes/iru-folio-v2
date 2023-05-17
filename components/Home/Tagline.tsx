@@ -29,7 +29,7 @@ function Tagline1({ text, gif }: TaglineProps) {
         }}>
           <Image
             alt="gif"
-            className=" rounded-[4.5rem]"
+            className=" border-[3px] border-solid border-dark-cocoa rounded-[4.5rem]"
             src={gif}
             width={600}
             height={600}
@@ -49,7 +49,7 @@ function Tagline2({ text, gif }: TaglineProps) {
       <motion.div ref={ref} className="functional flex w-full items-end justify-between pb-20">
         <Image
           alt="gif"
-          className=" rounded-[4.5rem] absolute"
+          className=" border-[3px] border-solid border-dark-cocoa rounded-[4.5rem] absolute"
           src={gif}
           width={300}
           height={300}
@@ -81,7 +81,7 @@ const tagline2Data: [string, string] = [
 export default function Tagline() {
   return (
     <>
-      <div className="section1 will-change-transform -mt-16">
+      <div className="section1 overflow-hidden will-change-transform -mt-16">
         <Tagline1 text={tagline1Data[0]} gif={tagline1Data[1]} />
         <Tagline2 text={tagline2Data[0]} gif={tagline2Data[1]} />
       </div>

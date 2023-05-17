@@ -36,7 +36,7 @@ function Service({ number, title, hoverImg }: ServicesMenuProps) {
                     <h2 className="ml-16 transition-linkHover hover:text-powder-iris">{title}</h2>
                     <div className="cursor-follow" ref={cursorRef}>
                         <div className=" relative -top-40">
-                            <Image alt={'service'} src={hoverImg} width={350} height={350} className=" rounded-[50%]" />
+                            <Image alt={'service'} src={hoverImg} width={350} height={350} className=" border-[3px] border-solid border-dark-cocoa rounded-[50%]" />
                         </div>
                     </div>
                 </Link>
@@ -54,7 +54,7 @@ const ServiceData: [string, string, string][] = [
 export default function ServicesMenu() {
     return (
         <>
-            <div className='services-menu mt-16 flex flex-col items-center'>
+            <div className='services-menu mt-16 flex flex-col items-center overflow-hidden'>
                 <>
                     {ServiceData.map(([number, title, hoverImg], index) => (
                         <Service number={number} title={title} hoverImg={hoverImg} key={index} />

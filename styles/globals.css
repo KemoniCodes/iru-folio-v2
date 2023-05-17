@@ -157,7 +157,7 @@ span {
 }
 
 .cursor-follow {
-  @apply opacity-0 w-full h-auto max-w-[400] box-border transition-imageHover absolute -z-[1] object-cover;
+  @apply opacity-0 w-auto h-auto max-w-[400] box-border transition-imageHover absolute -z-[1] object-cover;
   transform: translate(-10%, -10%);
 
   /* opacity: 0;
