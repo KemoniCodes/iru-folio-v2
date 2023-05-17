@@ -4,6 +4,7 @@ import SplitText from "@/components/utils/Split3.min";
 import React, { useState, useRef, useEffect } from "react";
 import Tagline from '@/components/Home/Tagline';
 import Services from '@/components/Home/Services/Services';
+import FeaturedImages from '@/components/Home/FeaturedImages';
 
 
 export default function Home() {
@@ -42,15 +43,16 @@ export default function Home() {
           </div>
         </div>
       ) : ( */}
-        {/* <main
+      {/* <main
           className={'flex min-h-screen flex-col items-center justify-between bg-light-creme'}
         > */}
-          <div className="home w-full">
-            <Hero />
-            <Tagline />
-            <Services/>
-          </div>
-        {/* </main> */}
+      <div className="home w-full">
+        <Hero />
+        <Tagline />
+        <Services />
+        <FeaturedImages />
+      </div>
+      {/* </main> */}
       {/* )} */}
     </>
   )
