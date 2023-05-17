@@ -1,11 +1,14 @@
 import React, { useEffect, useRef } from "react";
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { ServicesMenuProps } from './ServicesMenuProps'
 
 function Service({ number, title, hoverImg }: ServicesMenuProps) {
     const cursorRef = useRef<HTMLDivElement>(null);
+
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: false });
 
     useEffect(() => {
         const cursor = cursorRef.current;
@@ -25,7 +28,11 @@ function Service({ number, title, hoverImg }: ServicesMenuProps) {
 
     return (
         <>
-            <div className="service flex">
+            <motion.div ref={ref} className="service flex" style={{
+                transform: isInView ? "none" : "translateY(50px)",
+                opacity: isInView ? 1 : 0,
+                transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1.1) 0.5s"
+            }}>
                 <Link href={'/services'}>
                     <span className="relative top-10 text-[24px] font-extralight leading-[24px] -tracking-[.5%] uppercase text-dark-cocoa ml-4">{number}</span>
                     <h2 className="ml-16 transition-linkHover hover:text-powder-iris">{title}</h2>
@@ -35,7 +42,7 @@ function Service({ number, title, hoverImg }: ServicesMenuProps) {
                         </div>
                     </div>
                 </Link>
-            </div>
+            </motion.div>
         </>
     )
 }
