@@ -3,7 +3,7 @@ import React from 'react'
 
 export default function Document() {
   return (
-    <Html lang="en" className='my-4 mx-8'>
+    <Html lang="en" className='mb-4 mx-8'>
       <Head>
         <link rel='shortcut icon' href='/IRU-CIRCLE.png'/>
       </Head>
