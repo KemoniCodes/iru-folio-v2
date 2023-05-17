@@ -32,7 +32,7 @@ export default function Navbar() {
             <ModalContent>
               <ModalCloseButton className=" text-light-creme" />
               <ModalBody className=" bg-powder-iris">
-                <div className="menu mt-4 m-10">
+                <div className="menu mt-4 lg:m-10 m-0">
                   <ul className="ml-4 list-none mt-24 relative top-[4.5rem]">
                     <li>
                       <Link href="/">
