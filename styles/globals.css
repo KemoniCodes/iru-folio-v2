@@ -159,16 +159,6 @@ span {
 .cursor-follow {
   @apply opacity-0 w-auto h-auto max-w-[400] box-border transition-imageHover absolute -z-[1] object-cover;
   transform: translate(-10%, -10%);
-
-  /* opacity: 0;
-  width: 100%;
-  height: auto;
-  max-width: 400px;
-  box-sizing: border-box;
-  transition: opacity ease .2s;
-  position: absolute;
-  z-index: -1;
-  object-fit: cover; */
 }
 
 /* @function change-nav-color($darkcocoa) {
