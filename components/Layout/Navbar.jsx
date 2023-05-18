@@ -70,7 +70,7 @@ export default function Navbar() {
             </ModalContent>
           </Modal>
 
-          <li className="nav-link lg:block hidden">
+          <li className="nav-link lg:w-auto w-[25%]">
             <Link href={"/"}>
               <Image src={Logo} alt="Iru Studios Logo" width={130} />
             </Link>
