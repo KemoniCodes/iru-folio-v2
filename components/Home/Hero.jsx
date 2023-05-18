@@ -65,7 +65,7 @@ export default function Hero() {
     });
   }, []);
   return (
-    <div className="hero lg:mt-32 mt-20 h-screen" data-scroll data-scroll-section>
+    <div className="hero mt-16 h-screen" data-scroll data-scroll-section>
       <h2 className="" id="hero-text" data-scroll>
         KEMONI IS A BRAND DESIGNER & DEVELOPER BASED IN LA.
       </h2>
@@ -78,7 +78,7 @@ export default function Hero() {
         <span>MODERN</span> BRANDS.
       </h2>
 
-      <div className="logo-elipse relative lg:left-[50%] lg:bottom-[8.5%] lg:w-fit w-[20vw] z-[0] bottom-[50%] lg:float-none  float-right left-auto">
+      <div className="logo-elipse relative lg:left-[50%] lg:bottom-[8.5%] lg:w-fit w-[20vw] z-[0] bottom-[55%] lg:float-none  float-right left-auto">
         <Image className="elipse" src={Elipse} alt="Dark Mode Button" />
         <Image
           className="letters absolute bottom-[.35rem] left-[.25rem] lg:w-[120px] w-[90%] lg:left-[.7rem] mt-[.7rem] lg:bottom-3"
