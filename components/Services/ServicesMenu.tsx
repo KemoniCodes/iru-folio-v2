@@ -56,7 +56,7 @@ const serviceMenuData: [string, string][] = [
 
 const menuInfoData: [string, string[], string, string][] = [
     [
-        'WE UNDERSTAND THAT The aesthetics of your BRAND has a direct impact on THE USER’S OVERALL sentiment. this is why our branding emphasizes strategy led design.',
+        'WE UNDERSTAND THAT The aesthetics of your BRAND has a direct impact on THE USERS OVERALL sentiment. this is why our branding emphasizes strategy led design.',
         [
             'LOGO SUITE/ PRIMARY + SECONDARY + SUBMARK',
             'TYPOGRAPHY SUITE + STYLING',
