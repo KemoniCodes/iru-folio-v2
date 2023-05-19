@@ -18,7 +18,7 @@ function MenuInfo({ description, deliverables, timeline, investment }: ServicesP
                 <div className="services-info">
                     <p className="desc">{description}</p>
 
-                    <h3 className="incl">What's Included</h3>
+                    <h3 className="incl">What&rsquo;s Included</h3>
                     <ul>
                         {deliverables?.map((d) => (
                             <li key={d}>
@@ -56,7 +56,7 @@ const serviceMenuData: [string, string][] = [
 
 const menuInfoData: [string, string[], string, string][] = [
     [
-        'WE UNDERSTAND THAT The aesthetics of your BRAND has a direct impact on THE USERS OVERALL sentiment. this is why our branding emphasizes strategy led design.',
+        'WE UNDERSTAND THAT The aesthetics of your BRAND has a direct impact on THE USER’S OVERALL sentiment. this is why our branding emphasizes strategy led design.',
         [
             'LOGO SUITE/ PRIMARY + SECONDARY + SUBMARK',
             'TYPOGRAPHY SUITE + STYLING',
