@@ -158,7 +158,6 @@ span {
 
 .service h2 {
   @apply lg:leading-[101.4px] leading-[1.5rem];
-
 }
 
 .cursor-follow {
@@ -167,7 +166,23 @@ span {
 }
 
 .contact h1 {
-  @apply lg:text-[250px] text-[100px] lg:leading-[18rem] leading-[inherit]
+  @apply lg:text-[250px] text-[100px] lg:leading-[18rem] leading-[inherit];
+}
+
+.services .section-1 h2 .lineParent {
+  @apply overflow-hidden;
+}
+
+.services .section-1 p .lineParent {
+  @apply overflow-hidden;
+}
+
+.services .section-1 h2 .lineParent .lineChildren {
+  transform: translate(0, 500px);
+}
+
+.services .section-1 p .lineParent .lineChildren {
+  transform: translate(0, 500px);
 }
 
 /* @function change-nav-color($darkcocoa) {
