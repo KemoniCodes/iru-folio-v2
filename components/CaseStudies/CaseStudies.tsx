@@ -48,11 +48,11 @@ const caseStudyData: CaseStudiesProps[] = [
         title: "sera",
         services: ["branding", "web design"],
     },
-    {
-        thumbnail: "/soot-hover.png",
-        title: "SOOT",
-        services: ["branding", "web design"],
-    }
+    // {
+    //     thumbnail: "/soot-hover.png",
+    //     title: "SOOT",
+    //     services: ["branding", "web design"],
+    // }
 ];
 
 export default function CaseStudies() {
