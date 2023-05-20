@@ -5,11 +5,11 @@ import Contact from "../components/Home/Contact"
 export default function services() {
     return (
         <>
-            <div className="services w-full">
+            <div className="services w-full lg:pb-0 pb-80">
                 <Hero />
-                <ServicesMenu/>
-                <Contact/>
+                <ServicesMenu />
             </div>
+            <Contact />
         </>
     )
 }

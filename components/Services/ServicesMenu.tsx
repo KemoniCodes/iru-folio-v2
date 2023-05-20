@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import { ServicesProps } from "./ServicesProps";
 import Image from "next/image";
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
+import useEmblaCarousel from 'embla-carousel-react'
 
 
 function ServiceMenuHeading({ number, title }: ServicesProps) {
     return (
         <>
-            <span className="relative top-2 pr-2">{number}</span>
+            <span className="relative top-2 pr-2 text-[24px] lg:block hidden">{number}</span>
             <h2 className="hover:text-powder-iris transition-linkHover">{title}</h2>
         </>
     );
@@ -16,7 +17,7 @@ function ServiceMenuHeading({ number, title }: ServicesProps) {
 function MenuInfo({ description, deliverables, timeline, investment, id }: ServicesProps) {
     return (
         <>
-            <div className="info w-[75%]" key={id}>
+            <div className="info lg:w-[75%] w-full" key={id}>
                 <p className="desc pb-12 whitespace-pre-wrap">{description}</p>
 
                 <h3 className="incl font-normal underline pb-4">What&rsquo;s Included</h3>
@@ -24,7 +25,7 @@ function MenuInfo({ description, deliverables, timeline, investment, id }: Servi
                     {deliverables?.map((deliverable, index) => (
                         <li key={index} className="pb-4">
                             <div className="deliverable flex">
-                                <Image src={"/COLOR CHANGER.png"} alt="bullet" width={20} height={20} className="mr-2" />
+                                <Image src={"/COLOR CHANGER.png"} alt="bullet" width={20} height={20} className="mr-2 w-[20px] h-[20px]" />
                                 <span>{deliverable}</span>
                             </div>
                         </li>
@@ -100,60 +101,63 @@ const serviceMenuData: [string, string, number, string, string[], string, string
 
 export default function ServicesMenu() {
     const [tabIndex, setTabIndex] = useState(0);
-  
+    const [emblaRef] = useEmblaCarousel()
+
+
     const handleTabsChange = (index: number) => {
-      setTabIndex(index);
+        setTabIndex(index);
     };
-  
+
     return (
-      <Tabs index={tabIndex} onChange={handleTabsChange}>
-        <div className="services-menu flex overflow-hidden">
-          <ul className="w-[40%] border-r-[4px] border-r-solid border-r-dark-cocoa pr-4">
-            <TabList className="!flex-col !border-none">
-              {serviceMenuData.map(
-                ([number, title, id, description], index) => (
-                  <li
-                    className="flex align-top py-4"
-                    key={`${id}-${index}`}
-                  >
-                    <Tab _selected={{border: 'none'}} className="!text-left !place-items-start !font-[24px]">
-                      <ServiceMenuHeading
-                        number={number}
-                        title={title}
-                        id={id}
-                        description={description}
-                      />
-                    </Tab>
-                  </li>
-                )
-              )}
-            </TabList>
-          </ul>
-  
-          <div className="services-info pt-8 pl-16">
-            <TabPanels>
-              {serviceMenuData.map(
-                (
-                  [number, title, id, description, deliverables, timeline, investment],
-                  index
-                ) => (
-                  <TabPanel key={`${id}-${index}`}>
-                    <MenuInfo
-                      id={id}
-                      description={description}
-                      deliverables={deliverables}
-                      timeline={timeline}
-                      investment={investment}
-                    />
-                  </TabPanel>
-                )
-              )}
-            </TabPanels>
-          </div>
-        </div>
-        <hr className="border-[2px] border-solid border-dark-cocoa overflow-hidden" />
-      </Tabs>
+        <Tabs index={tabIndex} onChange={handleTabsChange}>
+
+            <div className="services-menu flex lg:flex-row flex-col overflow-hidden">
+                <ul className="lg:w-[40%] lg:border-r-[4px] lg:border-r-solid lg:border-r-dark-cocoa border-r-none pr-4 lg:overflow-visible overflow-hidden w-full !border-b-[4px] !border-b-solid !border-b-dark-cocoa lg:!border-b-0" ref={emblaRef}>
+                    <TabList className="lg:!flex-col flex-row !border-none relative lg:right-0 right-16 lg:gap-0 gap-2">
+                        {serviceMenuData.map(
+                            ([number, title, id, description], index) => (
+                                <li
+                                    className="flex align-top py-4 lg:border-r-0 border-r-[3px] border-r-solid border-r-dark-cocoa lg:px-0 px-4"
+                                    key={`${id}-${index}`}
+                                >
+                                    <Tab _selected={{ border: 'none' }} className="!text-left !place-items-start !font-[24px]">
+                                        <ServiceMenuHeading
+                                            number={number}
+                                            title={title}
+                                            id={id}
+                                            description={description}
+                                        />
+                                    </Tab>
+                                </li>
+                            )
+                        )}
+                    </TabList>
+                </ul>
+
+                <div className="services-info pt-8 lg:pl-16 pl-0">
+                    <TabPanels>
+                        {serviceMenuData.map(
+                            (
+                                [number, title, id, description, deliverables, timeline, investment],
+                                index
+                            ) => (
+                                <TabPanel key={`${id}-${index}`}>
+                                    <MenuInfo
+                                        id={id}
+                                        description={description}
+                                        deliverables={deliverables}
+                                        timeline={timeline}
+                                        investment={investment}
+                                    />
+                                </TabPanel>
+                            )
+                        )}
+                    </TabPanels>
+                </div>
+            </div>
+            <hr className="border-[2px] border-solid border-dark-cocoa overflow-hidden" />
+        </Tabs>
     );
-  }
+}
 
 
