@@ -5,7 +5,7 @@ export default function Document() {
   return (
     <Html lang="en" className='mb-4 mx-8'>
       <Head>
-        <link rel='shortcut icon' href='/IRU-CIRCLE.png'/>
+        <link rel='shortcut icon' sizes="196x196" href='/IRU-CIRCLE.svg'/>
       </Head>
       <body>
         <Main />
