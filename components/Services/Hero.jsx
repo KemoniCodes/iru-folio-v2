@@ -48,7 +48,7 @@ export default function Hero() {
 
   return (
     <>
-      <div className="section-1 mx-auto mt-28 h-screen">
+      <div className="section-1 mx-auto mt-28 overflow-hidden">
         <h2 id="service-title" className="w-fit mx-auto" data-scroll>
           enticing MINIMALIST
           <br /> <span className="ml-[31.8rem]">DESIGN</span>
@@ -81,7 +81,7 @@ export default function Hero() {
           UNDERSTAND CLIENT’S PROBLEMS AND <br /> OFFER A PRECISE RESOLUTION.
         </p>
 
-        <hr className="w-screen border-[2px] border-solid border-dark-cocoa -ml-8 overflow-hidden" />
+        <hr className="w-screen border-[2px] border-solid border-dark-cocoa overflow-hidden" />
       </div>
     </>
   );

@@ -5,5 +5,5 @@ export interface ServicesProps {
     deliverables?: string[];
     timeline?: string;
     investment?: string;
+    id?: number;
   }
-  
