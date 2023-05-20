@@ -5,7 +5,7 @@ import { CaseStudiesProps } from "./CaseStudiesProps";
 
 function Case({ title, thumbnail, services }: CaseStudiesProps) {
     return (
-        <Link href={`/case-studies/${title}`} key={title}>
+        <Link href={`/works/${title}`} key={title}>
             {thumbnail && (
                 <Image src={thumbnail} width={200} height={200} alt="thumbnail" />
             )}
@@ -25,11 +25,11 @@ const caseStudyData: CaseStudiesProps[] = [
         title: "sera",
         services: ["branding", "web design"],
     },
-    {
-        thumbnail: "/soot-hover.png",
-        title: "SOOT",
-        services: ["branding", "web design"],
-    },
+    // {
+    //     thumbnail: "/soot-hover.png",
+    //     title: "SOOT",
+    //     services: ["branding", "web design"],
+    // },
 ];
 
 export default function CaseStudies() {

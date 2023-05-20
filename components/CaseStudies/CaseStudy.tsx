@@ -29,17 +29,17 @@ const caseStudyData: CaseStudiesProps[] = [
             },
         ],
     },
-    {
-        title: 'SOOT',
-        caseStudy: [
-            {
-                bannerImg: "/featured-1.png",
-                description: "soot description",
-                caseStudyLayoutImg: "/featured-1.png",
-                website: "https://example.com",
-            },
-        ],
-    }
+    // {
+    //     title: 'SOOT',
+    //     caseStudy: [
+    //         {
+    //             bannerImg: "/featured-1.png",
+    //             description: "soot description",
+    //             caseStudyLayoutImg: "/featured-1.png",
+    //             website: "https://example.com",
+    //         },
+    //     ],
+    // }
 ];
 
 export default function CaseStudy() {
