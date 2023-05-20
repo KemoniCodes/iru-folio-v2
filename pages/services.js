@@ -1,6 +1,6 @@
 import Hero from "@/components/Services/Hero"
 import ServicesMenu from "@/components/Services/ServicesMenu"
-import Contact from "../components/Home/Contact"
+import Contact from "@/components/Home/Contact"
 
 export default function services() {
     return (
