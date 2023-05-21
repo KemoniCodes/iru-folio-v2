@@ -36,7 +36,7 @@ function Case({ title, services, caseStudy }: CaseStudiesProps) {
                 </p>
             </div>
 
-            <div className="images relative -z-[1] lg:grid block grid-cols-[1fr,1fr] gap-2 [&>*:nth-child(4)]:-mt-[23.8rem] lg:[&>*:nth-child(5)]:left-[43.25rem] lg:[&>*:nth-child(5)]:bottom-[9.65rem] [&>*:nth-child(5)]:relative">
+            <div className="images relative -z-[1] lg:grid block grid-cols-[1fr,1fr] gap-2 items-center gap-x-20">
                 {images?.map((img, index) => (
                     <Image
                         src={img}
@@ -71,17 +71,17 @@ const caseStudyData: CaseStudiesProps[] = [
             },
         ],
     },
-    // {
-    //     title: 'SOOT',
-    //     caseStudy: [
-    //         {
-    //             bannerImg: "/featured-1.png",
-    //             description: "soot description",
-    //             caseStudyLayoutImg: "/featured-1.png",
-    //             website: "https://example.com",
-    //         },
-    //     ],
-    // }
+    {
+        title: 'SOOT',
+        caseStudy: [
+            {
+                bannerImg: "/featured-1.png",
+                description: "soot description",
+                images: ["/featured-1.png,/featured-1.png","/sera-3-new.png","/sera-5.png",],
+                website: "https://example.com",
+            },
+        ],
+    }
 ];
 
 export default function CaseStudy() {
