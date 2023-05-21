@@ -18,6 +18,11 @@ const nextConfig = {
         hostname: 'media0.giphy.com',
         port: '',
       },
+      {
+        protocol: 'https',
+        hostname: 'mir-s3-cdn-cf.behance.net',
+        port: '',
+      },
     ],
   }
 }

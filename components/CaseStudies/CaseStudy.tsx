@@ -51,7 +51,7 @@ const caseStudyData: CaseStudiesProps[] = [
             {
                 bannerImg: "/sera-banner.png",
                 description: "Será⏤ translating to “be” in Spanish. Será is a handcrafted, artisan-made, fine jewelry atelier. They were founded in Los Angeles, California, bred to be worn to capture still moments. To remind us to just be.",
-                caseStudyLayoutImg: "/sera-behance.png",
+                caseStudyLayoutImg: "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/cc4485114701005.60402ff1460ab.png",
                 behance: "https://www.behance.net/gallery/114701005/Sera-jewelry-atelier"
             },
         ],

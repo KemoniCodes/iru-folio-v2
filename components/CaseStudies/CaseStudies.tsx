@@ -26,7 +26,7 @@ function Case({ title, thumbnail, services }: CaseStudiesProps) {
                         "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1.1) 0.5s",
                 }}
             >
-                {thumbnail && <Image src={thumbnail} width={300} height={300} alt="thumbnail" />}
+                {thumbnail && <Image src={thumbnail} width={300} height={300} alt="thumbnail" className="border-solid border-[3px] border-dark-cocoa"/>}
                 <div className="info lg:flex block justify-between items-center">
                     <h4 className="lg:py-2 py-1">{title}</h4>
                     <ul className="flex gap-1">
