@@ -9,7 +9,6 @@ import Image from "next/image";
 export default function Contact() {
   const letters = useRef(null);
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: false });
 
   useEffect(() => {
     const script = document.createElement("script");
@@ -26,7 +25,7 @@ export default function Contact() {
       document.body.removeChild(script);
     };
   }, []);
-  
+
   useEffect(() => {
     gsap.to(letters.current, 5, {
       rotation: "+=360",
@@ -62,26 +61,17 @@ export default function Contact() {
           ref={letters}
         />
       </div>
-      <motion.div
-        ref={ref}
-        className="lg:flex block flex-col"
-        style={{
-          transform: isInView ? "none" : "translateY(50px)",
-          opacity: isInView ? 1 : 0,
-          transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1.1) 0.5s",
-        }}
-      >
         <h2 className="w-full mx-auto text-center lg:mb-16 mb-4 lg:mt-0 -mt-16">
           Contact Us
         </h2>
+
         <div className="hb-p-5fb85402902329000db6b393-5"></div>
         <Image
           height={1}
           width={1}
-          src="https://www.honeybook.com/p.png?pid=5fb85402902329000db6b393"
+          src={"https://www.honeybook.com/p.png?pid=5fb85402902329000db6b393"}
           alt="form"
         />
-      </motion.div>
     </>
   );
 }
