@@ -1,7 +1,7 @@
 export interface CaseStudyProps {
     bannerImg?: string;
     description?: string;
-    caseStudyLayoutImg?: string;
+    images?: string[];
     behance?: string;
     website?: string;
 }

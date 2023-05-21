@@ -6,7 +6,7 @@ import { CaseStudiesProps } from "./CaseStudiesProps";
 
 
 function Case({ title, services, caseStudy }: CaseStudiesProps) {
-    const { bannerImg = "", description = "", caseStudyLayoutImg = "", behance = "", website = "" } = caseStudy ? caseStudy[0] : {};
+    const { bannerImg = "", description = "", images = [], behance = "", website = "" } = caseStudy ? caseStudy[0] : {};
 
     let lastItem = services ? services[services.length - 1] : null;
 
@@ -36,8 +36,17 @@ function Case({ title, services, caseStudy }: CaseStudiesProps) {
                 </p>
             </div>
 
-            <div className="image relative -z-[1]">
-                <Image src={caseStudyLayoutImg} alt="Case Study Layout" width={1000} height={1000} className="w-[80%] mx-auto border-solid border-[3px] border-dark-cocoa" />
+            <div className="images relative -z-[1] lg:grid block grid-cols-[1fr,1fr] gap-2 [&>*:nth-child(4)]:-mt-[23.8rem] lg:[&>*:nth-child(5)]:left-[43.25rem] lg:[&>*:nth-child(5)]:bottom-[9.65rem] [&>*:nth-child(5)]:relative">
+                {images?.map((img, index) => (
+                    <Image
+                        src={img}
+                        key={index}
+                        alt="Case Study Layout"
+                        width={600}
+                        height={600}
+                        className="lg:mb-0 mb-4 mx-auto w-[-webkit-fill-available] border-solid border-[3px] border-dark-cocoa"
+                    />
+                ))}
             </div>
         </>
     );
@@ -51,7 +60,13 @@ const caseStudyData: CaseStudiesProps[] = [
             {
                 bannerImg: "/sera-banner.png",
                 description: "Será⏤ translating to “be” in Spanish. Será is a handcrafted, artisan-made, fine jewelry atelier. They were founded in Los Angeles, California, bred to be worn to capture still moments. To remind us to just be.",
-                caseStudyLayoutImg: "/sera-behance-new.png",
+                images: [
+                    "/sera-2.png",
+                    "/sera-5.png",
+                    "/sera-3-new.png",
+                    "/sera-4.png",
+                    "/sera-6.png"
+                ],
                 behance: "https://www.behance.net/gallery/114701005/Sera-jewelry-atelier"
             },
         ],
