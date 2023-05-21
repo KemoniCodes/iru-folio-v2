@@ -189,6 +189,10 @@ span {
   @apply text-powder-iris
 }
 
+.about h2 {
+  @apply text-[80px] leading-[5rem]
+}
+
 
 /* .services-info {
   position: relative;

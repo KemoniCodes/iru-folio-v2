@@ -67,7 +67,7 @@ export default function Hero() {
   return (
     <div className="hero mt-16 h-screen" data-scroll data-scroll-section>
       <h2 className="" id="hero-text" data-scroll>
-        KEMONI IS A BRAND DESIGNER & DEVELOPER BASED IN LA.
+        KEMONI IS A BRAND DESIGNER & DEVELOPER BASED IN OC.
       </h2>
       <h2
         className="right lg:w-[998px] w-auto text-right float-right mt-[1.2rem]"
