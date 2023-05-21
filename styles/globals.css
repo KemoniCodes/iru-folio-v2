@@ -190,7 +190,11 @@ span {
 }
 
 .about h2 {
-  @apply text-[80px] leading-[5rem]
+  @apply lg:text-[80px] text-[50px] lg:leading-[5rem] leading-[3rem]
+}
+
+.about h3 {
+  @apply lg:text-[24px] text-[15px]
 }
 
 
