@@ -1,18 +1,44 @@
 import React from "react";
 import { useRouter } from "next/router";
+import Link from "next/link";
+import Image from "next/image";
 import { CaseStudiesProps } from "./CaseStudiesProps";
 
 
-function Case({ title, caseStudy }: CaseStudiesProps) {
-    const { bannerImg = "", description = "", caseStudyLayoutImg = "", website = "" } = caseStudy ? caseStudy[0] : {};
+function Case({ title, services, caseStudy }: CaseStudiesProps) {
+    const { bannerImg = "", description = "", caseStudyLayoutImg = "", behance = "", website = "" } = caseStudy ? caseStudy[0] : {};
+
+    let lastItem = services ? services[services.length - 1] : null;
 
     return (
         <>
-            <h3>{title}</h3>
-            <img src={bannerImg} alt="Banner" />
-            <p>{description}</p>
-            <img src={caseStudyLayoutImg} alt="Case Study Layout" />
-            <a href={website}>Visit Website</a>
+            {/* <div className="banner w-screen relative left-1/2 right-1/2 -mr-[50vw] -ml-[50vw]">
+                <img src={bannerImg} alt="Banner" className="w-screen" />
+
+            </div> */}
+            <div className="pb-20">
+                <h2 className="text-center italic">{title}</h2>
+                <ul className="flex gap-1 justify-center pt-8">
+                    {services?.map((service, index) => (
+                        <>
+                            <h4 key={index} className=" font-normal">
+                                {lastItem === service ? service : `${service}/`}
+                            </h4>
+                        </>
+                    ))}
+                </ul>
+                <p className="w-[45%] text-center mx-auto pt-4">{description}</p>
+                <p className="pt-8">
+                    <Link href={behance} target="#" className="flex justify-center">
+                        behance
+                        <Image src={'/Arrow2.png'} width={27} height={27} alt="arrow" />
+                    </Link>
+                </p>
+            </div>
+
+            <div className="image relative -z-[1]">
+                <img src={caseStudyLayoutImg} alt="Case Study Layout" className="w-[80%] mx-auto border-solid border-[3px] border-dark-cocoa" />
+            </div>
         </>
     );
 }
@@ -20,12 +46,13 @@ function Case({ title, caseStudy }: CaseStudiesProps) {
 const caseStudyData: CaseStudiesProps[] = [
     {
         title: 'sera',
+        services: ["branding", "web design"],
         caseStudy: [
             {
-                bannerImg: "/featured-1.png",
-                description: "sera description",
-                caseStudyLayoutImg: "/featured-1.png",
-                website: "https://example.com",
+                bannerImg: "/sera-banner.png",
+                description: "Será⏤ translating to “be” in Spanish. Será is a handcrafted, artisan-made, fine jewelry atelier. They were founded in Los Angeles, California, bred to be worn to capture still moments. To remind us to just be.",
+                caseStudyLayoutImg: "/sera-behance.png",
+                behance: "https://www.behance.net/gallery/114701005/Sera-jewelry-atelier"
             },
         ],
     },
@@ -54,10 +81,14 @@ export default function CaseStudy() {
 
     return (
         <>
-            <div className="h-screen">
-                <h1>CASE STUDY PAGE</h1>
-                <Case title={caseData.title} caseStudy={caseData.caseStudy} />
+            <div className="caseStudy">
+                {/* <h1>CASE STUDY PAGE</h1> */}
+                <Case title={caseData.title} services={caseData.services} caseStudy={caseData.caseStudy} />
             </div>
+
+            {/* <div className="pagination">
+                {caseStudyData.length > 1 ? <Link href={''}><h2>NEXT</h2></Link> : null}
+            </div> */}
         </>
     );
 }
