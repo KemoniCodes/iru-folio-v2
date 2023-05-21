@@ -31,7 +31,7 @@ function Case({ title, services, caseStudy }: CaseStudiesProps) {
                 <p className="pt-8">
                     <Link href={behance} target="#" className="flex justify-center">
                         behance
-                        <Image src={'/Arrow2.png'} width={27} height={27} alt="arrow" />
+                        <Image src={'/Arrow2.png'} width={27} height={27} priority alt="arrow" />
                     </Link>
                 </p>
             </div>
