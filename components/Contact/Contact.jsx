@@ -12,21 +12,6 @@ export default function Contact() {
   const isInView = useInView(ref, { once: false });
 
   useEffect(() => {
-    gsap.to(letters.current, 5, {
-      rotation: "+=360",
-      ease: "none",
-      repeat: -1,
-    });
-
-    gsap.from(".logo-elipse", {
-      duration: 1.1,
-      y: 80,
-      opacity: 1,
-      stagger: 0.1,
-      ease: "power2",
-    });
-  }, []);
-  useEffect(() => {
     const script = document.createElement("script");
     script.innerHTML = `(function(h,b,s,n,i,p,e,t) {
         h._HB_ = h._HB_ || {};h._HB_.pid = i;;;;
@@ -41,6 +26,23 @@ export default function Contact() {
       document.body.removeChild(script);
     };
   }, []);
+  
+  useEffect(() => {
+    gsap.to(letters.current, 5, {
+      rotation: "+=360",
+      ease: "none",
+      repeat: -1,
+    });
+
+    gsap.from(".logo-elipse", {
+      duration: 1.1,
+      y: 80,
+      opacity: 1,
+      stagger: 0.1,
+      ease: "power2",
+    });
+  }, []);
+
 
   return (
     <>
