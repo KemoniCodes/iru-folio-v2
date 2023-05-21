@@ -27,7 +27,7 @@ function Case({ title, services, caseStudy }: CaseStudiesProps) {
                         </>
                     ))}
                 </ul>
-                <p className="w-[45%] text-center mx-auto pt-4">{description}</p>
+                <p className="lg:w-[45%] w-full text-center mx-auto pt-4 lg:text-[24px] text-[15px]">{description}</p>
                 <p className="pt-8">
                     <Link href={behance} target="#" className="flex justify-center">
                         behance
@@ -82,7 +82,6 @@ export default function CaseStudy() {
     return (
         <>
             <div className="caseStudy">
-                {/* <h1>CASE STUDY PAGE</h1> */}
                 <Case title={caseData.title} services={caseData.services} caseStudy={caseData.caseStudy} />
             </div>
 
