@@ -23,6 +23,11 @@ const nextConfig = {
         hostname: 'mir-s3-cdn-cf.behance.net',
         port: '',
       },
+      {
+        protocol: 'https',
+        hostname: 'www.honeybook.com',
+        port: '',
+      },
     ],
   }
 }

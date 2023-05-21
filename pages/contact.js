@@ -1,9 +1,11 @@
-export default function contact () {
+import Contact from '@/components/Contact/Contact'
+
+export default function ContactPage() {
     return (
         <>
-        <h1>
-            contact
-        </h1>
+            <div className="contact-page w-full lg:pb-16 pb-24 mt-16">
+                <Contact />
+            </div>
         </>
     )
 }
