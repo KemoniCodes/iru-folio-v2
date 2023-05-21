@@ -185,18 +185,33 @@ span {
   transform: translate(0, 500px);
 }
 
-.services-menu button[aria-selected=true] h2 {
-  @apply text-powder-iris
+.services-menu button[aria-selected="true"] h2 {
+  @apply text-powder-iris;
 }
 
 .about h2 {
-  @apply lg:text-[80px] text-[50px] lg:leading-[5rem] leading-[3rem]
+  @apply lg:text-[80px] text-[50px] lg:leading-[5rem] leading-[3rem];
 }
 
 .about h3 {
-  @apply lg:text-[24px] text-[15px]
+  @apply lg:text-[24px] text-[15px];
 }
 
+.about .hero h2 .lineParent {
+  @apply overflow-hidden;
+}
+
+.about .hero h3 .lineParent {
+  @apply overflow-hidden;
+}
+
+.about .hero h2 .lineParent .lineChildren {
+  transform: translate(0, 500px);
+}
+
+.about .hero h3 .lineParent .lineChildren {
+  transform: translate(0, 500px);
+}
 
 /* .services-info {
   position: relative;
@@ -285,8 +300,6 @@ span {
       margin-bottom: 1.2rem;
       margin-left: 0.8rem;
       font-weight: 100; } */
-
-
 
 /* @function change-nav-color($darkcocoa) {
   @if (lightness($darkcocoa) > 50) {
