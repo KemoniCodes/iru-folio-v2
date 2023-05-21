@@ -14,7 +14,7 @@ function Case({ title, thumbnail, services }: CaseStudiesProps) {
     return (
         <motion.div
             ref={ref}
-            className="caseStudy justify-center flex w-full items-center pb-14 even:justify-end"
+            className="caseStudy justify-center flex w-full items-center pb-14 lg:even:justify-end even:justify-normal"
         >
             <Link
                 href={`/works/${title}`}
@@ -27,8 +27,8 @@ function Case({ title, thumbnail, services }: CaseStudiesProps) {
                 }}
             >
                 {thumbnail && <Image src={thumbnail} width={300} height={300} alt="thumbnail" />}
-                <div className="info flex justify-between items-center">
-                    <h4 className="py-2">{title}</h4>
+                <div className="info lg:flex block justify-between items-center">
+                    <h4 className="lg:py-2 py-1">{title}</h4>
                     <ul className="flex gap-1">
                         {services?.map((service, index) => (
                             <li key={index}>
@@ -58,7 +58,7 @@ const caseStudyData: CaseStudiesProps[] = [
 export default function CaseStudies() {
     return (
         <>
-            <div className="title text-center fixed">
+            <div className="title text-center lg:fixed relative lg:mb-0 mb-8">
                 <h2>RECENT <br />/WORKS</h2>
             </div>
             <div className="caseStudies px-16">
