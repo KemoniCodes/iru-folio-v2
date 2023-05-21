@@ -37,7 +37,7 @@ function Case({ title, services, caseStudy }: CaseStudiesProps) {
             </div>
 
             <div className="image relative -z-[1]">
-                <Image src={caseStudyLayoutImg} alt="Case Study Layout" width={100} height={100} className="w-[80%] mx-auto border-solid border-[3px] border-dark-cocoa" />
+                <Image src={caseStudyLayoutImg} alt="Case Study Layout" width={1000} height={1000} className="w-[80%] mx-auto border-solid border-[3px] border-dark-cocoa" />
             </div>
         </>
     );
