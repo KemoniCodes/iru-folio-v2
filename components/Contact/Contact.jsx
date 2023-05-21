@@ -51,7 +51,7 @@ export default function Contact() {
         alt="contact"
         className="w-screen h-[500px] object-cover relative -mx-[50vw] max-w-[100vw] left-1/2 -top-36"
       />
-      <div className="logo-elipse lg:hidden block absolute right-0 top-[23rem] lg:w-fit w-[20vw] z-[0]">
+      <div className="logo-elipse lg:hidden block absolute right-0 top-[26.5rem] lg:w-fit w-[20vw] z-[0]">
         <Image className="elipse" src={Elipse} alt="Dark Mode Button" />
         <Image
           className="letters absolute bottom-[.35rem] left-[.25rem] lg:w-[120px] w-[90%] lg:left-[.7rem] mt-[.7rem] lg:bottom-3"
@@ -62,7 +62,7 @@ export default function Contact() {
       </div>
       <motion.div
         ref={ref}
-        className="lg:flex block"
+        className="lg:flex block flex-col"
         style={{
           transform: isInView ? "none" : "translateY(50px)",
           opacity: isInView ? 1 : 0,
