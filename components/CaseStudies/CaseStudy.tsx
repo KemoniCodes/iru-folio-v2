@@ -9,6 +9,7 @@ function Case({ title, services, caseStudy }: CaseStudiesProps) {
     const { bannerImg = "", description = "", images = [], behance = "", website = "" } = caseStudy ? caseStudy[0] : {};
 
     let lastItem = services ? services[services.length - 1] : null;
+    let modifiedTitle = title?.replace(/\s/g, '-');
 
     return (
         <>
@@ -16,7 +17,7 @@ function Case({ title, services, caseStudy }: CaseStudiesProps) {
                 <img src={bannerImg} alt="Banner" className="w-screen" />
 
             </div> */}
-            <div className="pb-20">
+            <div className="pb-20" key={title}>
                 <h2 className="text-center italic">{title}</h2>
                 <ul className="flex gap-1 justify-center pt-8">
                     {services?.map((service, index) => (
@@ -28,15 +29,18 @@ function Case({ title, services, caseStudy }: CaseStudiesProps) {
                     ))}
                 </ul>
                 <p className="lg:w-[45%] w-full text-center mx-auto pt-4 lg:text-[24px] text-[15px]">{description}</p>
-                <p className="pt-8">
-                    <Link href={behance} target="#" className="flex justify-center">
-                        behance
-                        <Image src={'/Arrow2.png'} width={27} height={27} priority alt="arrow" />
-                    </Link>
-                </p>
+                {behance !== '' ? (
+                    console.log(behance),
+                    <p className="pt-8">
+                        <Link href={behance} target="#" className="flex justify-center">
+                            behance
+                            <Image src={'/Arrow2.png'} width={27} height={27} priority alt="arrow" />
+                        </Link>
+                    </p>
+                ) : ''}
             </div>
 
-            <div className="images relative -z-[1] lg:grid block grid-cols-[1fr,1fr] gap-2 items-center gap-x-20">
+            <div className="images relative -z-[1] lg:grid block grid-cols-[1fr,1fr] gap-2 items-center gap-x-8 gap-y-8">
                 {images?.map((img, index) => (
                     <Image
                         src={img}
@@ -71,6 +75,24 @@ const caseStudyData: CaseStudiesProps[] = [
             },
         ],
     },
+    {
+        title: 'la-májeste',
+        services: ["mini brand", "collateral"],
+        caseStudy: [
+            {
+                bannerImg: "/sera-banner.png",
+                description: "la májeste⏤ translating to “majesty” in French. la májeste is a high end skin care brand. Selling everything from face cleansers to rich body crémes. Meant for the woman who craves beauty in every step of her maintanence routine.",
+                images: [
+                    "/la-majeste-2.png",
+                    "/la-majeste-3.png",
+                    "/la-majeste-4.png",
+                    "/la-majeste-5.png",
+                    "/la-majeste-6.png",
+                ],
+                behance: "",
+            },
+        ],
+    },
     // {
     //     title: 'SOOT',
     //     caseStudy: [
@@ -97,7 +119,7 @@ export default function CaseStudy() {
     return (
         <>
             <div className="caseStudy">
-                <Case title={caseData.title} services={caseData.services} caseStudy={caseData.caseStudy} />
+                <Case title={caseData.title} services={caseData.services} caseStudy={caseData.caseStudy}/>
             </div>
 
             {/* <div className="pagination">

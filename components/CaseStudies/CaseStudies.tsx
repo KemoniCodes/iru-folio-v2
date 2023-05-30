@@ -10,6 +10,8 @@ function Case({ title, thumbnail, services }: CaseStudiesProps) {
     const isInView = useInView(ref, { once: false });
 
     let lastItem = services ? services[services.length - 1] : null;
+    let modifiedTitle = title?.replace(/\s/g, '-');
+
 
     return (
         <motion.div
@@ -17,7 +19,7 @@ function Case({ title, thumbnail, services }: CaseStudiesProps) {
             className="caseStudy justify-center flex w-full items-center pb-14 lg:even:justify-end even:justify-normal"
         >
             <Link
-                href={`/works/${title}`}
+                href={`/works/${modifiedTitle}`}
                 key={title}
                 style={{
                     transform: isInView ? "none" : "translateY(-80px)",
@@ -47,6 +49,11 @@ const caseStudyData: CaseStudiesProps[] = [
         thumbnail: "/featured-1.png",
         title: "sera",
         services: ["branding", "web design"],
+    },
+    {
+        thumbnail: "/la-majeste-1.png",
+        title: "la májeste",
+        services: ["mini brand", "collateral"],
     },
     // {
     //     thumbnail: "/soot-hover.png",
