@@ -38,6 +38,15 @@ function Case({ title, services, caseStudy }: CaseStudiesProps) {
                         </Link>
                     </p>
                 ) : ''}
+                {/* {website !== '' ? (
+                    // console.log(behance),
+                    <p className="pt-8">
+                        <Link href={website} target="#" className="flex justify-center">
+                            website
+                            <Image src={'/Arrow2.png'} width={27} height={27} priority alt="arrow" />
+                        </Link>
+                    </p>
+                ) : ''} */}
             </div>
 
             <div className="images relative -z-[1] lg:grid block grid-cols-[1fr,1fr] gap-2 items-center gap-x-8 gap-y-8">
@@ -90,6 +99,7 @@ const caseStudyData: CaseStudiesProps[] = [
                     "/la-majeste-6.png",
                 ],
                 behance: "",
+                website: "https://la-majeste.vercel.app"
             },
         ],
     },
