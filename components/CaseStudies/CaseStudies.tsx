@@ -11,6 +11,7 @@ function Case({ title, thumbnail, services }: CaseStudiesProps) {
 
     let lastItem = services ? services[services.length - 1] : null;
     let modifiedTitle = title?.replace(/\s/g, '-');
+    console.log(services?.length ?? 0 < 3 ? 'flex-wrap w-[65%]' : '')
 
 
     return (
@@ -28,10 +29,11 @@ function Case({ title, thumbnail, services }: CaseStudiesProps) {
                         "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1.1) 0.5s",
                 }}
             >
-                {thumbnail && <Image src={thumbnail} width={300} height={300} alt="thumbnail" className="border-solid border-[3px] border-dark-cocoa"/>}
-                <div className="info lg:flex block justify-between items-center">
+
+                {thumbnail && <Image src={thumbnail} width={300} height={300} alt="thumbnail" className="border-solid border-[3px] border-dark-cocoa" />}
+                <div className="info lg:flex block justify-between items-start">
                     <h4 className="lg:py-2 py-1">{title}</h4>
-                    <ul className="flex gap-1">
+                    <ul className={`flex gap-1 lg:py-2 py-1 ${services && services.length > 2 ? 'flex-wrap w-[65%]' : ''}`}>
                         {services?.map((service, index) => (
                             <li key={index}>
                                 <h4>{lastItem === service ? service : `${service}/`}</h4>
@@ -53,7 +55,7 @@ const caseStudyData: CaseStudiesProps[] = [
     {
         thumbnail: "/la-majeste-1.png",
         title: "la májeste",
-        services: ["mini brand", "collateral"],
+        services: ["mini brand", "collateral", "web design"],
     },
     // {
     //     thumbnail: "/soot-hover.png",
