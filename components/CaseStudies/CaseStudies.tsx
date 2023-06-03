@@ -11,8 +11,6 @@ function Case({ title, thumbnail, services }: CaseStudiesProps) {
 
     let lastItem = services ? services[services.length - 1] : null;
     let modifiedTitle = title?.replace(/\s/g, '-');
-    console.log(services?.length ?? 0 < 3 ? 'flex-wrap w-[65%]' : '')
-
 
     return (
         <motion.div
