@@ -38,15 +38,14 @@ function Case({ title, services, caseStudy }: CaseStudiesProps) {
                         </Link>
                     </p>
                 ) : ''}
-                {/* {website !== '' ? (
-                    // console.log(behance),
+                {website !== '' ? (
                     <p className="pt-8">
                         <Link href={website} target="#" className="flex justify-center">
                             website
                             <Image src={'/Arrow2.png'} width={27} height={27} priority alt="arrow" />
                         </Link>
                     </p>
-                ) : ''} */}
+                ) : ''}
             </div>
 
             <div className="images relative -z-[1] lg:grid block grid-cols-[1fr,1fr] gap-2 items-center gap-x-8 gap-y-8">
@@ -86,7 +85,7 @@ const caseStudyData: CaseStudiesProps[] = [
     },
     {
         title: 'la-májeste',
-        services: ["mini brand", "collateral"],
+        services: ["mini brand", "collateral", "web design"],
         caseStudy: [
             {
                 bannerImg: "/sera-banner.png",
@@ -97,6 +96,8 @@ const caseStudyData: CaseStudiesProps[] = [
                     "/la-majeste-4.png",
                     "/la-majeste-5.png",
                     "/la-majeste-6.png",
+                    "/la-majeste-web-video.gif",
+                    "/la-majeste-web.png"
                 ],
                 behance: "",
                 website: "https://la-majeste.vercel.app"
