@@ -1,4 +1,3 @@
-import Link from "next/link"
 import CaseStudies from '@/components/CaseStudies/CaseStudies';
 
 export default function CaseStudiesPage() {
