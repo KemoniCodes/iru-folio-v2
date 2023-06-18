@@ -116,6 +116,10 @@ span {
   @apply italic;
 }
 
+.home .contact {
+  @apply pb-72;
+}
+
 .menu > span {
   @apply not-italic top-[2.5rem] relative ml-4 text-[24px] font-extralight leading-[2.5rem] -tracking-[.5%] uppercase;
 }
@@ -215,6 +219,22 @@ span {
 
 .contact-page img {
   object-position: 70% 65%;
+}
+
+.fd-form-group {
+  @apply !m-[10px] !min-w-[280px];
+}
+
+.fd-form-group input , .fd-form-group label {
+  @apply !pl-0;
+}
+
+.fd-form-content button {
+  @apply !ml-8;
+}
+
+.fd-focus-visible-applied {
+  @apply !pb-20;
 }
 
 /* @function change-nav-color($darkcocoa) {
