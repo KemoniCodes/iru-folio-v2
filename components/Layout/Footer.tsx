@@ -30,7 +30,7 @@ export default function Footer() {
                     opacity: isInView ? 1 : 0,
                     transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1.1) 0.5s"
                 }}></div>
-                <ul className="flex justify-between lg:flex-row flex-col lg:text-start text-center">
+                <ul className="flex justify-between lg:flex-row lg:flex-row-reverse flex-col lg:text-start text-center">
                     <li className="w-full">© 2023 iru studios</li>
                     <li className="w-full m-auto">
                         <ul className="flex lg:gap-4 gap-2 m-auto justify-center">
