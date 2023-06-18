@@ -21,7 +21,7 @@ function FeaturedImg1({ text, img }: FeaturedImgProps) {
                     opacity: isInView ? 1 : 0,
                     transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1.1) 0.5s"
                 }}>
-                    <Link href='/works/project'>
+                    <Link href='/works/'>
                         <Image className='border-[3px] border-dark-cocoa border-solid' src={img} width={308} height={462} alt={text} />
                     </Link>
                     <h4 className='text-right pt-2' style={{
@@ -48,7 +48,7 @@ function FeaturedImg2({ text, img }: FeaturedImgProps) {
                     opacity: isInView ? 1 : 0,
                     transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1.1) 0.5s"
                 }}>
-                    <Link href='/works/project'>
+                    <Link href='/works/'>
                         <Image className='border-[3.63584px] border-dark-cocoa border-solid' src={img} width={308} height={542} alt={text} />
                     </Link>
                     <h4 className='text-right pt-2' style={{
