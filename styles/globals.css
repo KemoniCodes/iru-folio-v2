@@ -237,6 +237,10 @@ span {
   @apply !pb-20;
 }
 
+.fd-modal button{
+  @apply !ml-[.9rem];
+}
+
 /* @function change-nav-color($darkcocoa) {
   @if (lightness($darkcocoa) > 50) {
     @return $lightcreme; // Lighter backgorund, return dark color
