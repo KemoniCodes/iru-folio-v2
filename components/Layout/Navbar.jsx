@@ -76,8 +76,8 @@ export default function Navbar() {
             </Link>
           </li>
           <li className="nav-link">
-            <Link className="nav-link" href={"/contact"}>
-              contact
+            <Link className="nav-link" href={"/shop"}>
+              shop
             </Link>
           </li>
         </ul>
