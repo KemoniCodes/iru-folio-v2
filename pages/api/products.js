@@ -1,4 +1,4 @@
-import {postToShopify} from '../../components/utils/Shopify'
+import { postToShopify } from '../../components/utils/Shopify'
 
 export default async function getProducts(_req, res) {
   const data = await postToShopify({
@@ -51,7 +51,7 @@ export default async function getProducts(_req, res) {
     variables: {},
   });
 
-  console.log('data:'+data)
+  console.log('data:' + data)
 
   res.status(200).json(data);
 }

@@ -28,6 +28,11 @@ const nextConfig = {
         hostname: 'www.honeybook.com',
         port: '',
       },
+      {
+        protocol: 'https',
+        hostname: 'cdn.shopify.com',
+        port: '',
+      },
     ],
   }
 }
