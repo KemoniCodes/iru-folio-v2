@@ -18,6 +18,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/Home/Hero.tsx", "components/Layout/menu.js", "pages/index.js", "pages/Menu.tsx", "components/Layout/Navbar.js", "components/Layout/Navbar.jsx", "components/Home/Tagline.jsx", "components/About/Hero.jsx", "components/Contact/Contact.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/Home/Hero.tsx", "components/Layout/menu.js", "pages/index.js", "pages/Menu.tsx", "components/Layout/Navbar.js", "components/Layout/Navbar.jsx", "components/Home/Tagline.jsx", "components/About/Hero.jsx", "components/Contact/Contact.jsx", "components/Shop/Shop.jsx", "pages/api/products.js", "components/utils/Shopify.js"],
   "exclude": ["node_modules"]
 }
