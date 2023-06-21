@@ -52,6 +52,26 @@ export default function Cart() {
     window.localStorage.removeItem("iru-cart-id");
   }
 
+  async function removeLineItem(lineId) {
+    try {
+      const response = await fetch("/api/removeFromCart", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          cartId: cart.id,
+          lineId: lineId,
+        }),
+      });
+
+      const updatedCart = await response.json();
+      setCart(updatedCart);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   return (
     <div className="cart h-screen">
       {/* <button className="icon">
@@ -76,6 +96,7 @@ export default function Cart() {
                   <p>
                     {item.quantity} &times; {item.merchandise?.product?.title}
                   </p>
+                  <button onClick={() => removeLineItem(item.id)}>x</button>
                 </li>
               ))}
               <li className="total">
