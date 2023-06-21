@@ -7,60 +7,59 @@ export default function ProductCard({ product }) {
   console.log("PRODIES:", product);
   const { id, title, description, imageSrc, imageAlt, price, slug, variantId } =
     product;
-  const [cart, setCart] = useState({});
+  // const [cart, setCart] = useState({});
 
-  const router = useRouter();
+  // const router = useRouter();
 
-  async function loadCart() {
-    const cartId = window.localStorage.getItem("iru-cart-id");
-    console.log("cartId:", cartId);
+  // async function loadCart() {
+  //   const cartId = window.localStorage.getItem("iru-cart-id");
+  //   console.log("cartId:", cartId);
 
-    if (!cartId) {
-      console.log("no cart");
-      setCart({});
-      return;
-    }
+  //   if (!cartId) {
+  //     console.log("no cart");
+  //     setCart({});
+  //     return;
+  //   }
 
-    const cartData = await fetch(`${window.location.origin}/api/getCart`, {
-      method: "GET",
-    }).then((res) => res.json());
+  //   const cartData = await fetch(`${window.location.origin}/api/getCart`, {
+  //     method: "GET",
+  //   }).then((res) => res.json());
 
-    if (cartData.lines) {
-      setCart(cartData);
-    }
-  }
+  //   if (cartData.lines) {
+  //     setCart(cartData);
+  //   }
+  // }
 
-  async function handleAddToCart(event) {
-    event.preventDefault();
+  // async function handleAddToCart(event) {
+  //   event.preventDefault();
 
-    const cartId = window.localStorage.getItem("iru-cart-id");
+  //   const cartId = window.localStorage.getItem("iru-cart-id");
 
-    const form = new FormData(event.target);
+  //   const form = new FormData(event.target);
 
-    const response = await fetch(`${window.location.origin}/api/addToCart`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        cartId: cartId || "",
-        itemId: form.get("productId"),
-        quantity: parseInt(form.get("quantity")),
-      }),
-    });
+  //   const response = await fetch(`${window.location.origin}/api/addToCart`, {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({
+  //       cartId: cartId || "",
+  //       itemId: form.get("productId"),
+  //       quantity: parseInt(form.get("quantity")),
+  //     }),
+  //   });
 
-    const cart = await response.json();
-    window.localStorage.setItem("iru-cart-id", cart.id);
+  //   const cart = await response.json();
+  //   window.localStorage.setItem("iru-cart-id", cart.id);
 
-    setCart(cart);
-    // router.push("/cart");
-  }
+  //   setCart(cart);
+  // }
 
-  useEffect(() => {
-    loadCart();
-  }, []);
+  // useEffect(() => {
+  //   loadCart();
+  // }, []);
 
-  function Card({ product, cart }) {
+  function Card({ product }) {
     return (
       <>
         <div className="productCard">
@@ -69,7 +68,7 @@ export default function ProductCard({ product }) {
             <h4>{title}</h4>
             <h4>{price}</h4>
           </Link>
-
+{/* 
           <form onSubmit={handleAddToCart}>
             <input type="hidden" name="productId" value={variantId} />
             <input type="hidden" name="quantity" value={1} />
@@ -77,7 +76,7 @@ export default function ProductCard({ product }) {
               Add <span className="visually-hidden">{title}</span>
               To Cart
             </button>
-          </form>
+          </form> */}
         </div>
       </>
     );
@@ -85,7 +84,7 @@ export default function ProductCard({ product }) {
 
   return (
     <>
-      <Card product={product} cart={cart} />
+      <Card product={product} />
     </>
   );
 }
