@@ -15,9 +15,7 @@ export const postToShopify = async ({ query, variables = {} }) => {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
 
-
     const result = await response.json();
-
 
     if (result.errors) {
       console.log({ errors: result.errors });

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import ProductCard from "./ProductCard";
+import ProductCard from "./Products/ProductCard";
 
 export default function ShopAll() {
   const [products, setProducts] = useState(null);
@@ -15,9 +15,9 @@ export default function ShopAll() {
         const data = await res.json();
 
         const products = data.products.edges.map(({ node }) => {
-          //   if (node.totalInventory <= 0) {
-          //     return false;
-          //   }
+          if (node.totalInventory <= 0) {
+            return false;
+          }
 
           return {
             id: node.id,
@@ -27,6 +27,7 @@ export default function ShopAll() {
             imageAlt: node.title,
             price: node.variants.edges[0].node.priceV2.amount,
             slug: node.handle,
+            variantId: node.variants.edges[0].node.id,
           };
         });
         // .filter(Boolean);
@@ -42,8 +43,6 @@ export default function ShopAll() {
   return (
     <>
       <div className="ShopAll">
-        {/* <pre>{JSON.stringify(products, null, 2)}</pre> */}
-
         <div className="products">
           {products ? (
             products.map((product, index) => (
