@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 
 export async function getStaticPaths() {
   const url = new URL(process.env.URL || "http://localhost:3000");
@@ -61,6 +62,7 @@ export async function getStaticProps({ params }) {
 
 function Product({ product }) {
   const [cart, setCart] = useState({});
+  const [isInCart, setIsInCart] = useState(false);
 
   async function loadCart() {
     const cartId = window.localStorage.getItem("iru-cart-id");
@@ -75,10 +77,23 @@ function Product({ product }) {
       method: "GET",
     }).then((res) => res.json());
 
-    if (cartData.lines) {
+    console.log("cartData", cartData.cart.lines.edges.length > 0);
+
+    if (cartData.cart.lines.edges.length > 0) {
       setCart(cartData);
+
+      // Check if the product is in the cart
+      const foundProduct = cartData.cart.lines.edges.find(
+        (line) => line.node.merchandise.id === product.variantId
+        // console.log(line.node.merchandise.id,product.variantId)
+      );
+      setIsInCart(!!foundProduct);
+
+      console.log("foundProduct:", foundProduct);
     }
   }
+
+  const router = useRouter();
 
   async function handleAddToCart(event) {
     event.preventDefault();
@@ -103,7 +118,8 @@ function Product({ product }) {
     window.localStorage.setItem("iru-cart-id", cart.id);
 
     setCart(cart);
-    // router.push("/cart");
+    setIsInCart(true);
+    router.push("/cart");
   }
 
   useEffect(() => {
@@ -117,6 +133,8 @@ function Product({ product }) {
 
   return (
     <div className="">
+      {console.log("isInCart", isInCart)}
+
       <a href={`/product/${product.slug}`}>
         {/* <Image src={product.imageSrc} alt={product.imageAlt} width={400} height={400} /> */}
       </a>
@@ -126,11 +144,21 @@ function Product({ product }) {
       <form onSubmit={handleAddToCart}>
         <input type="hidden" name="productId" value={product.variantId} />
         <input type="hidden" name="quantity" value={1} />
-        <button>
-          Add <span className="visually-hidden">{product.title}</span>
-          To Cart
+        <button disabled={isInCart}>
+          {isInCart ? (
+            <>
+              Already in Cart{" "}
+              <span className="visually-hidden">{product.title}</span>
+            </>
+          ) : (
+            <>
+              Add <span className="visually-hidden">{product.title}</span> To
+              Cart
+            </>
+          )}
         </button>
       </form>
+      {console.log("isInCart", isInCart)}
     </div>
   );
 }
