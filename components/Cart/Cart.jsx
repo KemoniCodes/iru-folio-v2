@@ -1,104 +1,5 @@
-// // export default function Cart() {
-// //     return (
-// //         <>
-// //         <h1>cart</h1>
-
-// //         </>
-// //     )
-// // }
-// import { useState, useEffect } from "react";
-
-// export default function Cart() {
-//   const [cart, setCart] = useState({});
-
-//   async function loadCart() {
-//     const cartId = window.localStorage.getItem("iru-cart-id");
-
-//     if (!cartId) {
-//       console.log("no cart");
-//       setCart({});
-//       return;
-//     }
-
-//     const cartData = await fetch(`${window.location.origin}/api/cart`, {
-//       method: "POST",
-//       body: JSON.stringify({ cartId }),
-//     }).then((res) => res.json());
-
-//     if (cartData.lines) {
-//       setCart(cartData);
-//     }
-//   }
-
-//   useEffect(() => {
-//     loadCart();
-//   }, []);
-//   return (
-//     <>
-//       {console.log(cart)}
-//       <h1>cart</h1>;
-//     </>
-//   );
-
-//   //   if (!cart) {
-//   //     return <p className="empty">loading...</p>;
-//   //   }
-
-//   //   if (cart && !cart.lines) {
-//   //     return (
-//   //       <p className="empty">
-//   //         your cart is empty! maybe boop it with a sticker or two?
-//   //       </p>
-//   //     );
-//   //   }
-
-//   //   if (cart && cart.lines.length > 0) {
-//   //     return (
-//   //       <>
-//   //         <ul className="cart-items">
-//   //           {cart.lines.map((item) => {
-//   //             const cartItem = item.merchandise;
-
-//   //             return (
-//   //               <li key={item.id}>
-//   //                 <p className="cart-item-details">
-//   //                   <span className="cart-item-name">
-//   //                     {cartItem.product.title}
-//   //                   </span>
-//   //                   <span className="cart-item-subtotal">
-//   //                     {format(cartItem, item.quantity)}
-//   //                   </span>
-//   //                 </p>
-//   //                 <p className="cart-item-quantity">
-//   //                   <span className="cart-item-count">Qty. {item.quantity}</span>
-//   //                   <span className="cart-item-unit-price">
-//   //                     {format(cartItem)} each
-//   //                   </span>
-//   //                 </p>
-//   //               </li>
-//   //             );
-//   //           })}
-//   //         </ul>
-//   //         <p className="subtotal">
-//   //           {format({
-//   //             priceV2: cart.estimatedCost.totalAmount,
-//   //           })}
-//   //         </p>
-//   //         {cart.id && (
-//   //           <form action="/api/v2/store/create-checkout" method="POST">
-//   //             <input type="hidden" name="cartId" value={cart.id} />
-//   //             <button>Check Out</button>
-//   //           </form>
-//   //         )}
-//   //         <p className="empty-cart">
-//   //           <button onClick={emptyCart}>empty cart</button>
-//   //         </p>
-//   //       </>
-//   //     );
-//   //   }
-// }
-
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 export default function Cart() {
   const [cart, setCart] = useState({ id: null, lines: [] });
@@ -158,6 +59,9 @@ export default function Cart() {
       </button> */}
       <div className={`drawer ${open ? "open" : ""}`}>
         <button className="close">&times; close</button>
+        <Link href={"/shop"}>
+          <h4>back to shop</h4>
+        </Link>
 
         <h3>Your Cart</h3>
         {console.log(cart.lines)}
