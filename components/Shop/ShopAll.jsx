@@ -42,8 +42,8 @@ export default function ShopAll() {
 
   return (
     <>
-      <div className="ShopAll">
-        <div className="products">
+      <div className="ShopAll mt-28 h-screen lg:mb-0 mb-80">
+        <div className="products lg:flex block gap-6 justify-center">
           {products ? (
             products.map((product, index) => (
               <ProductCard key={index} product={product} />

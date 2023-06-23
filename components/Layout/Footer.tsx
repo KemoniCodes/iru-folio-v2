@@ -45,7 +45,7 @@ export default function Footer() {
                             </Link></li>
                         </ul>
                     </li>
-                    <li className="text-end w-full">
+                    <li className="lg:text-end text-center w-full">
                         <Mailto
                             email="hello@iru-studios.com"
                             // obfuscate={true}

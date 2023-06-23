@@ -62,13 +62,25 @@ export default function ProductCard({ product }) {
   function Card({ product }) {
     return (
       <>
-        <div className="productCard">
+        <div className="productCard lg:mb-0 mb-8">
           <Link href={`/shop/product/${product.slug}`}>
-            <Image src={imageSrc} alt="alttext" width={200} height={200} />
-            <h4>{title}</h4>
-            <h4>{price}</h4>
+            <div className="img-container">
+              <Image
+                className="w-96 lg:h-[511px] h-[450px] object-cover"
+                src={imageSrc}
+                alt="alttext"
+                width={200}
+                height={200}
+              />
+            </div>
+            <div className="product-deets flex justify-between mt-2">
+              <h3>{title}</h3>
+              <h3 className=" font-thin">
+                <i>${Math.floor(price)}</i>
+              </h3>
+            </div>
           </Link>
-{/* 
+          {/* 
           <form onSubmit={handleAddToCart}>
             <input type="hidden" name="productId" value={variantId} />
             <input type="hidden" name="quantity" value={1} />

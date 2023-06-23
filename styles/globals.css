@@ -24,7 +24,7 @@ body {
 
 h1,
 .h1 {
-  @apply text-[250px] font-extralight uppercase text-dark-cocoa;
+  @apply lg:text-[250px] text-[50px] lg:leading-normal leading-[3rem] font-extralight uppercase text-dark-cocoa;
 }
 
 h2 {
@@ -230,7 +230,7 @@ span {
 }
 
 .fd-form-content button {
-  @apply !ml-8;
+  @apply lg:!ml-8 !ml-0;
 }
 
 .fd-focus-visible-applied {
