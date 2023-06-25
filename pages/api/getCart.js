@@ -99,6 +99,9 @@ export default async function getCart(req, res) {
                       currencyCode
                     }
                     title
+                    image {
+                      src
+                    }
                     product {
                       id
                       handle
