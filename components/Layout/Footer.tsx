@@ -24,7 +24,7 @@ export default function Footer() {
 
     return (
         <>
-            <footer className="absolute w-full bottom-0 left-0 overflow-hidden">
+            <footer className="w-full bottom-0 left-0 overflow-hidden">
                 <div ref={ref} id="fd-form-648e8f573b413b66d0ce7614" style={{
                     transform: isInView ? "none" : "translateY(-80px)",
                     opacity: isInView ? 1 : 0,

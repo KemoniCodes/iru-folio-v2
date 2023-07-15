@@ -16,7 +16,7 @@ export default function Cart() {
         );
 
         console.log("existingCartC:", existingCart);
-
+        if (existingCart.cart != null) {
         setCart({
           id: existingCart.cart.id,
           checkoutUrl: existingCart.cart.checkoutUrl,
@@ -24,6 +24,7 @@ export default function Cart() {
           totalAmount: existingCart.cart.cost.totalAmount,
           lines: existingCart.cart.lines.edges,
         });
+      }
 
         return;
       }
@@ -88,7 +89,7 @@ export default function Cart() {
     currency: "USD",
   });
   return (
-    <div className="cart h-screen">
+    <div className="cart lg:h-screen h-full">
       {/* <button className="icon">
         <div className="count">{cart.lines.length}</div>
       </button> */}

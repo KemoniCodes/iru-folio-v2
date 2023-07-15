@@ -14,7 +14,7 @@ function FeaturedImg1({ text, img }: FeaturedImgProps) {
 
     return (
         <>
-            <motion.div ref={ref} className=" justify-center flex w-full items-center  pb-14"
+            <motion.div ref={ref} className="justify-center flex w-full items-center  pb-14"
             >
                 <div className='ft-img-1' style={{
                     transform: isInView ? "none" : "translateY(-80px)",

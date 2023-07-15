@@ -31,7 +31,7 @@ function Case({ title, thumbnail, services }: CaseStudiesProps) {
                 {thumbnail && <Image src={thumbnail} width={300} height={300} alt="thumbnail" className="border-solid border-[3px] border-dark-cocoa" />}
                 <div className="info lg:flex block justify-between items-start">
                     <h4 className="lg:py-2 py-1">{title}</h4>
-                    <ul className={`flex gap-1 lg:py-2 py-1 ${services && services.length > 2 ? 'flex-wrap w-[65%]' : ''}`}>
+                    <ul className={`flex gap-1 lg:py-2 py-1 ${services && services.length > 2 ? 'flex-wrap lg:w-[65%] w-full' : ''}`}>
                         {services?.map((service, index) => (
                             <li key={index}>
                                 <h4>{lastItem === service ? service : `${service}/`}</h4>

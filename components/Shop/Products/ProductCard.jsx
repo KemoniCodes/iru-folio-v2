@@ -60,6 +60,7 @@ export default function ProductCard({ product }) {
   // }, []);
 
   function Card({ product }) {
+    console.log(product)
     return (
       <>
         <div className="productCard lg:mb-0 mb-8">
@@ -75,7 +76,7 @@ export default function ProductCard({ product }) {
             </div>
             <div className="product-deets flex justify-between mt-2">
               <h3>{title}</h3>
-              <h3 className=" font-thin">
+              <h3 className="font-thin">
                 <i>${Math.floor(price)}</i>
               </h3>
             </div>

@@ -89,7 +89,7 @@ export default function Hero() {
       </div>
 
       <div className="contact-menu relative top-[12%] lg:block hidden">
-        <ul className=" list-none mb-12">
+        <ul className="list-none mb-12">
           <li>
             <Mailto
               email="hello@iru-studios.com"

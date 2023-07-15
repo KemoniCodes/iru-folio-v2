@@ -18,7 +18,7 @@ export default function Contact() {
         >
           <h1
             id="c-title"
-            className=" leading-[18rem] border-b-[5px] border-solid border-dark-cocoa w-fit"
+            className="leading-[18rem] border-b-[5px] border-solid border-dark-cocoa w-fit"
             style={{
                 transform: isInView ? "none" : "translateY(100px)",
                 opacity: isInView ? 1 : 0,
@@ -29,7 +29,7 @@ export default function Contact() {
           </h1>
           <h1
             id="c-title"
-            className=" leading-[18rem] border-b-[5px] border-solid border-dark-cocoa self-end"
+            className="leading-[18rem] border-b-[5px] border-solid border-dark-cocoa self-end"
             style={{
                 transform: isInView ? "none" : "translateY(100px)",
                 opacity: isInView ? 1 : 0,

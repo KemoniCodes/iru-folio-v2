@@ -35,7 +35,7 @@ h3 {
   @apply text-[24px] font-extralight leading-[24px] -tracking-[.5%] uppercase text-dark-cocoa;
 }
 
-h4 {
+h4,.h4 {
   @apply text-[15px] font-extralight leading-[15px] uppercase text-dark-cocoa;
 }
 
@@ -117,7 +117,7 @@ span {
 }
 
 .home .contact {
-  @apply pb-72;
+  @apply pb-32;
 }
 
 .menu > span {
@@ -241,6 +241,9 @@ span {
   @apply !ml-[.9rem];
 }
 
+.productImg::-webkit-scrollbar{
+  @apply hidden;
+}
 /* @function change-nav-color($darkcocoa) {
   @if (lightness($darkcocoa) > 50) {
     @return $lightcreme; // Lighter backgorund, return dark color

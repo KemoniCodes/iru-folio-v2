@@ -22,7 +22,7 @@ function Case({ title, services, caseStudy }: CaseStudiesProps) {
                 <ul className="flex gap-1 justify-center pt-8">
                     {services?.map((service, index) => (
                         <>
-                            <h4 key={index} className=" font-normal">
+                            <h4 key={index} className="font-normal">
                                 {lastItem === service ? service : `${service}/`}
                             </h4>
                         </>

@@ -19,11 +19,15 @@ export default function Navbar() {
   useEffect(() => {
     async function getCart() {
       let localCartData = window.localStorage.getItem("iru-cart-id");
+      console.log(localCartData)
       if (localCartData != null) {
         const existingCart = await fetch(`/api/getCart`).then((res) =>
           res.json()
         );
 
+        console.log(existingCart)
+
+        if (existingCart.cart != null) {
         setCart({
           id: existingCart.cart.id,
           checkoutUrl: existingCart.cart.checkoutUrl,
@@ -32,6 +36,7 @@ export default function Navbar() {
           lines: existingCart.cart.lines.edges,
           totalQuantity: existingCart.cart.totalQuantity,
         });
+      }
 
         return;
       }
@@ -76,8 +81,8 @@ export default function Navbar() {
             >
               <ModalOverlay />
               <ModalContent>
-                <ModalCloseButton className=" text-light-creme" />
-                <ModalBody className=" bg-powder-iris">
+                <ModalCloseButton className="text-light-creme" />
+                <ModalBody className="bg-powder-iris">
                   <div className="menu mt-4 lg:m-10 m-0">
                     <ul className="ml-4 list-none mt-24 relative top-[4.5rem]">
                       <li>
@@ -153,8 +158,8 @@ export default function Navbar() {
             >
               <ModalOverlay />
               <ModalContent>
-                <ModalCloseButton className=" text-light-creme" />
-                <ModalBody className=" bg-powder-iris">
+                <ModalCloseButton className="text-light-creme" />
+                <ModalBody className="bg-powder-iris">
                   <div className="menu mt-4 lg:m-10 m-0">
                     <ul className="ml-4 list-none relative">
                       <li>
@@ -206,8 +211,8 @@ export default function Navbar() {
             </li>
             <li className="nav-link">
               <Link className="nav-link" href={"/cart"}>
-                {console.log(cart.totalQuantity)}
-                cart ({cart?.totalQuantity || "0"})
+                {console.log(cart)}
+                cart ({cart?.totalQuantity || 0})
               </Link>
             </li>
           </ul>

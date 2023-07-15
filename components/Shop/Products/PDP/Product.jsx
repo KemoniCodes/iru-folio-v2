@@ -1,7 +1,9 @@
+import React, { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import { motion, useInView } from "framer-motion";
 
 export async function getStaticPaths() {
   const url = new URL(process.env.URL || "http://localhost:3000");
@@ -77,12 +79,13 @@ function Product({ product }) {
       method: "GET",
     }).then((res) => res.json());
 
-    console.log("cartData", cartData.cart.lines.edges.length > 0);
+    // console.log("cartData", cartData.cart.lines.edges.length > 0); 
 
-    if (cartData.cart.lines.edges.length > 0) {
+    if (cartData.cart != null) {
+
+    if (cartData.cart.lines.edges.length > 0 ) {
       setCart(cartData);
 
-      // Check if the product is in the cart
       const foundProduct = cartData.cart.lines.edges.find(
         (line) => line.node.merchandise.id === product.variantId
         // console.log(line.node.merchandise.id,product.variantId)
@@ -91,6 +94,7 @@ function Product({ product }) {
 
       console.log("foundProduct:", foundProduct);
     }
+  }
   }
 
   const router = useRouter();
@@ -131,35 +135,50 @@ function Product({ product }) {
     currency: "USD",
   });
 
-  return (
-    <div className="">
-      {console.log("isInCart", isInCart)}
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: false });
 
-      <a href={`/product/${product.slug}`}>
-        {/* <Image src={product.imageSrc} alt={product.imageAlt} width={400} height={400} /> */}
-      </a>
-      <h2>{product.title}</h2>
-      <p>{product.description}</p>
-      <p className={""}>{formattedPrice.format(product.price)}</p>
-      <form onSubmit={handleAddToCart}>
-        <input type="hidden" name="productId" value={product.variantId} />
-        <input type="hidden" name="quantity" value={1} />
-        <button disabled={isInCart}>
-          {isInCart ? (
-            <>
-              Already in Cart{" "}
-              <span className="visually-hidden">{product.title}</span>
-            </>
-          ) : (
-            <>
-              Add <span className="visually-hidden">{product.title}</span> To
-              Cart
-            </>
-          )}
-        </button>
-      </form>
-      {console.log("isInCart", isInCart)}
-    </div>
+  return (
+    <>
+     <div className="productImg pb-14 w-1/2 h-screen overflow-y-scroll relative">
+        <Image
+          src={product.imageSrc}
+          alt={product.imageAlt}
+          width={400}
+          height={400}
+          className="w-full"
+        />
+      </div>
+
+      {/* <motion.div ref={ref} className=""> */}
+      <div className="productInfo text-left w-1/2 sticky top-0 h-screen overflow-y-auto pl-8 pt-12">
+      <div className="lg:sticky relative">
+            <a href={`/product/${product.slug}`}></a>
+            <h2>{product.title}</h2>
+            <p className="mt-16">{formattedPrice.format(product.price)}</p>
+            <p>{product.description}</p>
+
+            <form onSubmit={handleAddToCart}>
+              <input type="hidden" name="productId" value={product.variantId} />
+              <input type="hidden" name="quantity" value={1} />
+              <button disabled={isInCart}>
+                {isInCart ? (
+                  <>
+                    Already in Cart{" "}
+                    <span className="visually-hidden">{product.title}</span>
+                  </>
+                ) : (
+                  <>
+                    Add <span className="visually-hidden">{product.title}</span>{" "}
+                    To Cart
+                  </>
+                )}
+              </button>
+            </form>
+          </div>
+        </div>
+      {/* </motion.div> */}
+    </>
   );
 }
 
@@ -208,12 +227,21 @@ export default function PDPProduct() {
   }, []);
 
   return (
-    <div className={""}>
-      <main className={""}>
-        <div className={""}>
-          {product ? <Product product={product} /> : <p>Loading...</p>}
-        </div>
-      </main>
-    </div>
+    <>
+      <div className="breadcrumbs flex items-center mb-8">
+        <Link href={"/shop"} className="pr-[.5rem]">
+          <h4 className="border-b-solid border-b-[.9px] border-b-dark-cocoa">
+            shop
+          </h4>
+        </Link>
+        /
+        {product && product.title && (
+          <h4 className="current pl-[.5rem]">{product.title}</h4>
+        )}
+      </div>
+      <div className="pdp lg:flex block w-screen">
+        {product ? <Product product={product} /> : <p>Loading...</p>}
+      </div>
+    </>
   );
 }

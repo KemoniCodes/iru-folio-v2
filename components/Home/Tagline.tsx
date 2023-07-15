@@ -30,7 +30,7 @@ function Tagline1({ text, gif }: TaglineProps) {
         }}>
           <Image
             alt="gif"
-            className=" border-[3px] border-solid border-dark-cocoa rounded-[4.5rem]"
+            className="border-[3px] border-solid border-dark-cocoa rounded-[4.5rem]"
             src={gif}
             width={600}
             height={600}
@@ -50,7 +50,7 @@ function Tagline2({ text, gif }: TaglineProps) {
       <motion.div ref={ref} className="functional flex w-full items-end justify-between pb-20">
         <Image
           alt="gif"
-          className=" lg:w-[300px] w-[35%] lg:bottom-auto bottom-[9.5rem] -z-[1] border-[3px] border-solid border-dark-cocoa rounded-[4.5rem] absolute"
+          className="lg:w-[300px] w-[35%] lg:bottom-auto bottom-[9.5rem] -z-[1] border-[3px] border-solid border-dark-cocoa rounded-[4.5rem] absolute"
           src={gif}
           width={300}
           height={300}
