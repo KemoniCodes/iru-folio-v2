@@ -31,7 +31,7 @@ h2 {
   @apply lg:text-[113px] font-extralight lg:leading-[101.4px] -tracking-[.5%] uppercase text-dark-cocoa text-[50px] leading-[3rem];
 }
 
-h3 {
+h3,.h3 {
   @apply text-[24px] font-extralight leading-[24px] -tracking-[.5%] uppercase text-dark-cocoa;
 }
 
@@ -39,7 +39,7 @@ h4 {
   @apply text-[15px] font-extralight leading-[15px] uppercase text-dark-cocoa;
 }
 
-p {
+p,.p {
   @apply text-[24px] font-extralight leading-[24px] -tracking-[.5%] uppercase text-dark-cocoa;
 }
 
@@ -53,6 +53,41 @@ a {
 
 a:hover {
   @apply text-powder-iris;
+}
+
+.sidebar-title:first-child > h3 {
+  border: none
+}
+.sidebar-title:nth-child(2) {
+  border-top: 0;
+  padding-top: 0 !important;
+}
+
+.sidebar h3 {
+  @apply transition-linkHover;
+}
+
+.sidebar h3:hover {
+  @apply text-powder-iris border-powder-iris;
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 0.3vw;
+  margin-left: 1rem;
+}
+
+/* Track */
+.sidebar::-webkit-scrollbar-track {
+  background: var(--lightcreme);
+  border-radius: 3px;
+  margin-top: 1.6vw;
+  margin-bottom: 1.6vw;
+}
+ 
+/* Handle */
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: var(--darkcocoa);
+  border-radius: 3px;
 }
 
 .nav-link {
@@ -117,7 +152,7 @@ span {
 }
 
 .home .contact {
-  @apply pb-72;
+  @apply lg:pb-72 pb-[34rem];
 }
 
 .menu > span {
@@ -230,7 +265,7 @@ span {
 }
 
 .fd-form-content button {
-  @apply !ml-8;
+  @apply lg:!ml-8 !ml-0;
 }
 
 .fd-focus-visible-applied {
