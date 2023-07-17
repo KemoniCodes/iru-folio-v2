@@ -6,4 +6,5 @@ export interface DocumentationProps {
     description3?: string;
     header?: boolean;
     note?: string;
+    onClick?: (title: string) => void;
 }

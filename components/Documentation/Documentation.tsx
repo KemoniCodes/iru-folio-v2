@@ -14,12 +14,17 @@ import {
 } from "@chakra-ui/react";
 
 function Sidebar({ title, header, onClick }: DocumentationProps) {
+  const handleClick = () => {
+    if (onClick) {
+      onClick(title);
+    }
+  };
   return (
     <>
       <div
         className={`sidebar-title mb-[2rem] text-right ${header ? "first:border-b-solid first:border-b-[1px] first:border-b-dark-cocoa first:pb-[1.5rem]  not-first:border-t-solid not-first:border-t-[1px] not-first:border-t-dark-cocoa not-first:pt-[2.5rem]" : ""
           }`}
-        onClick={() => onClick(title)}
+        onClick={handleClick}
       >
         <h3 className={`leading-8 hover:border-b-solid hover:italic hover:cursor-pointer ${header ? "border-b-solid border-b-[1px] border-b-dark-cocoa leading-[2rem] w-fit ml-auto" : ""} heading text-3xl`}>{title}</h3>
       </div>
@@ -791,10 +796,11 @@ export default function Documentation() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const router = useRouter();
-  const projectTitle = router.query.slug?.replace(/-/g, " ");
+  const projectTitle = typeof router.query.slug === 'string' ? router.query.slug.replace(/-/g, ' ') : '';
+
   const [activeSection, setActiveSection] = useState("");
 
-  const handleClick = (title) => {
+  const handleClick = (title: string) => {
     setActiveSection(title);
     const element = document.getElementById(title);
     if (element) {
@@ -802,10 +808,11 @@ export default function Documentation() {
     }
   };
 
-  const docNav = event => {
-    onClose(event)
-    handleClick(event)
-  }
+  const docNav = (event: string) => {
+    onClose();
+    handleClick(event);
+  };
+
 
   return (
     <>
