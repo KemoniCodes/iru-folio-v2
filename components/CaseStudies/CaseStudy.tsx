@@ -9,7 +9,7 @@ function Case({ title, services, caseStudy }: CaseStudiesProps) {
     const { bannerImg = "", description = "", images = [], behance = "", website = "" } = caseStudy ? caseStudy[0] : {};
 
     let lastItem = services ? services[services.length - 1] : null;
-    let modifiedTitle = title?.replace(/\s/g, '-');
+    let modifiedTitle = title?.replace(/-/g, " ");
 
     return (
         <>
@@ -18,7 +18,7 @@ function Case({ title, services, caseStudy }: CaseStudiesProps) {
 
             </div> */}
             <div className="pb-20" key={title}>
-                <h2 className="text-center italic">{title}</h2>
+                <h2 className="text-center italic">{modifiedTitle}</h2>
                 <ul className="flex gap-1 justify-center pt-8">
                     {services?.map((service, index) => (
                         <>
