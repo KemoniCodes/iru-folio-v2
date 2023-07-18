@@ -23,7 +23,7 @@ export default function ShopAll() {
             id: node.id,
             title: node.title,
             description: node.description,
-            imageSrc: node.images.edges[0].node.src,
+            imageSrc: node.images.edges,
             imageAlt: node.title,
             price: node.variants.edges[0].node.priceV2.amount,
             slug: node.handle,

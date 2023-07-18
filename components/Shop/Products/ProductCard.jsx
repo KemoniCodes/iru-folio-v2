@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
 
+
 export default function ProductCard({ product }) {
   console.log("PRODIES:", product);
   const { id, title, description, imageSrc, imageAlt, price, slug, variantId } =
@@ -59,21 +60,42 @@ export default function ProductCard({ product }) {
   //   loadCart();
   // }, []);
 
+
+
   function Card({ product }) {
-    console.log(product)
+    const [isHovering, setIsHovered] = useState(false);
+    const onMouseEnter = () => setIsHovered(true);
+    const onMouseLeave = () => setIsHovered(false);
+
+  
+
+    const defaultImage = product.imageSrc[0].node.src;
+  const hoverImage = product.imageSrc[1].node.src;
     return (
       <>
         <div className="productCard lg:mb-0 mb-8 w-[50vw]">
           <Link href={`/shop/product/${product.slug}`}>
-            <div className="img-container">
-              <Image
-                className="w-full lg:h-[80vh] h-[450px] object-cover"
-                src={imageSrc}
-                alt="alttext"
-                width={200}
-                height={200}
-                unoptimized
-              />
+            <div
+              className="relative w-full lg:h-[80vh] h-[450px] overflow-hidden"
+              onMouseEnter={onMouseEnter}
+              onMouseLeave={onMouseLeave}
+            >
+              {product.imageSrc.map(
+                (img, index) => (
+                  console.log(img),
+                  (
+                    <Image
+                    src={isHovering ? hoverImage : defaultImage}
+                     alt={img.node.alt}
+                      width={200}
+                      height={200}
+                      key={index}
+                      className="w-full lg:h-[80vh] h-[450px] object-cover absolute top-0 left-0 transition-opacity duration-300 "
+                      unoptimized
+                    />
+                  )
+                )
+              )}
             </div>
             <div className="product-deets flex justify-between mt-2">
               <h3>{title}</h3>

@@ -5,6 +5,11 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { motion, useInView } from "framer-motion";
 
+import { Box, IconButton } from "@chakra-ui/react";
+import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
+
+import Slider from "react-slick";
+
 export async function getStaticPaths() {
   const url = new URL(process.env.URL || "http://localhost:3000");
   url.pathname = "/api/products";
@@ -41,12 +46,13 @@ export async function getStaticProps({ params }) {
     id: node.id,
     title: node.title,
     description: node.description,
-    imageSrc: node.images.edges[0]?.node.src,
+    imageSrc: node.images.edges,
     imageAlt: node.title,
     price: node.variants.edges[0]?.node.priceV2.amount,
     slug: node.handle,
     variantId: node.variants.edges[0].node.id,
     variant: node.variants.edges[0],
+    metafield: node.metafields,
   }));
 
   const currentSlug = new URL(window.location.href).pathname.split(
@@ -62,6 +68,17 @@ export async function getStaticProps({ params }) {
     props: { product },
   };
 }
+
+const settings = {
+  dots: false,
+  arrows: true,
+  fade: true,
+  infinite: true,
+  autoplay: false,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+};
 
 function Product({ product }) {
   console.log(product);
@@ -144,8 +161,11 @@ function Product({ product }) {
 
   console.log(foundProductVariant.id);
 
+  const [activeOption, setActiveOption] = useState(null);
+
   function handleOptionChange(option) {
     setSelectedOption({ option, price: foundProductVariant.priceV2.amount });
+    setActiveOption(option);
   }
 
   console.log("option", selectedOption);
@@ -167,46 +187,105 @@ function Product({ product }) {
 
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false });
+  const [slider, setSlider] = useState({ ...Slider });
 
   return (
     <>
-      {/* width: 100%;
-    max-width: 66%;
-    grid-column-gap: 60px;
-    grid-row-gap: 60px;
-    flex-direction: column;
-    align-items: flex-start;
-    display: flex; */}
-      <div className="productImg pb-14 w-full max-w-[50%] relative">
-        <Image
-          src={product.imageSrc}
-          alt={product.imageAlt}
-          width={400}
-          height={400}
-          className="w-full"
-          unoptimized
+      <Box
+        position={"relative"}
+        height={"auto"}
+        width={"full"}
+        overflow={"hidden"}
+        className="lg:hidden block"
+      >
+        <link
+          rel="stylesheet"
+          type="text/css"
+          charSet="UTF-8"
+          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
         />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
+        />
+        <IconButton
+          position="absolute"
+          left={".35rem"}
+          top={"50%"}
+          transform={"translate(0%, -50%)"}
+          zIndex={2}
+          onClick={() => slider?.slickPrev()}
+          className="!bg-transparent !text-[2rem]"
+        >
+          <ChevronLeftIcon className="!text-light-creme" />
+        </IconButton>
+
+        <IconButton
+          position="absolute"
+          right={".35rem"}
+          top={"50%"}
+          transform={"translate(0%, -50%)"}
+          zIndex={2}
+          onClick={() => slider?.slickNext()}
+          className="!bg-transparent !text-[2rem]"
+        >
+          <ChevronRightIcon className="!text-light-creme" />
+        </IconButton>
+
+        <Slider {...settings} ref={(slider) => setSlider(slider)}>
+          {product.imageSrc.map(
+            (img, index) => (
+              console.log(img),
+              (
+                <Box
+                  key={index}
+                  position="relative"
+                  className="object-cover flex m-auto"
+                >
+                  <Image
+                    src={img.node.src}
+                    alt={img.node.alt}
+                    width={400}
+                    height={400}
+                    key={index}
+                    className="w-full"
+                    unoptimized
+                  />
+                </Box>
+              )
+            )
+          )}
+        </Slider>
+      </Box>
+
+      <div
+        className="productImg pb-14 -ml-8 
+      w-full sticky top-0 lg:h-screen h-auto max-w-[50%] overflow-scroll overflow-y-auto overflow-x-hidden lg:block hidden
+    "
+      >
+        {product.imageSrc.map(
+          (img, index) => (
+            console.log(img),
+            (
+              <Image
+                src={img.node.src}
+                alt={img.node.alt}
+                width={400}
+                height={400}
+                key={index}
+                className="w-full"
+                unoptimized
+              />
+            )
+          )
+        )}
       </div>
 
-      {/* <motion.div ref={ref} className=""> */}
-      {/* overflow-x: hidden;
-    overflow-y: auto;
-    width: 100%;
-    height: 100vh;
-    max-width: 40%;
-    grid-column-gap: 24px;
-    grid-row-gap: 24px;
-    flex-direction: column;
-    align-items: flex-end;
-    margin-right: 17px;
-    padding-top: 80px;
-    padding-bottom: 80px;
-    padding-right: 17px;
-    /* display: flex; */}
-      {/* position: sticky;
-    top: 0;
-    overflow: scroll; */}
-      <div className="productInfo text-left w-full sticky top-0 h-screen max-w-[50%] overflow-scroll overflow-y-auto overflow-x-hidden pl-8 pt-12">
+      <div
+        className="productInfo text-left w-full lg:max-w-[50%] max-w-none
+      relativepl-8 pt-12"
+      >
         <div className="lg:sticky relative">
           <a href={`/product/${product.slug}`}></a>
           <h2>{product.title}</h2>
@@ -214,16 +293,22 @@ function Product({ product }) {
             {formattedPrice.format(selectedOption.price)}
           </h3>
 
-          {console.log("YO", product)}
-
           <div className="productOptions mb-8">
             <h3 className="mt-8 mb-2">{product.optionsName}</h3>
             {product.options.map((option, index) => (
               <>
                 <button
-                  className="mr-4 h4 border-solid border-[1px] border-dark-cocoa 
-              !text-dark-cocoa bg-transparent hover:bg-dark-cocoa hover:!text-light-creme !font-normal p-[.5rem]"
                   key={index}
+                  className={`mr-4 h4 border-solid border-[1px] border-dark-cocoa hover:!text-light-creme
+            ${
+              activeOption === option
+                ? "!text-light-creme bg-dark-cocoa"
+                : "text-dark-cocoa bg-transparent"
+            } 
+            hover:bg-dark-cocoa ${
+              activeOption === option ? "hover:!text-light-creme" : ""
+            } 
+            !font-normal p-[.5rem]`}
                   onClick={() => handleOptionChange(option)}
                 >
                   {option}
@@ -232,7 +317,34 @@ function Product({ product }) {
             ))}
           </div>
 
-          <p>{product.description}</p>
+          <div className="flex flex-col-reverse mt-6 mb-10">
+            {product.metafield.map((mf, index) => (
+              <>
+                {mf.key == "demostorepassword" ? (
+                  <p>
+                    password:
+                    <span className="!normal-case pl-2">{mf.value}</span>
+                  </p>
+                ) : (
+                  ""
+                )}
+                {mf.key == "demostore" ? (
+                  <p>
+                    demo store:
+                    <span className="!normal-case pl-2 italic">
+                      <Link href={mf.value}>{product.title}</Link>
+                    </span>
+                  </p>
+                ) : (
+                  ""
+                )}
+              </>
+            ))}
+          </div>
+
+          <p className="normal-case mt-10 mb-12">
+            {product.description.toString()}
+          </p>
 
           <form onSubmit={handleAddToCart}>
             <input
@@ -244,14 +356,13 @@ function Product({ product }) {
             <button
               disabled={isInCart}
               className="h4 hover:border-solid hover:border-[1px] hover:border-dark-cocoa 
-              hover:!text-dark-cocoa hover:bg-transparent bg-dark-cocoa !text-light-creme !font-normal p-[.8rem] w-fit"
+              hover:!text-dark-cocoa hover:bg-transparent bg-dark-cocoa !text-light-creme !font-normal p-[.8rem] w-full"
             >
               {isInCart ? <>Already in Cart</> : <>Add To Cart</>}
             </button>
           </form>
         </div>
       </div>
-      {/* </motion.div> */}
     </>
   );
 }
@@ -279,7 +390,7 @@ export default function PDPProduct() {
         id: node.id,
         title: node.title,
         description: node.description,
-        imageSrc: node.images.edges[0]?.node.src,
+        imageSrc: node.images.edges,
         imageAlt: node.title,
         price: node.variants.edges[0]?.node.priceV2.amount,
         slug: node.handle,
@@ -287,7 +398,10 @@ export default function PDPProduct() {
         options: node.options[0].values,
         optionsName: node.options[0].name,
         variant: node.variants.edges,
+        metafield: node.metafields,
       }));
+
+      console.log("THIS", products);
 
       const currentSlug = new URL(window.location.href).pathname.split(
         "/product/"
@@ -318,11 +432,7 @@ export default function PDPProduct() {
           <h4 className="current pl-[.5rem]">{product.title}</h4>
         )}
       </div>
-      {/* justify-content: space-between;
-    align-items: flex-start;
-    display: flex;
-    position: relative; */}
-      <div className="pdp lg:flex block w-screen justify-between items-start relative">
+      <div className="pdp lg:flex block w-full justify-between items-start relative">
         {product ? <Product product={product} /> : <p>Loading...</p>}
       </div>
     </>

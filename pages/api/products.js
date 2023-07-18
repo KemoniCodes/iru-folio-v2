@@ -1,4 +1,4 @@
-import { postToShopify } from '../../components/utils/Shop/PostToShopify'
+import { postToShopify } from '../../components/utils/Shop/PostToShopify';
 
 export default async function getProducts(_req, res) {
   const data = await postToShopify({
@@ -35,7 +35,7 @@ export default async function getProducts(_req, res) {
                   currencyCode
                 }
               }
-              images(first: 1) {
+              images(first: 10) {
                 edges {
                   node {
                     src
@@ -48,6 +48,12 @@ export default async function getProducts(_req, res) {
                 name
                 values
               }
+              metafields( identifiers: [ {namespace: "custom", key: "demostorepassword"}, 
+              {namespace: "custom", key: "demostore"}, ]) {
+                id
+                key
+                value
+              }
             }
           }
         }
@@ -56,7 +62,7 @@ export default async function getProducts(_req, res) {
     variables: {},
   });
 
-  console.log('Productdata:' + data)
+  console.log('Productdata:', data);
 
   res.status(200).json(data);
 }
