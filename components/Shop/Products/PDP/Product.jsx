@@ -46,6 +46,7 @@ export async function getStaticProps({ params }) {
     price: node.variants.edges[0]?.node.priceV2.amount,
     slug: node.handle,
     variantId: node.variants.edges[0].node.id,
+    variant: node.variants.edges[0],
   }));
 
   const currentSlug = new URL(window.location.href).pathname.split(
@@ -63,8 +64,13 @@ export async function getStaticProps({ params }) {
 }
 
 function Product({ product }) {
+  console.log(product);
   const [cart, setCart] = useState({});
   const [isInCart, setIsInCart] = useState(false);
+  const [selectedOption, setSelectedOption] = useState({
+    option: product.options[0],
+    price: product.price,
+  });
 
   async function loadCart() {
     const cartId = window.localStorage.getItem("iru-cart-id");
@@ -79,22 +85,21 @@ function Product({ product }) {
       method: "GET",
     }).then((res) => res.json());
 
-    // console.log("cartData", cartData.cart.lines.edges.length > 0); 
+    // console.log("cartData", cartData.cart.lines.edges.length > 0);
 
     if (cartData.cart != null) {
+      if (cartData.cart.lines.edges.length > 0) {
+        setCart(cartData);
 
-    if (cartData.cart.lines.edges.length > 0 ) {
-      setCart(cartData);
+        const foundProduct = cartData.cart.lines.edges.find(
+          (line) => line.node.merchandise.id === foundProductVariant.id
+          // console.log(line.node.merchandise.id,product.variantId)
+        );
+        setIsInCart(!!foundProduct);
 
-      const foundProduct = cartData.cart.lines.edges.find(
-        (line) => line.node.merchandise.id === product.variantId
-        // console.log(line.node.merchandise.id,product.variantId)
-      );
-      setIsInCart(!!foundProduct);
-
-      console.log("foundProduct:", foundProduct);
+        console.log("foundProduct:", foundProduct);
+      }
     }
-  }
   }
 
   const router = useRouter();
@@ -126,9 +131,34 @@ function Product({ product }) {
     router.push("/cart");
   }
 
+  let productVariant = product.variant;
+  let pMap = productVariant.map((pv) => {
+    return pv.node;
+  });
+
+  console.log(pMap);
+
+  const foundProductVariant = pMap.find(
+    ({ title }) => title === selectedOption.option
+  );
+
+  console.log(foundProductVariant.id);
+
+  function handleOptionChange(option) {
+    setSelectedOption({ option, price: foundProductVariant.priceV2.amount });
+  }
+
+  console.log("option", selectedOption);
+
   useEffect(() => {
     loadCart();
-  }, []);
+    if (foundProductVariant) {
+      setSelectedOption({
+        ...selectedOption,
+        price: foundProductVariant.priceV2.amount,
+      });
+    }
+  }, [foundProductVariant]);
 
   const formattedPrice = new Intl.NumberFormat("en-US", {
     style: "currency",
@@ -140,43 +170,87 @@ function Product({ product }) {
 
   return (
     <>
-     <div className="productImg pb-14 w-1/2 h-screen overflow-y-scroll relative">
+      {/* width: 100%;
+    max-width: 66%;
+    grid-column-gap: 60px;
+    grid-row-gap: 60px;
+    flex-direction: column;
+    align-items: flex-start;
+    display: flex; */}
+      <div className="productImg pb-14 w-full max-w-[50%] relative">
         <Image
           src={product.imageSrc}
           alt={product.imageAlt}
           width={400}
           height={400}
           className="w-full"
+          unoptimized
         />
       </div>
 
       {/* <motion.div ref={ref} className=""> */}
-      <div className="productInfo text-left w-1/2 sticky top-0 h-screen overflow-y-auto pl-8 pt-12">
-      <div className="lg:sticky relative">
-            <a href={`/product/${product.slug}`}></a>
-            <h2>{product.title}</h2>
-            <p className="mt-16">{formattedPrice.format(product.price)}</p>
-            <p>{product.description}</p>
+      {/* overflow-x: hidden;
+    overflow-y: auto;
+    width: 100%;
+    height: 100vh;
+    max-width: 40%;
+    grid-column-gap: 24px;
+    grid-row-gap: 24px;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-right: 17px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    padding-right: 17px;
+    /* display: flex; */}
+      {/* position: sticky;
+    top: 0;
+    overflow: scroll; */}
+      <div className="productInfo text-left w-full sticky top-0 h-screen max-w-[50%] overflow-scroll overflow-y-auto overflow-x-hidden pl-8 pt-12">
+        <div className="lg:sticky relative">
+          <a href={`/product/${product.slug}`}></a>
+          <h2>{product.title}</h2>
+          <h3 className="my-12 text-[2.5rem]">
+            {formattedPrice.format(selectedOption.price)}
+          </h3>
 
-            <form onSubmit={handleAddToCart}>
-              <input type="hidden" name="productId" value={product.variantId} />
-              <input type="hidden" name="quantity" value={1} />
-              <button disabled={isInCart}>
-                {isInCart ? (
-                  <>
-                    Already in Cart{" "}
-                    <span className="visually-hidden">{product.title}</span>
-                  </>
-                ) : (
-                  <>
-                    Add <span className="visually-hidden">{product.title}</span>{" "}
-                    To Cart
-                  </>
-                )}
-              </button>
-            </form>
+          {console.log("YO", product)}
+
+          <div className="productOptions mb-8">
+            <h3 className="mt-8 mb-2">{product.optionsName}</h3>
+            {product.options.map((option, index) => (
+              <>
+                <button
+                  className="mr-4 h4 border-solid border-[1px] border-dark-cocoa 
+              !text-dark-cocoa bg-transparent hover:bg-dark-cocoa hover:!text-light-creme !font-normal p-[.5rem]"
+                  key={index}
+                  onClick={() => handleOptionChange(option)}
+                >
+                  {option}
+                </button>
+              </>
+            ))}
           </div>
+
+          <p>{product.description}</p>
+
+          <form onSubmit={handleAddToCart}>
+            <input
+              type="hidden"
+              name="productId"
+              value={foundProductVariant.id}
+            />
+            <input type="hidden" name="quantity" value={1} />
+            <button
+              disabled={isInCart}
+              className="h4 hover:border-solid hover:border-[1px] hover:border-dark-cocoa 
+              hover:!text-dark-cocoa hover:bg-transparent bg-dark-cocoa !text-light-creme !font-normal p-[.8rem] w-fit"
+            >
+              {isInCart ? <>Already in Cart</> : <>Add To Cart</>}
+            </button>
+          </form>
         </div>
+      </div>
       {/* </motion.div> */}
     </>
   );
@@ -199,6 +273,8 @@ export default function PDPProduct() {
 
       const data = await res.json();
 
+      console.log("DATA", data);
+
       const products = data.products.edges.map(({ node }) => ({
         id: node.id,
         title: node.title,
@@ -208,6 +284,9 @@ export default function PDPProduct() {
         price: node.variants.edges[0]?.node.priceV2.amount,
         slug: node.handle,
         variantId: node.variants.edges[0].node.id,
+        options: node.options[0].values,
+        optionsName: node.options[0].name,
+        variant: node.variants.edges,
       }));
 
       const currentSlug = new URL(window.location.href).pathname.split(
@@ -239,7 +318,11 @@ export default function PDPProduct() {
           <h4 className="current pl-[.5rem]">{product.title}</h4>
         )}
       </div>
-      <div className="pdp lg:flex block w-screen">
+      {/* justify-content: space-between;
+    align-items: flex-start;
+    display: flex;
+    position: relative; */}
+      <div className="pdp lg:flex block w-screen justify-between items-start relative">
         {product ? <Product product={product} /> : <p>Loading...</p>}
       </div>
     </>

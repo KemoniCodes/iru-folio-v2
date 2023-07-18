@@ -27,11 +27,11 @@ h1,
   @apply lg:text-[250px] text-[50px] lg:leading-normal leading-[3rem] font-extralight uppercase text-dark-cocoa;
 }
 
-h2 {
+h2, .h2 {
   @apply lg:text-[113px] font-extralight lg:leading-[101.4px] -tracking-[.5%] uppercase text-dark-cocoa text-[50px] leading-[3rem];
 }
 
-h3 {
+h3, .h3 {
   @apply text-[24px] font-extralight leading-[24px] -tracking-[.5%] uppercase text-dark-cocoa;
 }
 
@@ -39,7 +39,7 @@ h4,.h4 {
   @apply text-[15px] font-extralight leading-[15px] uppercase text-dark-cocoa;
 }
 
-p {
+p, .p {
   @apply text-[24px] font-extralight leading-[24px] -tracking-[.5%] uppercase text-dark-cocoa;
 }
 

@@ -120,7 +120,7 @@ export default function Cart() {
                 ) : (
                   <>
                   <Link className="contents" href={`/shop/product/${item.merchandise?.product?.handle}`}>
-                  <Image src={item.merchandise.image.src} width={100} height={100} alt={item.merchandise?.product?.title} className="w-[150px] h-[150px] object-cover"/>
+                  <Image src={item.merchandise.image.src} width={100} height={100} alt={item.merchandise?.product?.title} className="w-[150px] h-[150px] object-cover" unoptimized/>
                     <p className="lg:w-[30%] w-full pt-4 pb-2">
                       {item.quantity} &times; {item.merchandise?.product?.title}
                     </p>

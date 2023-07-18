@@ -63,15 +63,16 @@ export default function ProductCard({ product }) {
     console.log(product)
     return (
       <>
-        <div className="productCard lg:mb-0 mb-8">
+        <div className="productCard lg:mb-0 mb-8 w-[50vw]">
           <Link href={`/shop/product/${product.slug}`}>
             <div className="img-container">
               <Image
-                className="w-96 lg:h-[511px] h-[450px] object-cover"
+                className="w-full lg:h-[80vh] h-[450px] object-cover"
                 src={imageSrc}
                 alt="alttext"
                 width={200}
                 height={200}
+                unoptimized
               />
             </div>
             <div className="product-deets flex justify-between mt-2">

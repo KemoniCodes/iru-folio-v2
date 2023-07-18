@@ -43,6 +43,11 @@ export default async function getProducts(_req, res) {
                   }
                 }
               }
+              options(first: 5) {
+                id
+                name
+                values
+              }
             }
           }
         }
