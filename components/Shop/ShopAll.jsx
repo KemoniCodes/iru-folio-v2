@@ -9,7 +9,7 @@ export default function ShopAll() {
       try {
         const url = new URL(
           process.env.SHOPIFY_STORE_DOMAIN ||
-            ("https://iru-studios.com")
+            "https://iru-studios.com"
         );
         url.pathname = "/api/products";
         const res = await fetch(url.href);
