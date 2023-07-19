@@ -155,7 +155,7 @@ export default function Cart() {
             </li>
           </ul>
           {console.log('checkout',cart?.checkoutUrl)}
-          <a className="h4 mt-4 p-4 button float-right border-solid border-[1px] border-dark-cocoa bg-dark-cocoa !text-light-creme lg:w-[15%] w-full text-center" href={newCheckoutUrl}>
+          <a className="h4 mt-4 p-4 button float-right border-solid border-[1px] border-dark-cocoa bg-dark-cocoa !text-light-creme lg:w-[15%] w-full text-center" href={cart?.checkoutUrl}>
             Check Out
           </a>
         </>
