@@ -279,6 +279,10 @@ span {
 .productImg::-webkit-scrollbar{
   @apply hidden;
 }
+
+.nBWgL {
+  display: none !important;
+}
 /* @function change-nav-color($darkcocoa) {
   @if (lightness($darkcocoa) > 50) {
     @return $lightcreme; // Lighter backgorund, return dark color
