@@ -19,7 +19,7 @@ import Slider from "react-slick";
 
 export async function getStaticPaths() {
   const url = new URL(
-    process.env.URL || "https://iru-studios.com" || "http://localhost:3000"
+    process.env.URL || "https://iru-studios.com" && "http://localhost:3000"
   );
   url.pathname = "/api/products";
 
@@ -40,7 +40,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const url = new URL(
-    process.env.URL || "https://iru-studios.com" || "http://localhost:3000"
+    process.env.URL || "https://iru-studios.com" && "http://localhost:3000"
   );
   url.pathname = "/api/products";
 
@@ -521,7 +521,7 @@ export default function PDPProduct() {
   useEffect(() => {
     async function fetchData() {
       const url = new URL(
-        process.env.URL || "https://iru-studios.com" || "http://localhost:3000"
+        process.env.URL || "https://iru-studios.com" && "http://localhost:3000"
       );
       url.pathname = "/api/products";
 
