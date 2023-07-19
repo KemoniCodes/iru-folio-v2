@@ -152,7 +152,7 @@ span {
 }
 
 .home .contact {
-  @apply lg:pb-72 pb-[10rem];
+  @apply lg:pb-16 pb-[10rem];
 }
 
 .menu > span {
