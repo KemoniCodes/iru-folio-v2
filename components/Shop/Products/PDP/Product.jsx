@@ -385,7 +385,7 @@ function Product({ product }) {
               {product.metafield.map((mf, index) => (
                 <>
                   {mf != null && mf.key == "demostorepassword" ? (
-                    <p className="font-normal pb-2">
+                    <p className="font-normal">
                       password:
                       <span className="!normal-case pl-2 font-extralight">
                         {mf.value}
@@ -395,7 +395,7 @@ function Product({ product }) {
                     ""
                   )}
                   {mf != null && mf.key == "demostore" ? (
-                    <p className="font-normal">
+                    <p className="font-normal pb-2">
                       demo store:
                       <span className="!normal-case pl-2 italic font-extralight">
                         <Link href={mf.value}>{product.title}</Link>
