@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const plugin = require('tailwindcss/plugin')
+
 module.exports = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -19,8 +21,12 @@ module.exports = {
         "linkHover": "var(--powderiris) 0.2s ease",
         "navLinkHover": "var(--darkcocoa) 0.2s ease",
         "imageHover": "opacity 0.2s ease"
-      },
+      }
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function({ addVariant }) {
+      addVariant('not-first', '&:not(:first-child)')
+    })
+  ],
 }

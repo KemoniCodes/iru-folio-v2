@@ -55,6 +55,41 @@ a:hover {
   @apply text-powder-iris;
 }
 
+.sidebar-title:first-child > h3 {
+  border: none
+}
+.sidebar-title:nth-child(2) {
+  border-top: 0;
+  padding-top: 0 !important;
+}
+
+.sidebar h3 {
+  @apply transition-linkHover;
+}
+
+.sidebar h3:hover {
+  @apply text-powder-iris border-powder-iris;
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 0.3vw;
+  margin-left: 1rem;
+}
+
+/* Track */
+.sidebar::-webkit-scrollbar-track {
+  background: var(--lightcreme);
+  border-radius: 3px;
+  margin-top: 1.6vw;
+  margin-bottom: 1.6vw;
+}
+ 
+/* Handle */
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: var(--darkcocoa);
+  border-radius: 3px;
+}
+
 .nav-link {
   /* color: change-nav-color($darkcocoa); */
   @apply transition-navLinkHover;
@@ -117,7 +152,7 @@ span {
 }
 
 .home .contact {
-  @apply pb-32;
+  @apply lg:pb-72 pb-[10rem];
 }
 
 .menu > span {

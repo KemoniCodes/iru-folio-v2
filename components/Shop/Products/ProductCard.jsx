@@ -73,7 +73,7 @@ export default function ProductCard({ product }) {
   const hoverImage = product.imageSrc[1].node.src;
     return (
       <>
-        <div className="productCard lg:mb-0 mb-8 w-[50vw]">
+        <div className="productCard lg:mb-0 mb-8 lg:w-[50vw] w-full">
           <Link href={`/shop/product/${product.slug}`}>
             <div
               className="relative w-full lg:h-[80vh] h-[450px] overflow-hidden"
