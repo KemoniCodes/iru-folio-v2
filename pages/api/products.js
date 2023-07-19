@@ -49,7 +49,7 @@ export default async function getProducts(_req, res) {
                 values
               }
               metafields( identifiers: [ {namespace: "custom", key: "demostorepassword"}, 
-              {namespace: "custom", key: "demostore"}, ]) {
+              {namespace: "custom", key: "demostore"}, {namespace: "custom", key: "keyfeatures"}, {namespace: "custom", key: "pages"},{namespace: "custom", key: "faq"}, ]) {
                 id
                 key
                 value

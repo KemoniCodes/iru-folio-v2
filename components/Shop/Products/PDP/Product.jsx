@@ -4,8 +4,15 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { motion, useInView } from "framer-motion";
-
-import { Box, IconButton } from "@chakra-ui/react";
+import {
+  Box,
+  IconButton,
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  AccordionIcon,
+} from "@chakra-ui/react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 
 import Slider from "react-slick";
@@ -189,117 +196,170 @@ function Product({ product }) {
   const isInView = useInView(ref, { once: false });
   const [slider, setSlider] = useState({ ...Slider });
 
+  const jsonStringP = product.metafield.map((mf, index) => {
+    if (mf != null && mf.key === "pages") {
+      return mf.value;
+    }
+    return null;
+  });
+
+  const jsonStringKF = product.metafield.map((mf, index) => {
+    if (mf != null && mf.key === "keyfeatures") {
+      return mf.value;
+    }
+    return null;
+  });
+
+  const jsonStringF = product.metafield.map((mf, index) => {
+    if (mf != null && mf.key === "faq") {
+      return mf.value;
+    }
+    return null;
+  });
+
+  // console.log("json", jsonStringKF[2]);
+
+  const data = JSON.parse(jsonStringP[3]);
+  const data1 = JSON.parse(jsonStringKF[2]);
+  const data2 = JSON.parse(jsonStringF[4]);
+
+  const textValues = data.children[0].children
+    .filter(
+      (child) => child.type === "list-item" && child.children[0].type === "text"
+    )
+    .map((child) => child.children[0].value);
+
+  const textValues1 = data1.children[0].children
+    .filter(
+      (child) => child.type === "list-item" && child.children[0].type === "text"
+    )
+    .map((child) => {
+      let title = child.children[0].value;
+      let text = child.children[1].value;
+      return { title, text };
+    });
+
+  const textValues2 = data2.children[0].children
+    .filter(
+      (child) => child.type === "list-item" && child.children[0].type === "text"
+    )
+    .map((child) => {
+      let title = child.children[0].value;
+      let text = child.children[1].value;
+      return { title, text };
+    });
   return (
     <>
-      <Box
-        position={"relative"}
-        height={"auto"}
-        width={"full"}
-        overflow={"hidden"}
-        className="lg:hidden block"
-      >
-        <link
-          rel="stylesheet"
-          type="text/css"
-          charSet="UTF-8"
-          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
-        />
-        <link
-          rel="stylesheet"
-          type="text/css"
-          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
-        />
-        <IconButton
-          position="absolute"
-          left={".35rem"}
-          top={"50%"}
-          transform={"translate(0%, -50%)"}
-          zIndex={2}
-          onClick={() => slider?.slickPrev()}
-          className="!bg-transparent !text-[2rem]"
+      <div className="mainPDPContainer border-b-solid border-b-[1px] border-b-dark-cocoa justify-between pb-8 lg:flex block w-screen">
+        <Box
+          position={"relative"}
+          height={"auto"}
+          width={"full"}
+          overflow={"hidden"}
+          className="lg:hidden block"
         >
-          <ChevronLeftIcon className="!text-light-creme" />
-        </IconButton>
+          <link
+            rel="stylesheet"
+            type="text/css"
+            charSet="UTF-8"
+            href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
+          />
+          <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
+          />
+          <IconButton
+            position="absolute"
+            left={".35rem"}
+            top={"50%"}
+            transform={"translate(0%, -50%)"}
+            zIndex={2}
+            onClick={() => slider?.slickPrev()}
+            className="!bg-transparent !text-[2rem]"
+          >
+            <ChevronLeftIcon className="!text-light-creme" />
+          </IconButton>
 
-        <IconButton
-          position="absolute"
-          right={".35rem"}
-          top={"50%"}
-          transform={"translate(0%, -50%)"}
-          zIndex={2}
-          onClick={() => slider?.slickNext()}
-          className="!bg-transparent !text-[2rem]"
+          <IconButton
+            position="absolute"
+            right={".35rem"}
+            top={"50%"}
+            transform={"translate(0%, -50%)"}
+            zIndex={2}
+            onClick={() => slider?.slickNext()}
+            className="!bg-transparent !text-[2rem]"
+          >
+            <ChevronRightIcon className="!text-light-creme" />
+          </IconButton>
+
+          <Slider {...settings} ref={(slider) => setSlider(slider)}>
+            {product.imageSrc.map(
+              (img, index) => (
+                console.log(img),
+                (
+                  <Box
+                    key={index}
+                    position="relative"
+                    className="object-cover flex m-auto"
+                  >
+                    <Image
+                      src={img.node.src}
+                      alt={img.node.alt}
+                      width={400}
+                      height={400}
+                      key={index}
+                      className="w-full"
+                      unoptimized
+                    />
+                  </Box>
+                )
+              )
+            )}
+          </Slider>
+        </Box>
+
+        <div
+          className="productImg lg:pb-0 pb-14 -ml-8 
+      w-full sticky top-0 lg:h-screen h-auto max-w-[50%] overflow-scroll overflow-y-auto overflow-x-hidden lg:block hidden
+    "
         >
-          <ChevronRightIcon className="!text-light-creme" />
-        </IconButton>
-
-        <Slider {...settings} ref={(slider) => setSlider(slider)}>
           {product.imageSrc.map(
             (img, index) => (
               console.log(img),
               (
-                <Box
+                <Image
+                  src={img.node.src}
+                  alt={img.node.alt}
+                  width={400}
+                  height={400}
                   key={index}
-                  position="relative"
-                  className="object-cover flex m-auto"
-                >
-                  <Image
-                    src={img.node.src}
-                    alt={img.node.alt}
-                    width={400}
-                    height={400}
-                    key={index}
-                    className="w-full"
-                    unoptimized
-                  />
-                </Box>
+                  className="w-full"
+                  unoptimized
+                />
               )
             )
           )}
-        </Slider>
-      </Box>
+        </div>
 
-      <div
-        className="productImg pb-14 -ml-8 
-      w-full sticky top-0 lg:h-screen h-auto max-w-[50%] overflow-scroll overflow-y-auto overflow-x-hidden lg:block hidden
-    "
-      >
-        {product.imageSrc.map(
-          (img, index) => (
-            console.log(img),
-            (
-              <Image
-                src={img.node.src}
-                alt={img.node.alt}
-                width={400}
-                height={400}
-                key={index}
-                className="w-full"
-                unoptimized
-              />
-            )
-          )
-        )}
-      </div>
+        <div
+          className="productInfo text-left w-full lg:max-w-[50%] max-w-none
+      relativepl-8 pt-12 pr-8 lg:pl-0 pl-8"
+        >
+          <div className="lg:sticky relative">
+            <a href={`/product/${product.slug}`}></a>
+            <h2>{product.title}</h2>
+            <h3 className="my-12 text-[2.5rem] font-normal italic">
+              {formattedPrice.format(selectedOption.price)}
+            </h3>
 
-      <div
-        className="productInfo text-left w-full lg:max-w-[50%] max-w-none
-      relativepl-8 pt-12"
-      >
-        <div className="lg:sticky relative">
-          <a href={`/product/${product.slug}`}></a>
-          <h2>{product.title}</h2>
-          <h3 className="my-12 text-[2.5rem]">
-            {formattedPrice.format(selectedOption.price)}
-          </h3>
-
-          <div className="productOptions mb-8">
-            <h3 className="mt-8 mb-2">{product.optionsName}</h3>
-            {product.options.map((option, index) => (
-              <>
-                <button
-                  key={index}
-                  className={`mr-4 h4 border-solid border-[1px] border-dark-cocoa hover:!text-light-creme
+            <div className="productOptions mb-8">
+              <h3 className="mt-8 mb-2 font-normal">{product.optionsName}</h3>
+              {product.options.map((option, index) => (
+                <>
+                  <button
+                    key={index}
+                    className={`mr-4 h4 border-solid border-[1px] border-dark-cocoa hover:!text-light-creme
             ${
               activeOption === option
                 ? "!text-light-creme bg-dark-cocoa"
@@ -309,58 +369,142 @@ function Product({ product }) {
               activeOption === option ? "hover:!text-light-creme" : ""
             } 
             !font-normal p-[.5rem]`}
-                  onClick={() => handleOptionChange(option)}
-                >
-                  {option}
-                </button>
-              </>
-            ))}
-          </div>
+                    onClick={() => handleOptionChange(option)}
+                  >
+                    {option}
+                  </button>
+                </>
+              ))}
+            </div>
 
-          <div className="flex flex-col-reverse mt-6 mb-10">
-            {product.metafield.map((mf, index) => (
-              <>
-                {mf.key == "demostorepassword" ? (
-                  <p>
-                    password:
-                    <span className="!normal-case pl-2">{mf.value}</span>
-                  </p>
-                ) : (
-                  ""
-                )}
-                {mf.key == "demostore" ? (
-                  <p>
-                    demo store:
-                    <span className="!normal-case pl-2 italic">
-                      <Link href={mf.value}>{product.title}</Link>
-                    </span>
-                  </p>
-                ) : (
-                  ""
-                )}
-              </>
-            ))}
-          </div>
+            <div className="flex flex-col-reverse mt-6 mb-10">
+              {product.metafield.map((mf, index) => (
+                <>
+                  {mf != null && mf.key == "demostorepassword" ? (
+                    <p className="font-normal pb-2">
+                      password:
+                      <span className="!normal-case pl-2 font-extralight">
+                        {mf.value}
+                      </span>
+                    </p>
+                  ) : (
+                    ""
+                  )}
+                  {mf != null && mf.key == "demostore" ? (
+                    <p className="font-normal">
+                      demo store:
+                      <span className="!normal-case pl-2 italic font-extralight">
+                        <Link href={mf.value}>{product.title}</Link>
+                      </span>
+                    </p>
+                  ) : (
+                    ""
+                  )}
+                </>
+              ))}
+            </div>
 
-          <p className="normal-case mt-10 mb-12">
-            {product.description.toString()}
-          </p>
+            <p className="normal-case mt-10 mb-12">
+              {product.description.toString()}
+            </p>
 
-          <form onSubmit={handleAddToCart}>
-            <input
-              type="hidden"
-              name="productId"
-              value={foundProductVariant.id}
-            />
-            <input type="hidden" name="quantity" value={1} />
-            <button
-              disabled={isInCart}
-              className="h4 hover:border-solid hover:border-[1px] hover:border-dark-cocoa 
+            <form onSubmit={handleAddToCart}>
+              <input
+                type="hidden"
+                name="productId"
+                value={foundProductVariant.id}
+              />
+              <input type="hidden" name="quantity" value={1} />
+              <button
+                disabled={isInCart}
+                className="h4 
+                border-solid border-[1px] border-dark-cocoa hover:border-solid hover:border-[1px] hover:border-dark-cocoa 
               hover:!text-dark-cocoa hover:bg-transparent bg-dark-cocoa !text-light-creme !font-normal p-[.8rem] w-full"
-            >
-              {isInCart ? <>Already in Cart</> : <>Add To Cart</>}
-            </button>
-          </form>
+              >
+                {isInCart ? <>Already in Cart</> : <>Add To Cart</>}
+              </button>
+            </form>
+
+            <div className="faq mt-8">
+              <Accordion allowMultiple>
+                {textValues2.map((item, index) => (
+                  <AccordionItem className="items-center !border-0" key={index}>
+                    <AccordionButton className=" bg-transparent hover:!bg-transparent !ps-0 !pe-0 border-b-solid border-b-[1px] border-b-dark-cocoa">
+                      <Box as="span" flex="1" textAlign="left" className="">
+                        <h3 className="font-normal">{item.title}</h3>
+                      </Box>
+                      <AccordionIcon />
+                    </AccordionButton>
+                    <AccordionPanel pb={4} className=" !ps-0 !pe-0">
+                      <pre className="p pt-1 whitespace-pre-wrap !normal-case font-helvetica">
+                        {item.text}
+                      </pre>
+                    </AccordionPanel>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="pdpSection-2 lg:flex block border-b-solid border-b-[1px] border-b-dark-cocoa">
+        <div className="row lg:border-r-solid lg:border-r-[1px] lg:border-r-dark-cocoa border-r-none lg:pl-16 pl-8 lg:pt-8 pt-16 lg:max-w-[50%] max-w-none">
+          <h2 className=" [text-align-last:center] lg:pr-0 pr-8">
+            key/ features
+          </h2>
+          <div className="keyFeatures pr-12 lg:mt-20 mt-8">
+            <ul className="list-none">
+              {textValues1.map((item, index) => (
+                <li className="flex items-center pb-8" key={index}>
+                  {/* <Image
+                    src={"/COLOR CHANGER.png"}
+                    alt="bullet"
+                    width={12}
+                    height={12}
+                    className="mr-2 w-[12px] h-[12px]"
+                  /> */}
+                  <div className="">
+                    <h3 className="font-normal underline pb-2">{item.title}</h3>
+                    <p>{item.text}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <div className="row lg:pl-16 pl-8 pt-8 lg:max-w-[50%] max-w-none">
+          <h2 className=" lg:[text-align-last:center]  [text-align-last:auto] lg:pr-0 pr-8">
+            theme/ pages
+          </h2>
+          <div className="pages w-fit lg:mt-20 mt-8">
+            <ul className="list-none lg:pb-0 pb-4">
+              {textValues.map((value, index) => (
+                <li className="flex items-center pb-2" key={index}>
+                  <Image
+                    src={"/COLOR CHANGER.png"}
+                    alt="bullet"
+                    width={12}
+                    height={12}
+                    className="mr-2 w-[12px] h-[12px]"
+                  />
+                  <span>{value}</span>
+                </li>
+              ))}
+            </ul>
+
+            {/* {product.metafield.map((mf, index) => (
+              <>
+                {mf != null && mf.key == "pages" ? (
+                  <div key={index}>
+                 {mf.value}
+                  </div>
+                ) : (
+                  ""
+                )}
+              </>
+            ))} */}
+          </div>
         </div>
       </div>
     </>
@@ -432,7 +576,8 @@ export default function PDPProduct() {
           <h4 className="current pl-[.5rem]">{product.title}</h4>
         )}
       </div>
-      <div className="pdp lg:flex block w-full justify-between items-start relative">
+
+      <div className="pdp w-screen overflow-x-clip justify-between items-start relative -ml-8 h-auto">
         {product ? <Product product={product} /> : <p>Loading...</p>}
       </div>
     </>
