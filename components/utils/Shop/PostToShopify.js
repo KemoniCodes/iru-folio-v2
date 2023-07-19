@@ -4,7 +4,6 @@ export const postToShopify = async ({ query, variables = {} }) => {
   try {
     const response = await fetch(process.env.SHOPIFY_STORE_DOMAIN, {
       method: 'POST',
-      mode: 'no-cors',
       headers: {
         'Content-Type': 'application/json',
         'X-Shopify-Storefront-Access-Token': process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN,
