@@ -88,6 +88,16 @@ export default function Cart() {
     style: "currency",
     currency: "USD",
   });
+
+
+  let check = cart?.checkoutUrl;
+  if (check != undefined) {
+  var newCheckoutUrl = check.replace(
+    'https://iru-studios.com',
+    'https://iru-templates.myshopify.com'
+    
+  );
+  }
   return (
     <div className="cart lg:h-screen h-full">
       {/* <button className="icon">
@@ -144,7 +154,8 @@ export default function Cart() {
               <p>Total: {cost === 0 ? "FREE" : `$${cost}`}</p>
             </li>
           </ul>
-          <a className="h4 mt-4 p-4 button float-right border-solid border-[1px] border-dark-cocoa bg-dark-cocoa !text-light-creme lg:w-[15%] w-full text-center" href={`${cart?.checkoutUrl}`}>
+          {console.log('checkout',cart?.checkoutUrl)}
+          <a className="h4 mt-4 p-4 button float-right border-solid border-[1px] border-dark-cocoa bg-dark-cocoa !text-light-creme lg:w-[15%] w-full text-center" href={newCheckoutUrl}>
             Check Out
           </a>
         </>
