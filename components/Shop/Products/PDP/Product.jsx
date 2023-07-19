@@ -18,7 +18,9 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import Slider from "react-slick";
 
 export async function getStaticPaths() {
-  const url = new URL(process.env.URL || "https://iru-studios.com");
+  const url = new URL(
+    process.env.URL || ("https://iru-studios.com" && "http://localhost:3000")
+  );
   url.pathname = "/api/products";
 
   const res = await fetch(url.toString());
@@ -37,7 +39,9 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const url = new URL(process.env.URL || "https://iru-studios.com");
+  const url = new URL(
+    process.env.URL || ("https://iru-studios.com" && "http://localhost:3000")
+  );
   url.pathname = "/api/products";
 
   const res = await fetch(url.toString());
@@ -516,7 +520,10 @@ export default function PDPProduct() {
 
   useEffect(() => {
     async function fetchData() {
-      const url = new URL(process.env.URL || "https://iru-studios.com");
+      const url = new URL(
+        process.env.URL ||
+          ("https://iru-studios.com" && "http://localhost:3000")
+      );
       url.pathname = "/api/products";
 
       const res = await fetch(url.toString());
