@@ -16,7 +16,7 @@ function Case({ title, services, caseStudy }: CaseStudiesProps) {
         const isCafeBruna = title === 'cafè-bruna';
 
         if (isLastImage && isCafeBruna) {
-            return "object-none bg-black lg:mb-0 mb-4 mx-auto w-[-webkit-fill-available] border-solid border-[3px] border-dark-cocoa";
+            return "lg:object-none object-cover bg-black lg:mb-0 mb-4 mx-auto w-[-webkit-fill-available] border-solid border-[3px] border-dark-cocoa";
         } else {
             return "lg:mb-0 mb-4 mx-auto w-[-webkit-fill-available] border-solid border-[3px] border-dark-cocoa";
         }
