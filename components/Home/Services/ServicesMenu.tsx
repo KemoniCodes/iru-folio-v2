@@ -46,7 +46,7 @@ function Service({ number, title, hoverImg }: ServicesMenuProps) {
 }
 
 const ServiceData: [string, string, string][] = [
-    ['.01', 'branding', '/soot-hover.png'],
+    ['.01', 'branding', '/cafeBruna-5.png'],
     ['.02', 'web design', '/web-design-hover.png'],
     ['.03', 'development', '/web-dev-hover.png']
 ]

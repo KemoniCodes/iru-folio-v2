@@ -11,6 +11,17 @@ function Case({ title, services, caseStudy }: CaseStudiesProps) {
     let lastItem = services ? services[services.length - 1] : null;
     let modifiedTitle = title?.replace(/-/g, " ");
 
+    const imageClassName = (index: number) => {
+        const isLastImage = index === images.length - 1;
+        const isCafeBruna = title === 'cafè-bruna';
+
+        if (isLastImage && isCafeBruna) {
+            return "object-none bg-black lg:mb-0 mb-4 mx-auto w-[-webkit-fill-available] border-solid border-[3px] border-dark-cocoa";
+        } else {
+            return "lg:mb-0 mb-4 mx-auto w-[-webkit-fill-available] border-solid border-[3px] border-dark-cocoa";
+        }
+    };
+
     return (
         <>
             {/* <div className="banner w-screen relative left-1/2 right-1/2 -mr-[50vw] -ml-[50vw]">
@@ -56,7 +67,7 @@ function Case({ title, services, caseStudy }: CaseStudiesProps) {
                         alt="Case Study Layout"
                         width={600}
                         height={600}
-                        className="lg:mb-0 mb-4 mx-auto w-[-webkit-fill-available] border-solid border-[3px] border-dark-cocoa"
+                        className={imageClassName(index)}
                     />
                 ))}
             </div>
@@ -66,20 +77,29 @@ function Case({ title, services, caseStudy }: CaseStudiesProps) {
 
 const caseStudyData: CaseStudiesProps[] = [
     {
-        title: 'sera',
-        services: ["branding", "web design"],
+        title: 'cafè-bruna',
+        services: ["branding", "collateral", "packaging"],
         caseStudy: [
             {
                 bannerImg: "/sera-banner.png",
-                description: "Será⏤ translating to “be” in Spanish. Será is a handcrafted, artisan-made, fine jewelry atelier. They were founded in Los Angeles, California, bred to be worn to capture still moments. To remind us to just be.",
+                description: "cafè bruna⏤ translating to 'to be tanned', 'to be dark brown', in Italian. cafè bruna is a cafe with Handmade Italian recipes crafted with so much love. Curating an atmosphere of family and sincerity.",
                 images: [
-                    "/sera-2.png",
-                    "/sera-5.png",
-                    "/sera-3-new.png",
-                    "/sera-4.png",
-                    "/sera-6.png"
+                    "/cafeBruna-1.png",
+                    "/cafeBruna-2.png",
+                    "/cafeBruna-3.png",
+                    "/cafeBruna-4.png",
+                    "/cafeBruna-5.png",
+                    "/cafeBruna-6.png",
+                    "/cafeBruna-7.png",
+                    "/cafeBruna-8.png",
+                    "/cafeBruna-9.png",
+                    "/cafeBruna-10.png",
+                    "/cafeBruna-11.png",
+                    "/cafeBruna-12.png",
+                    "/cafeBrunaGif.gif"
                 ],
-                behance: "https://www.behance.net/gallery/114701005/Sera-jewelry-atelier"
+                behance: "",
+                website: ""
             },
         ],
     },
@@ -104,6 +124,25 @@ const caseStudyData: CaseStudiesProps[] = [
             },
         ],
     },
+    {
+        title: 'sera',
+        services: ["branding", "web design"],
+        caseStudy: [
+            {
+                bannerImg: "/sera-banner.png",
+                description: "Será⏤ translating to “be” in Spanish. Será is a handcrafted, artisan-made, fine jewelry atelier. They were founded in Los Angeles, California, bred to be worn to capture still moments. To remind us to just be.",
+                images: [
+                    "/sera-2.png",
+                    "/sera-5.png",
+                    "/sera-3-new.png",
+                    "/sera-4.png",
+                    "/sera-6.png"
+                ],
+                behance: "https://www.behance.net/gallery/114701005/Sera-jewelry-atelier"
+            },
+        ],
+    },
+
     // {
     //     title: 'SOOT',
     //     caseStudy: [
@@ -130,7 +169,7 @@ export default function CaseStudy() {
     return (
         <>
             <div className="caseStudy">
-                <Case title={caseData.title} services={caseData.services} caseStudy={caseData.caseStudy}/>
+                <Case title={caseData.title} services={caseData.services} caseStudy={caseData.caseStudy} />
             </div>
 
             {/* <div className="pagination">

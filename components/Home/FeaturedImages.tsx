@@ -63,10 +63,10 @@ function FeaturedImg2({ text, img }: FeaturedImgProps) {
 }
 
 const featuredImgData: [string, string] = [
-    'BRANDING', '/featured-1.png',
+    'BRANDING', '/cafeBruna-5.png',
 ];
 const featuredImg2Data: [string, string] = [
-    'WEB DESIGN', '/featured-2.png'
+    'WEB DESIGN', '/la-majeste-web.png'
 ];
 
 export default function FeaturedImages() {
