@@ -98,7 +98,7 @@ const caseStudyData: CaseStudiesProps[] = [
                     "/cafeBruna-12.png",
                     "/cafeBrunaGif.gif"
                 ],
-                behance: "",
+                behance: "https://www.behance.net/gallery/176551277/Cafe-Bruna",
                 website: ""
             },
         ],
