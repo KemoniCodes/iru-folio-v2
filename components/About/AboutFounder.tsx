@@ -28,10 +28,10 @@ export default function AboutFounder() {
                     <h3 className="font-normal lg:w-[40%] w-full lg:mb-0 mb-2 mt-12 pb-4">work xp</h3>
                     <div className="aboutMe lg:w-[85%] w-full">
                         <p className="lg:w-[75%] w-full border-b-solid border-b-[1.2px] border-b-dark-cocoa border-t-solid border-t-[1.2px] border-t-dark-cocoa py-2">
-                            IRU STUDIOS: DESIGN + DEVELOPMENT 20'- PRESENT
+                            IRU STUDIOS: DESIGN + DEVELOPMENT 20&rsquo;- PRESENT
                         </p>
                         <p className="lg:w-[75%] w-full border-b-solid border-b-[1.2px] border-b-dark-cocoa py-2">
-                            OVERDOSE DIGITAL: FRONT END DEVELOPER 20'- 23' (3 YEARS)
+                            OVERDOSE DIGITAL: FRONT END DEVELOPER 20&rsquo;- 23&rsquo; (3 YEARS)
                         </p>
                     </div>
 
