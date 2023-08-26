@@ -77,11 +77,32 @@ function Case({ title, services, caseStudy }: CaseStudiesProps) {
 
 const caseStudyData: CaseStudiesProps[] = [
     {
+        title: 'ceramica',
+        services: ["branding", "collateral"],
+        caseStudy: [
+            {
+                bannerImg: "",
+                description: "ceramica⏤ Let your mind speak through your hands. At CERAMICA we encourage you to freely express your state of mind without hesitation.",
+                images: [
+                    "/ceramica1.png",
+                    "/ceramicaGif1.gif",
+                    "/ceramicaGif2.gif",
+                    "/ceramica2.png",
+                    "/ceramicaGif4.gif",
+                    "/ceramica4.png",
+                    "/ceramicaGif3.gif"
+                ],
+                behance: "",
+                website: ""
+            },
+        ],
+    },
+    {
         title: 'cafè-bruna',
         services: ["branding", "collateral", "packaging"],
         caseStudy: [
             {
-                bannerImg: "/sera-banner.png",
+                bannerImg: "",
                 description: "cafè bruna⏤ translating to 'to be tanned', 'to be dark brown', in Italian. cafè bruna is a cafe with Handmade Italian recipes crafted with so much love. Curating an atmosphere of family and sincerity.",
                 images: [
                     "/cafeBruna-1.png",
