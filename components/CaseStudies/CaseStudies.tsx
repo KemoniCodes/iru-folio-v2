@@ -46,6 +46,11 @@ function Case({ title, thumbnail, services }: CaseStudiesProps) {
 
 const caseStudyData: CaseStudiesProps[] = [
     {
+        thumbnail: "/jouirde-3.png",
+        title: "jouir de",
+        services: ["branding", "collateral"]
+    },
+    {
         thumbnail: "/ceramica1.png",
         title: "ceramica",
         services: ["branding", "collateral"]

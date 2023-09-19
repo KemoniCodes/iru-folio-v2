@@ -77,6 +77,30 @@ function Case({ title, services, caseStudy }: CaseStudiesProps) {
 
 const caseStudyData: CaseStudiesProps[] = [
     {
+        title: 'jouir-de',
+        services: ["branding", "collateral"],
+        caseStudy: [
+            {
+                bannerImg: "",
+                description: "jouir de⏤ French for 'to enjoy'. Made to enjoy. Jouir De believes that life is meant to be reveled in. To have fun is to live. We welcome you to enchant all of your senses, transporting to the most earthing locales.",
+                images: [
+                    "/jouirde-1.png",
+                    "/jouirde-1.gif",
+                    "/jouirde-8.png",
+                    "/jouirde-3.png",
+                    "/jouirde-9.png",
+                    "/jouirde-4.png",
+                    "/jouirde-7.png",
+                    "/jouirde-2.png",
+                    "/jouirde-5.png",
+                    "/jouirde-6.png"
+                ],
+                behance: "",
+                website: ""
+            },
+        ],
+    },
+    {
         title: 'ceramica',
         services: ["branding", "collateral"],
         caseStudy: [
