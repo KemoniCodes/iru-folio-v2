@@ -4,23 +4,23 @@ import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 
 
-interface CustomWindow extends Window {
-    fd: any;
-}
+// interface CustomWindow extends Window {
+//     fd: any;
+// }
 
-declare let window: CustomWindow;
+// declare let window: CustomWindow;
 
 export default function Footer() {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: false });
-    useEffect(() => {
-        if (typeof window !== "undefined") {
-            window.fd('form', {
-                formId: '648e8f573b413b66d0ce7614',
-                containerEl: '#fd-form-648e8f573b413b66d0ce7614'
-            });
-        }
-    }, []);
+    // useEffect(() => {
+    //     if (typeof window !== "undefined") {
+    //         window.fd('form', {
+    //             formId: '648e8f573b413b66d0ce7614',
+    //             containerEl: '#fd-form-648e8f573b413b66d0ce7614'
+    //         });
+    //     }
+    // }, []);
 
     return (
         <>

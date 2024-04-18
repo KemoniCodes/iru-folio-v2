@@ -9,11 +9,13 @@ export default function ShopAll() {
       try {
         const url = new URL(
           process.env.SHOPIFY_STORE_DOMAIN ||
-            "https://iru-studios.com"
+             "http://localhost:3000" ||
+             "https://iru-studios.com"
         );
         url.pathname = "/api/products";
         const res = await fetch(url.href);
         const data = await res.json();
+        console.log('DATA',data)
 
         const products = data.products.edges.map(({ node }) => {
           if (node.totalInventory <= 0) {
@@ -29,11 +31,14 @@ export default function ShopAll() {
             price: node.variants.edges[0].node.priceV2.amount,
             slug: node.handle,
             variantId: node.variants.edges[0].node.id,
+            
           };
+          
         });
+        setProducts(products);
+
         // .filter(Boolean);
 
-        setProducts(products);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -41,6 +46,7 @@ export default function ShopAll() {
     fetchData();
   }, []);
 
+  console.log(products)
   return (
     <>
       <div className="ShopAll mt-28 h-screen lg:mb-0 mb-80">

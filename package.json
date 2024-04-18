@@ -39,6 +39,7 @@
     "typescript": "5.0.4"
   },
   "devDependencies": {
+    "@types/next": "^9.0.0",
     "react-router-dom": "^6.11.0"
   }
 }

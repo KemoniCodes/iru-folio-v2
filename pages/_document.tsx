@@ -12,7 +12,7 @@ export default function Document() {
           name="description"
           content="Transform your brand with Iru Studios, a leading design agency specializing in minimalistic web and brand design solutions. We create sleek and contemporary designs that resonate with modern businesses, conveying simplicity and sophistication. Our innovative approach combines clean aesthetics, intuitive user experiences, and strategic branding to elevate your online presence. Discover how our minimal design philosophy can captivate your audience and drive your business forward." />
 
-        <script
+        {/* <script
           dangerouslySetInnerHTML={{
             __html: `
               (function(w, d, t, h, s, n) {
@@ -64,7 +64,7 @@ export default function Document() {
               f.parentNode.insertBefore(sn, f);
             })(window, document, 'script', 'https://assets.flodesk.com', '/universal', 'fd');`
           }}
-        />
+        /> */}
 
       </Head>
       <body>

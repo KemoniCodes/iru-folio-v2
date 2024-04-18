@@ -19,7 +19,7 @@ import Slider from "react-slick";
 
 export async function getStaticPaths() {
   const url = new URL(
-    process.env.URL || "https://iru-studios.com"
+    process.env.URL  || "http://localhost:3000"
   );
   url.pathname = "/api/products";
 
@@ -40,7 +40,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const url = new URL(
-    process.env.URL || "https://iru-studios.com"
+    process.env.URL  || "http://localhost:3000"
   );
   url.pathname = "/api/products";
 
@@ -153,6 +153,7 @@ function Product({ product }) {
 
     const cart = await response.json();
     window.localStorage.setItem("iru-cart-id", cart.id);
+    console.log(cart)
 
     setCart(cart);
     setIsInCart(true);
@@ -227,31 +228,31 @@ function Product({ product }) {
   const data1 = JSON.parse(jsonStringKF[2]);
   const data2 = JSON.parse(jsonStringF[4]);
 
-  const textValues = data.children[0].children
-    .filter(
-      (child) => child.type === "list-item" && child.children[0].type === "text"
-    )
-    .map((child) => child.children[0].value);
+  // const textValues = data.children[0].children
+  //   .filter(
+  //     (child) => child.type === "list-item" && child.children[0].type === "text"
+  //   )
+  //   .map((child) => child.children[0].value);
 
-  const textValues1 = data1.children[0].children
-    .filter(
-      (child) => child.type === "list-item" && child.children[0].type === "text"
-    )
-    .map((child) => {
-      let title = child.children[0].value;
-      let text = child.children[1].value;
-      return { title, text };
-    });
+  // const textValues1 = data1.children[0].children
+  //   .filter(
+  //     (child) => child.type === "list-item" && child.children[0].type === "text"
+  //   )
+  //   .map((child) => {
+  //     let title = child.children[0].value;
+  //     let text = child.children[1].value;
+  //     return { title, text };
+  //   });
 
-  const textValues2 = data2.children[0].children
-    .filter(
-      (child) => child.type === "list-item" && child.children[0].type === "text"
-    )
-    .map((child) => {
-      let title = child.children[0].value;
-      let text = child.children[1].value;
-      return { title, text };
-    });
+  // const textValues2 = data2.children[0].children
+  //   .filter(
+  //     (child) => child.type === "list-item" && child.children[0].type === "text"
+  //   )
+  //   .map((child) => {
+  //     let title = child.children[0].value;
+  //     let text = child.children[1].value;
+  //     return { title, text };
+  //   });
   return (
     <>
       <div className="mainPDPContainer border-b-solid border-b-[1px] border-b-dark-cocoa justify-between pb-8 lg:flex block w-screen">
@@ -429,7 +430,7 @@ function Product({ product }) {
               </button>
             </form>
 
-            <div className="faq mt-8">
+            {/* <div className="faq mt-8">
               <Accordion allowMultiple>
                 {textValues2.map((item, index) => (
                   <AccordionItem className="items-center !border-0" key={index}>
@@ -447,13 +448,13 @@ function Product({ product }) {
                   </AccordionItem>
                 ))}
               </Accordion>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
 
       <div className="pdpSection-2 lg:flex block border-b-solid border-b-[1px] border-b-dark-cocoa">
-        <div className="row lg:border-r-solid lg:border-r-[1px] lg:border-r-dark-cocoa border-r-none lg:pl-16 pl-8 lg:pt-8 pt-16 lg:max-w-[50%] max-w-none">
+        {/* <div className="row lg:border-r-solid lg:border-r-[1px] lg:border-r-dark-cocoa border-r-none lg:pl-16 pl-8 lg:pt-8 pt-16 lg:max-w-[50%] max-w-none">
           <h2 className=" [text-align-last:center] lg:pr-0 pr-8">
             key/ features
           </h2>
@@ -461,13 +462,13 @@ function Product({ product }) {
             <ul className="list-none">
               {textValues1.map((item, index) => (
                 <li className="flex items-center pb-8" key={index}>
-                  {/* <Image
+                  <Image
                     src={"/COLOR CHANGER.png"}
                     alt="bullet"
                     width={12}
                     height={12}
                     className="mr-2 w-[12px] h-[12px]"
-                  /> */}
+                  />
                   <div className="">
                     <h3 className="font-normal underline pb-2">{item.title}</h3>
                     <p>{item.text}</p>
@@ -476,12 +477,13 @@ function Product({ product }) {
               ))}
             </ul>
           </div>
-        </div>
-        <div className="row lg:pl-16 pl-8 pt-8 lg:max-w-[50%] max-w-none">
+        </div> */}
+        {/* <div className="row lg:pl-16 pl-8 pt-8 lg:max-w-[50%] max-w-none">
           <h2 className=" lg:[text-align-last:center]  [text-align-last:auto] lg:pr-0 pr-8">
             theme/ pages
           </h2>
           <div className="pages w-fit lg:mt-20 mt-8">
+            {textValues != null &&
             <ul className="list-none lg:pb-0 pb-4">
               {textValues.map((value, index) => (
                 <li className="flex items-center pb-2" key={index}>
@@ -496,8 +498,10 @@ function Product({ product }) {
                 </li>
               ))}
             </ul>
+            }
 
-            {/* {product.metafield.map((mf, index) => (
+
+            {product.metafield.map((mf, index) => (
               <>
                 {mf != null && mf.key == "pages" ? (
                   <div key={index}>
@@ -507,9 +511,9 @@ function Product({ product }) {
                   ""
                 )}
               </>
-            ))} */}
+            ))}
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );
@@ -521,7 +525,7 @@ export default function PDPProduct() {
   useEffect(() => {
     async function fetchData() {
       const url = new URL(
-        process.env.URL || "https://iru-studios.com" 
+        process.env.URL  || "http://localhost:3000"
       );
       url.pathname = "/api/products";
 

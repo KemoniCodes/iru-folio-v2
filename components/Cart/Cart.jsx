@@ -9,36 +9,31 @@ export default function Cart() {
 
   useEffect(() => {
     async function getCart() {
-      let localCartData = window.localStorage.getItem("iru-cart-id");
-      if (localCartData != null) {
-        const existingCart = await fetch(`/api/getCart`).then((res) =>
-          res.json()
-        );
-
-        console.log("existingCartC:", existingCart);
-        if (existingCart.cart != null) {
-        setCart({
-          id: existingCart.cart.id,
-          checkoutUrl: existingCart.cart.checkoutUrl,
-          subtotalAmount: existingCart.cart.cost.subtotalAmount,
-          totalAmount: existingCart.cart.cost.totalAmount,
-          lines: existingCart.cart.lines.edges,
-        });
-      }
-
+      const cartId = window.localStorage.getItem("iru-cart-id");
+      if (!cartId) {
+        console.log("No cart ID found in local storage");
         return;
       }
-      // setCart({
-      //   id: localCartData.cartId,
-      //   checkoutUrl: localCartData.checkoutUrl,
-      //   estimatedCost: null,
-      //   lines: [],
-      // });
+      console.log('cartid',cartId)
 
-      // window.localStorage.setItem(
-      //   'jamstackconf:shopify:cart',
-      //   JSON.stringify(localCartData),
-      // );
+      try {
+        const response = await fetch(`/api/getCart?id=${cartId}`);
+        const cartData = await response.json();
+        console.log('cd',cartData)
+        if (response.ok && cartData.cart != null) {
+          setCart({
+            id: cartData.cart.id,
+            checkoutUrl: cartData.cart.checkoutUrl,
+            subtotalAmount: cartData.cart.cost.subtotalAmount,
+            totalAmount: cartData.cart.cost.totalAmount,
+            lines: cartData.cart.lines.edges,
+          });
+        } else {
+          console.error("Error fetching cart data:", cartData.message);
+        }
+      } catch (error) {
+        console.error("Error fetching cart data:", error);
+      }
     }
 
     getCart();
@@ -94,7 +89,7 @@ export default function Cart() {
   if (check != undefined) {
   var newCheckoutUrl = check.replace(
     'https://iru-studios.com',
-    'https://iru-templates.myshopify.com'
+    'https://jewelry-theme-testing.myshopify.com'
     
   );
   }

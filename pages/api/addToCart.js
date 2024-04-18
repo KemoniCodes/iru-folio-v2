@@ -46,7 +46,7 @@ export default async function addToCart(_req, res) {
     headers['Set-Cookie'] = cartCookie;
   }
 
-  console.log('CART:', cart.lines);
+  console.log('CART:', cart);
 
   res.writeHead(200, headers);
   res.end(JSON.stringify(cart));

@@ -1,13 +1,13 @@
 import '@/styles/globals.css'
 import * as React from "react";
-import type { AppProps } from 'next/app'
+import type  AppProps  from 'next/app'
 import { Analytics } from '@vercel/analytics/react';
 import { ChakraProvider } from '@chakra-ui/react'
 import { motion, AnimatePresence } from "framer-motion";
 import Header from '../components/Layout/Header'
 import Footer from '../components/Layout/Footer'
 
-export default function App({ Component, pageProps, router }: AppProps) {
+export default function App({ Component, pageProps, router }: typeof AppProps) {
   const spring = {
     type: "spring",
     damping: 20,
