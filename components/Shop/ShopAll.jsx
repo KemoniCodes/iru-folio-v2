@@ -8,9 +8,7 @@ export default function ShopAll() {
     const fetchData = async () => {
       try {
         const url = new URL(
-          process.env.SHOPIFY_STORE_DOMAIN ||
-             "http://localhost:3000" ||
-             "https://iru-studios.com"
+          process.env.SHOPIFY_STORE_DOMAIN || "https://iru-studios.com"
         );
         url.pathname = "/api/products";
         const res = await fetch(url.href);
