@@ -88,7 +88,7 @@ export default function Cart() {
   let check = cart?.checkoutUrl;
   if (check != undefined) {
   var newCheckoutUrl = check.replace(
-    'https://iru-studios.com',
+    'https://iru-folio-v2-kemonicodes-projects.vercel.app/',
     'https://jewelry-theme-testing.myshopify.com'
     
   );
